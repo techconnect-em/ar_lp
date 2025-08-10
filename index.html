@@ -556,6 +556,16 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-navy">記憶に残る</h3>
                     <p class="text-gray-600 leading-relaxed">他社との差別化を図り、強いインパクトで顧客の記憶に残る体験を提供します。</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="https://www.jsu.edu/online/faculty/MULTIMEDIA%20LEARNING%20by%20Richard%20E.%20Mayer.pdf"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：Mayerのマルチメディア学習">根拠リンク</a>
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0885201409000471"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：画像優位効果の研究">根拠リンク</a>
+                    </div>
                 </div>
                 
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
@@ -566,6 +576,12 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-navy">情報量UP</h3>
                     <p class="text-gray-600">紙面では伝えきれない情報を動画や3Dで表現し、より多くの情報を提供できます。</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="#"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：自社ケース記事">根拠リンク</a>
+                    </div>
                 </div>
                 
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
@@ -576,6 +592,12 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-navy">誘導率UP</h3>
                     <p class="text-gray-600 leading-relaxed">WebサイトやSNSへのスムーズな誘導で、顧客の行動促進を実現します。</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="https://kclpure.kcl.ac.uk/portal/files/159341605/Hilken_et_al_P_M_Sept_2021.pdf"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：AR engagement research">根拠リンク</a>
+                    </div>
                 </div>
                 
                 <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
@@ -586,6 +608,12 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-navy">話題性</h3>
                     <p class="text-gray-600 leading-relaxed">思わずシェアしたくなる新しい体験で、効果的なPRとバズを生み出します。</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="https://www.kantar.com/north-america/company-news/snapchat-campaigns-for-the-big-game-capture-attention-outperforming-ad-awareness-benchmarks"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：Snapchat AR campaigns research">根拠リンク</a>
+                    </div>
                 </div>
                 
                 <div class="benefit-card lg:col-span-1 md:col-span-2 lg:col-start-2" data-aos="fade-up" data-aos-delay="500">
@@ -596,8 +624,17 @@
                     </div>
                     <h3 class="text-xl font-bold mb-4 text-navy">エンゲージメント向上</h3>
                     <p class="text-gray-600 leading-relaxed">楽しみながら情報に接触できるため、顧客とのより深い関係性を構築できます。</p>
+                    <div class="mt-3 flex flex-wrap gap-2">
+                        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0969698917305969"
+                           target="_blank" rel="noopener"
+                           class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200 hover:bg-emerald-100 transition"
+                           aria-label="根拠リンク：Consumer engagement research">根拠リンク</a>
+                    </div>
                 </div>
             </div>
+            <p class="mt-4 text-sm text-slate-500">
+                ※効果は媒体・条件により変わります。リンク先は外部の参考情報や実績ページです。
+            </p>
         </div>
     </section>
 
@@ -1211,6 +1248,14 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <script>
+        // #about 内で href が未設定/「#」の"根拠リンク"バッジを自動で非表示
+        document.querySelectorAll('#about a[aria-label^="根拠リンク"]').forEach(a => {
+            const href = a.getAttribute('href');
+            if (!href || href === '#') a.remove();
+        });
     </script>
 </body>
 </html>
