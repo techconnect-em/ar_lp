@@ -57,6 +57,19 @@
   .border-accent-yellow {
     border-color: var(--accent-yellow);
   }
+  
+  /* Pricing Section Utilities */
+  .badge-red {
+    @apply inline-flex items-center rounded-full bg-red-600 text-white text-xs font-semibold px-2.5 py-1;
+  }
+  
+  .badge-pink {
+    @apply inline-flex items-center rounded-full bg-pink-600 text-white text-xs font-semibold px-2.5 py-1;
+  }
+  
+  .btn-primary-alt {
+    @apply inline-flex justify-center rounded-xl bg-amber-500 px-4 py-2 font-semibold text-white shadow hover:bg-amber-600 transition;
+  }
 }
 
 /* Global Styles */
