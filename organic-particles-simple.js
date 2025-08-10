@@ -1,11 +1,11 @@
-// Simplified Organic Particle System - Working Version
+// Optimized Organic Particle System - Performance Enhanced
 
 class OrganicParticleSystem {
-    constructor(canvas, particleCount = 5000) {
+    constructor(canvas, particleCount = null) {
         console.log('🎮 Creating OrganicParticleSystem...', { canvas, particleCount });
         
         this.canvas = canvas;
-        this.particleCount = particleCount;
+        this.particleCount = particleCount || this.getOptimalParticleCount();
         
         // Three.js objects
         this.scene = null;
@@ -16,17 +16,86 @@ class OrganicParticleSystem {
         // Animation properties
         this.time = 0;
         this.isRunning = false;
+        this.animationId = null;
+        this.isVisible = true;
+        
+        // Performance optimization
+        this.resizeTimeout = null;
+        
+        // WebGL support check
+        if (!this.checkWebGLSupport()) {
+            console.warn('⚠️ WebGL not supported, falling back to static background');
+            this.enableStaticFallback();
+            return;
+        }
         
         try {
             this.init();
+            this.setupVisibilityHandling();
         } catch (error) {
             console.error('❌ Failed to initialize OrganicParticleSystem:', error);
-            throw error;
+            this.enableStaticFallback();
         }
     }
     
+    getOptimalParticleCount() {
+        const width = window.innerWidth;
+        if (width < 640) {
+            return 2000;  // Mobile
+        } else if (width <= 1024) {
+            return 3500;  // Tablet
+        } else {
+            return 5000;  // Desktop
+        }
+    }
+    
+    checkWebGLSupport() {
+        try {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            return !!gl;
+        } catch (e) {
+            return false;
+        }
+    }
+    
+    enableStaticFallback() {
+        if (this.canvas && this.canvas.parentElement) {
+            this.canvas.style.display = 'none';
+            this.canvas.parentElement.classList.add('hero-static-bg');
+        }
+        console.log('📷 Static background fallback enabled');
+    }
+    
+    setupVisibilityHandling() {
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'hidden') {
+                this.pauseAnimation();
+            } else if (document.visibilityState === 'visible') {
+                this.resumeAnimation();
+            }
+        });
+    }
+    
+    pauseAnimation() {
+        this.isVisible = false;
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+        console.log('⏸️ Animation paused (tab hidden)');
+    }
+    
+    resumeAnimation() {
+        this.isVisible = true;
+        if (this.isRunning && !this.animationId) {
+            this.animate();
+        }
+        console.log('▶️ Animation resumed (tab visible)');
+    }
+    
     init() {
-        console.log('🔧 Initializing organic particle system...');
+        console.log(`🔧 Initializing organic particle system with ${this.particleCount} particles...`);
         
         // Check dependencies
         if (typeof THREE === 'undefined') {
@@ -64,14 +133,16 @@ class OrganicParticleSystem {
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
             alpha: true,
-            antialias: true
+            antialias: false,  // Disable for performance
+            powerPreference: 'high-performance'
         });
         
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        // Limit pixel ratio for performance
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         this.renderer.setClearColor(0x000000, 0);
         
-        console.log('✅ Renderer created');
+        console.log('✅ Renderer created with limited pixel ratio');
     }
     
     createParticles() {
@@ -105,7 +176,7 @@ class OrganicParticleSystem {
         
         // Create material
         const material = new THREE.PointsMaterial({
-            size: 1.5,
+            size: window.innerWidth < 640 ? 1.0 : 1.5,  // Smaller particles on mobile
             sizeAttenuation: true,
             vertexColors: true,
             blending: THREE.AdditiveBlending,
@@ -122,14 +193,16 @@ class OrganicParticleSystem {
     
     startAnimation() {
         this.isRunning = true;
-        this.animate();
+        if (this.isVisible) {
+            this.animate();
+        }
         console.log('✅ Animation started');
     }
     
     animate() {
-        if (!this.isRunning) return;
+        if (!this.isRunning || !this.isVisible) return;
         
-        requestAnimationFrame(() => this.animate());
+        this.animationId = requestAnimationFrame(() => this.animate());
         
         this.time += 0.01;
         
@@ -143,22 +216,25 @@ class OrganicParticleSystem {
             const scale = 1 + Math.sin(this.time) * 0.1;
             this.particles.scale.setScalar(scale);
             
-            // Update particle positions for organic movement
-            const positions = this.particles.geometry.attributes.position.array;
-            for (let i = 0; i < this.particleCount; i++) {
-                const i3 = i * 3;
+            // Reduce particle position updates on mobile for performance
+            if (window.innerWidth >= 640) {
+                // Update particle positions for organic movement (desktop only)
+                const positions = this.particles.geometry.attributes.position.array;
+                for (let i = 0; i < this.particleCount; i++) {
+                    const i3 = i * 3;
+                    
+                    // Add subtle organic noise
+                    const noiseX = Math.sin(this.time + i * 0.01) * 0.5;
+                    const noiseY = Math.cos(this.time + i * 0.02) * 0.5;
+                    const noiseZ = Math.sin(this.time + i * 0.015) * 0.5;
+                    
+                    positions[i3] += noiseX * 0.1;
+                    positions[i3 + 1] += noiseY * 0.1;
+                    positions[i3 + 2] += noiseZ * 0.1;
+                }
                 
-                // Add subtle organic noise
-                const noiseX = Math.sin(this.time + i * 0.01) * 0.5;
-                const noiseY = Math.cos(this.time + i * 0.02) * 0.5;
-                const noiseZ = Math.sin(this.time + i * 0.015) * 0.5;
-                
-                positions[i3] += noiseX * 0.1;
-                positions[i3 + 1] += noiseY * 0.1;
-                positions[i3 + 2] += noiseZ * 0.1;
+                this.particles.geometry.attributes.position.needsUpdate = true;
             }
-            
-            this.particles.geometry.attributes.position.needsUpdate = true;
         }
         
         if (this.renderer && this.scene && this.camera) {
@@ -167,17 +243,35 @@ class OrganicParticleSystem {
     }
     
     onWindowResize() {
-        if (!this.camera || !this.renderer) return;
+        // Debounce resize events
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
+        }
         
-        this.camera.aspect = window.innerWidth / window.innerHeight;
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        
-        console.log('🔄 Window resized');
+        this.resizeTimeout = setTimeout(() => {
+            if (!this.camera || !this.renderer) return;
+            
+            this.camera.aspect = window.innerWidth / window.innerHeight;
+            this.camera.updateProjectionMatrix();
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            
+            console.log('🔄 Window resized (debounced)');
+        }, 150);
     }
     
     destroy() {
         this.isRunning = false;
+        this.isVisible = false;
+        
+        if (this.animationId) {
+            cancelAnimationFrame(this.animationId);
+            this.animationId = null;
+        }
+        
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = null;
+        }
         
         if (this.renderer) {
             this.renderer.dispose();
@@ -202,4 +296,4 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = OrganicParticleSystem;
 }
 
-console.log('📦 Organic particles script loaded successfully');
+console.log('📦 Optimized organic particles script loaded successfully');

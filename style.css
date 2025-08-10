@@ -1,5 +1,19 @@
 /* Custom CSS for Tech Connect AR Landing Page */
 
+/* Static Background Fallback */
+.hero-static-bg {
+  background: linear-gradient(135deg, 
+    rgba(43, 69, 112, 0.9) 0%,
+    rgba(43, 69, 112, 0.7) 50%,
+    rgba(249, 229, 71, 0.3) 100%
+  ),
+  radial-gradient(circle at 30% 40%, rgba(249, 229, 71, 0.2) 0%, transparent 50%),
+  radial-gradient(circle at 70% 80%, rgba(43, 69, 112, 0.3) 0%, transparent 50%);
+  background-size: 100% 100%, 50% 50%, 60% 60%;
+  background-position: center, left top, right bottom;
+  background-attachment: fixed;
+}
+
 /* Tailwind CSS Configuration */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
