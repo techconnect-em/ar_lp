@@ -148,39 +148,7 @@
                 1px 1px 3px rgba(0, 0, 0, 0.9);
         }
         
-        .button-enhanced {
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.2),
-                0 0 20px rgba(249, 229, 71, 0.3);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-        
-        .button-enhanced:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 
-                0 8px 25px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(249, 229, 71, 0.5);
-        }
-        
-        .button-outline-enhanced {
-            background: rgba(249, 229, 71, 0.1);
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(249, 229, 71, 0.8);
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.2),
-                inset 0 0 20px rgba(249, 229, 71, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .button-outline-enhanced:hover {
-            background: rgba(249, 229, 71, 0.9);
-            color: #1e3a5f;
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 
-                0 8px 25px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(249, 229, 71, 0.6);
-        }
+        /* クリーンアップ済み - 不要なエフェクトを削除してボタンの可読性を向上 */
         
         /* おしゃれなスクロール矢印 */
         .scroll-indicator {
@@ -320,23 +288,23 @@
         <div class="relative z-10 container mx-auto px-4 flex justify-center items-center min-h-screen">
             <div class="smartphone-container" data-aos="fade-up">
                 <div class="hero-text-enhanced">
-                <h1 class="text-4xl md:text-6xl font-black mb-6 text-white">
+                <h1 class="text-4xl md:text-6xl font-black mb-8 text-white leading-tight">
                     ARで『見せる』から<br>
-                    <span class="text-yellow-400 glow-text-subtle">『魅せる』へ</span>
+                    <span class="text-yellow-400 glow-text-subtle">『魅せる』</span>へ
                 </h1>
                 
-                <div class="text-lg md:text-xl mb-8 leading-relaxed text-white">
-                    <p class="mb-4 text-yellow-400 font-bold glow-text-subtle">スマホをかざすだけで</p>
-                    <p class="mb-4">あなたの商品が動き出す！</p>
-                    <p class="mb-6 text-yellow-400 font-bold glow-text-subtle large-catchphrase">話題になる、記憶に残る、新しい伝え方</p>
+                <div class="text-lg md:text-xl mb-10 text-white space-y-3">
+                    <p class="text-yellow-400 font-bold glow-text-subtle">スマホをかざすだけで</p>
+                    <p class="text-xl md:text-2xl font-semibold">あなたの商品が動き出す！</p>
+                    <p class="text-yellow-400 font-bold glow-text-subtle text-lg md:text-xl">話題になる、記憶に残る、新しい伝え方</p>
                 </div>
                 
                 <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#how-it-works" class="w-full sm:w-auto bg-yellow-400 text-blue-900 px-8 py-4 rounded-full text-lg font-bold button-enhanced inline-block text-center" aria-label="AR体験方法を見る">
+                    <a href="#how-it-works" class="w-full sm:w-auto bg-yellow-400 text-slate-900 px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:bg-yellow-300 transition-all duration-300 inline-block text-center" aria-label="AR体験方法を見る">
                         📱 AR体験してみる
                     </a>
-                    <a href="#contact" class="w-full sm:w-auto text-yellow-400 px-8 py-4 rounded-full text-lg font-bold button-outline-enhanced inline-block text-center" aria-label="お問い合わせフォームへ移動">
-                        ✉️ 相談してみる
+                    <a href="#contact" class="w-full sm:w-auto bg-slate-800 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:bg-slate-700 transition-all duration-300 inline-block text-center" aria-label="お問い合わせフォームへ移動">
+                        ✉️ 無料で相談する
                     </a>
                 </div>
                 </div>
