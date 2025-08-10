@@ -4,67 +4,81 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an AR (Augmented Reality) marketing landing page for Tech Connect, a service that helps businesses integrate AR technology into their marketing materials like business cards, flyers, catalogs, and product labels.
+This is an AR (Augmented Reality) marketing landing page for Tech Connect, a service that helps businesses integrate AR technology into their marketing materials like business cards, flyers, catalogs, and product labels. The site utilizes PalanAR as the underlying AR platform.
 
 ## Architecture
 
 ### Core Files
-- `index.html` - Main landing page with complete AR marketing site
-- `style.css` - Custom styles with Tailwind CSS integration and custom CSS variables
-- `organic-particles-simple.js` - Three.js particle system for hero section background animation
-- `images/` - Static assets directory
+- `index.html` - Single-page application with all sections inline
+- `style.css` - Custom styles with Tailwind CSS integration and CSS custom properties
+- `organic-particles-simple.js` - Optimized Three.js particle system for hero background
+- `assets/` - AR demo images and static assets
 
 ### Technology Stack
-- **Frontend**: Vanilla HTML/CSS/JavaScript
-- **CSS Framework**: Tailwind CSS (loaded via CDN)
-- **3D Graphics**: Three.js (r128) for particle animations
+- **Frontend**: Vanilla HTML/CSS/JavaScript (no build process)
+- **CSS Framework**: Tailwind CSS (CDN) + custom utility classes
+- **3D Graphics**: Three.js (r128) with performance optimizations for mobile
 - **Animations**: AOS (Animate On Scroll) library
-- **Fonts**: Google Fonts (Noto Sans JP, Montserrat)
+- **Forms**: Netlify Forms with spam protection
+- **Fonts**: Google Fonts (Noto Sans JP primary, Montserrat accent)
 
-### Design System
-The site uses a consistent design system with CSS custom properties:
-- Navy blue (`--navy: #2B4570`) for primary text and backgrounds
-- Accent yellow (`--accent-yellow: #F9E547`) for highlights and CTAs
-- Custom Tailwind utility classes for consistent theming
+### Critical Design Patterns
 
-### Key Features
-1. **Hero Section**: Smartphone-like container with 3D particle background
-2. **AR Service Sections**: Problem/solution presentation, benefits, services, pricing
-3. **Interactive Elements**: FAQ accordion, contact form, mobile navigation
-4. **Responsive Design**: Mobile-first approach with responsive breakpoints
+#### CSS Architecture
+- CSS custom properties in `:root` for consistent theming (`--navy`, `--accent-yellow`)
+- Tailwind `@layer utilities` for component-style classes (`.btn-primary`, `.hero-card`, etc.)
+- Mobile-first responsive design with careful attention to performance
 
-## Development Notes
+#### Performance Optimizations
+- Particle system adapts count based on screen size (2000/3500/5000 particles)
+- WebGL detection with static fallback (`hero-static-bg` class)
+- Tab visibility API pauses animations when not visible
+- Debounced resize handling (150ms) to prevent performance issues
 
-### CSS Architecture
-- Uses CSS custom properties for consistent theming
-- Tailwind CSS utilities extended with custom classes
-- Component-based CSS organization in `style.css`
+#### Form Integration
+- Netlify Forms with hidden blueprint form for SPA detection
+- Honeypot field for spam protection (`bot-field`)
+- Custom validation with accessible error handling
 
-### JavaScript Components
-- `OrganicParticleSystem`: Three.js-based particle animation system
-- Mobile menu toggle functionality
-- Smooth scrolling navigation
-- FAQ accordion interactions
-- Form validation and submission
+## Business Context
 
-### Content Management
-The main catchphrases are located in the hero section:
-- Main catchphrase: Line 313-315 in `index.html`
-- Sub catchphrases: Line 318-321 in `index.html`
+### Service Tiers (Pricing Section)
+1. **Simple AR Start**: ¥10,000 - Uses PalanAR free plan, includes credit display
+2. **Original AR**: ¥15,000 - Template-based with no credit display  
+3. **Custom Made**: Quote-based - Full custom development
 
-### Loading Strategy
-The site implements a loading screen system that:
-1. Shows loading animation while dependencies load
-2. Initializes Three.js particle system
-3. Sets up AOS animations
-4. Initializes basic functionality (navigation, forms, etc.)
+### PalanAR Integration
+- Tech Connect is a PalanAR certified partner
+- Free plan suitable for small projects only
+- Paid plans required for high-volume or advanced features
+- Monthly costs are external service fees, not Tech Connect charges
+
+## Development Workflows
+
+### Making Style Changes
+- Always test on mobile first - particle system has mobile-specific optimizations
+- Use existing CSS custom properties before adding new colors
+- Maintain high contrast ratios (WCAG AA) especially for buttons
+- Test WebGL fallback by disabling hardware acceleration
+
+### Content Updates
+- Hero catchphrases: Update both main title and sub-elements for consistency
+- Pricing: All prices are tax-inclusive (税込) - maintain this pattern
+- Navigation: Update all three nav instances (desktop, mobile, footer) simultaneously
+
+### Performance Considerations
+- Hero particle system is performance-critical - test changes on low-end mobile devices
+- AOS animations should have appropriate delays (100ms increments)
+- Form submissions are handled by Netlify - no server-side code needed
 
 ## Deployment
 
-This is a static site repository designed to be deployed to:
-- GitHub Pages (recommended)
-- Netlify
-- Vercel
-- Any static hosting service
+Static site deployed via:
+- **Primary**: GitHub Pages (techconnect-em.github.io/ar_lp)
+- **Alternative**: Netlify (includes form handling)
+- No build process required - direct deployment from repository files
 
-No build process is required - the site runs directly from the HTML/CSS/JS files.
+### Git Workflow
+- All changes should include both commit and push (`git push origin main`)
+- Commit messages should be descriptive and include the 🤖 signature template
+- Test major style changes locally before pushing to prevent layout breaks
