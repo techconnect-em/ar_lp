@@ -84,44 +84,47 @@ body {
 
 /* Enhanced Custom Components */
 .btn-primary {
-  @apply bg-accent-yellow text-navy px-8 py-3 rounded-full font-bold text-lg shadow-lg;
-  background: linear-gradient(135deg, var(--accent-yellow) 0%, #f7dc47 100%);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(249, 229, 71, 0.4);
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: left 0.5s;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+         font-semibold text-slate-900 bg-amber-400 hover:bg-amber-500 active:bg-amber-600
+         shadow-md hover:shadow-lg transition;
 }
 
 .btn-secondary {
-  @apply border-2 border-white text-white px-8 py-3 rounded-full font-bold text-lg transition-all duration-300;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+         font-semibold text-white bg-slate-800 hover:bg-slate-900 active:bg-black
+         shadow-md hover:shadow-lg transition;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+.btn-primary,.btn-secondary {
+  @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-amber-300/50;
+}
+
+.hero-overlay {
+  /* 粒子の上に敷く暗めグラデ。可読性を底上げ */
+  @apply absolute inset-0 pointer-events-none bg-gradient-to-b from-slate-900/50 via-slate-900/40 to-slate-900/20;
+}
+
+.hero-card {
+  /* ガラス感は弱め、文字はシャドウを減らす */
+  @apply relative z-10 mx-auto max-w-3xl rounded-[24px] bg-white/6 backdrop-blur-md
+         ring-1 ring-white/10 px-6 sm:px-10 py-10 sm:py-14 text-center;
+}
+
+.hero-title {
+  @apply text-4xl sm:text-5xl font-extrabold leading-tight text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)];
+}
+
+.hero-sub {
+  @apply mt-3 text-base sm:text-lg text-white/90 leading-relaxed;
+}
+
+.hero-bullets {
+  @apply mt-6 text-amber-300 font-semibold;
+}
+
+.highlight {
+  /* 『魅せる』だけに適用する視認性の高いグラデテキスト */
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-400 drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)];
 }
 
 .btn-outline {

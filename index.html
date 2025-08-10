@@ -309,49 +309,26 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section relative overflow-hidden min-h-screen flex items-center">
-        <!-- Three.js Canvas -->
+    <section id="hero" class="relative">
         <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
-        
-        <!-- Particle Background -->
-        <div id="particles-bg" class="absolute inset-0"></div>
-        
-        <!-- Hero Content -->
-        <div class="relative z-10 container mx-auto px-4 flex justify-center items-center min-h-screen">
-            <div class="smartphone-container" data-aos="fade-up">
-                <div class="hero-text-enhanced">
-                <h1 class="text-4xl md:text-6xl font-black mb-6 text-white">
-                    ARで『見せる』から<br>
-                    <span class="text-yellow-400 glow-text-subtle">『魅せる』へ</span>
+        <div class="hero-overlay"></div>
+        <div class="relative z-10 flex min-h-[70vh] items-center justify-center px-4">
+            <div class="hero-card">
+                <h1 class="hero-title">
+                    ARで『見せる』から <span class="highlight">『魅せる』</span> へ
                 </h1>
-                
-                <div class="text-lg md:text-xl mb-8 leading-relaxed text-white">
-                    <p class="mb-4 text-yellow-400 font-bold glow-text-subtle">スマホをかざすだけで</p>
-                    <p class="mb-4">あなたの商品が動き出す！</p>
-                    <p class="mb-6 text-yellow-400 font-bold glow-text-subtle large-catchphrase">話題になる、記憶に残る、新しい伝え方</p>
-                </div>
-                
-                <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <a href="#how-it-works" class="w-full sm:w-auto bg-yellow-400 text-blue-900 px-8 py-4 rounded-full text-lg font-bold button-enhanced inline-block text-center" aria-label="AR体験方法を見る">
-                        📱 AR体験してみる
-                    </a>
-                    <a href="#contact" class="w-full sm:w-auto text-yellow-400 px-8 py-4 rounded-full text-lg font-bold button-outline-enhanced inline-block text-center" aria-label="お問い合わせフォームへ移動">
-                        ✉️ 相談してみる
-                    </a>
-                </div>
+                <p class="hero-sub">スマホをかざすだけで、あなたの商品が動き出します。</p>
+                <p class="hero-bullets">話題になる、記憶に残る、新しい伝え方</p>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a href="#how-it-works" class="btn-primary w-full sm:w-auto" aria-label="AR体験を見てみる">📱 AR体験してみる</a>
+                    <a href="#contact" class="btn-secondary w-full sm:w-auto" aria-label="無料で相談する">✉️ 無料で相談する</a>
                 </div>
             </div>
-        </div>
-        
-        <!-- おしゃれなスクロールインジケーター -->
-        <div class="scroll-indicator">
-            <div class="scroll-text">SCROLL</div>
-            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-16 bg-gradient-to-b from-slate-50 to-white">
+    <section id="how-it-works" class="scroll-mt-20 py-16 bg-gradient-to-b from-slate-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- 見出しと基本説明 -->
             <div class="text-center">
@@ -970,7 +947,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-navy text-white">
+    <section id="contact" class="scroll-mt-20 py-16 bg-navy text-white">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-4" data-aos="fade-up">
