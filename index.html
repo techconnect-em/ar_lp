@@ -282,6 +282,7 @@
                         <a href="#about" class="text-gray-700 hover:text-blue-900 transition-colors">サービス</a>
                         <a href="#cases" class="text-gray-700 hover:text-blue-900 transition-colors">事例</a>
                         <a href="#pricing" class="text-gray-700 hover:text-blue-900 transition-colors">料金</a>
+                        <a href="#support" class="text-gray-700 hover:text-blue-900 transition-colors">サポート</a>
                         <a href="#faq" class="text-gray-700 hover:text-blue-900 transition-colors">FAQ</a>
                     </div>
                     <a href="#contact" class="nav-contact-btn bg-yellow-400 text-blue-900 px-6 py-2 rounded-full font-medium hover:bg-yellow-300 transition-colors">お問い合わせ</a>
@@ -300,6 +301,7 @@
                 <a href="#about" class="block py-2 text-gray-700 hover:text-navy">サービス</a>
                 <a href="#cases" class="block py-2 text-gray-700 hover:text-navy">事例</a>
                 <a href="#pricing" class="block py-2 text-gray-700 hover:text-navy">料金</a>
+                <a href="#support" class="block py-2 text-gray-700 hover:text-navy">サポート</a>
                 <a href="#faq" class="block py-2 text-gray-700 hover:text-navy">FAQ</a>
                 <a href="#contact" class="block py-2 bg-accent-yellow text-navy px-4 rounded mt-2 text-center">お問い合わせ</a>
             </div>
@@ -664,107 +666,209 @@
             </div>
             
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-navy" data-aos="fade-up">
-                料金プラン
+                料金プラン（税込）
             </h2>
             <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
                 <span class="text-red-500 font-semibold">今だけ特別価格</span>で先進的なAR技術をお試しいただけます
             </p>
             
-            <div class="max-w-4xl mx-auto">
-                <div class="pricing-table" data-aos="fade-up" data-aos-delay="200">
-                    <div class="grid md:grid-cols-4 gap-4">
-                        <div class="bg-navy text-white p-4 rounded-tl-lg">
-                            <h3 class="font-bold text-lg">サービス</h3>
-                        </div>
-                        <div class="bg-white p-4 text-center border relative overflow-hidden">
-                            <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded text-xs font-bold animate-bounce">
-                                50%OFF
+            <div class="max-w-6xl mx-auto">
+                <!-- 基本プラン -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12" data-aos="fade-up" data-aos-delay="200">
+                    <!-- プランA -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200 hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <div class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold mb-3 inline-block">
+                                33%OFF
                             </div>
-                            <h4 class="font-bold text-navy">かんたんARスタート</h4>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500 line-through">定価 ¥20,000〜</p>
-                                <p class="text-2xl font-bold text-red-500">¥10,000〜</p>
+                            <h3 class="text-xl font-bold text-navy mb-2">かんたんARスタート</h3>
+                            <div class="mb-4">
+                                <p class="text-sm text-gray-500 line-through">定価 ¥15,000</p>
+                                <p class="text-3xl font-bold text-red-500">¥10,000</p>
                                 <p class="text-xs text-red-500 font-semibold">オープン記念価格</p>
                             </div>
                         </div>
-                        <div class="bg-accent-yellow p-4 text-center border relative overflow-hidden transform scale-105 shadow-xl">
-                            <div class="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
-                                最人気 40%OFF
-                            </div>
-                            <div class="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold animate-bounce">
-                                BEST
-                            </div>
-                            <h4 class="font-bold text-navy mt-2">オリジナルAR制作</h4>
-                            <div class="mt-2">
-                                <p class="text-sm text-navy/70 line-through">定価 ¥25,000〜</p>
-                                <p class="text-3xl font-bold text-navy">¥15,000〜</p>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>PalanAR無料プラン利用したAR名刺</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>修正1回</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>月額なし（小規模プロジェクト限定）</li>
+                            <li class="flex items-center text-orange-600"><span class="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>PalanARクレジット表示あり</li>
+                            <li class="flex items-center text-orange-600"><span class="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>マーカー画像等の素材提供が必要</li>
+                        </ul>
+                    </div>
+
+                    <!-- プランB -->
+                    <div class="bg-accent-yellow rounded-xl shadow-lg p-6 border-2 border-accent-yellow transform scale-105 relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            最人気 40%OFF
+                        </div>
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-navy mb-2 mt-2">オリジナルAR制作</h3>
+                            <div class="mb-4">
+                                <p class="text-sm text-navy/70 line-through">定価 ¥25,000</p>
+                                <p class="text-3xl font-bold text-navy">¥15,000</p>
                                 <p class="text-xs text-red-500 font-semibold">オープン記念価格</p>
                             </div>
                         </div>
-                        <div class="bg-white p-4 text-center border relative overflow-hidden">
-                            <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-bold">
-                                初月無料
-                            </div>
-                            <h4 class="font-bold text-navy">保守オプション</h4>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500 line-through">定価 ¥5,000/月</p>
-                                <p class="text-2xl font-bold text-green-600">¥3,000/月</p>
-                                <p class="text-xs text-green-600 font-semibold">オープン記念価格</p>
-                            </div>
-                        </div>
+                        <ul class="space-y-3 text-sm text-navy mb-6">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-navy rounded-full mr-3"></span>テンプレートを利用したAR制作</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-navy rounded-full mr-3"></span>修正1回</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-navy rounded-full mr-3"></span>クレジット表示なし</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-navy rounded-full mr-3"></span>月額なし（小規模プロジェクト限定）</li>
+                        </ul>
                     </div>
-                    
-                    <div class="mt-4 space-y-1">
-                        <div class="grid md:grid-cols-4 gap-4">
-                            <div class="bg-gray-100 p-3 text-sm font-semibold">テンプレート利用</div>
-                            <div class="bg-white p-3 text-center">✓</div>
-                            <div class="bg-yellow-50 p-3 text-center">✓</div>
-                            <div class="bg-white p-3 text-center">-</div>
+
+                    <!-- プランC -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-200 hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-navy mb-2">オーダーメイド制作</h3>
+                            <div class="mb-4">
+                                <p class="text-3xl font-bold text-navy">お見積り</p>
+                                <p class="text-xs text-gray-500">プロジェクトに応じて</p>
+                            </div>
                         </div>
-                        <div class="grid md:grid-cols-4 gap-4">
-                            <div class="bg-gray-100 p-3 text-sm font-semibold">カスタムデザイン</div>
-                            <div class="bg-white p-3 text-center">-</div>
-                            <div class="bg-yellow-50 p-3 text-center">✓</div>
-                            <div class="bg-white p-3 text-center">-</div>
+                        <ul class="space-y-3 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>マーカー画像デザイン</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>ARコンテンツ開発</li>
+                            <li class="flex items-center"><span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>3Dモデル制作</li>
+                            <li class="flex items-center text-orange-600"><span class="w-2 h-2 bg-orange-400 rounded-full mr-3"></span>規模によってはサーバー料金が月額発生</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- オプション料金 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-8" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-navy mb-6 text-center">オプション料金</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-navy mb-2">マーカー画像デザイン</h4>
+                            <p class="text-2xl font-bold text-navy">¥9,800〜</p>
                         </div>
-                        <div class="grid md:grid-cols-4 gap-4">
-                            <div class="bg-gray-100 p-3 text-sm font-semibold">3D・動画対応</div>
-                            <div class="bg-white p-3 text-center">-</div>
-                            <div class="bg-yellow-50 p-3 text-center">✓</div>
-                            <div class="bg-white p-3 text-center">-</div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-navy mb-2">3Dモデル（ローポリ）</h4>
+                            <p class="text-2xl font-bold text-navy">¥35,000〜</p>
                         </div>
-                        <div class="grid md:grid-cols-4 gap-4">
-                            <div class="bg-gray-100 p-3 text-sm font-semibold">アクセス解析</div>
-                            <div class="bg-white p-3 text-center">-</div>
-                            <div class="bg-yellow-50 p-3 text-center">-</div>
-                            <div class="bg-white p-3 text-center">✓</div>
-                        </div>
-                        <div class="grid md:grid-cols-4 gap-4">
-                            <div class="bg-gray-100 p-3 text-sm font-semibold">継続サポート</div>
-                            <div class="bg-white p-3 text-center">-</div>
-                            <div class="bg-yellow-50 p-3 text-center">-</div>
-                            <div class="bg-white p-3 text-center">✓</div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <h4 class="font-semibold text-navy mb-2">動画編集（〜30秒）</h4>
+                            <p class="text-2xl font-bold text-navy">¥30,000〜</p>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Limited Time Notice -->
-                <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white p-6 rounded-xl text-center mt-8" data-aos="fade-up" data-aos-delay="250">
-                    <div class="flex items-center justify-center mb-3">
-                        <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
-                        </svg>
-                        <span class="font-bold text-lg">期間限定オファー</span>
+
+                <!-- PalanARについて -->
+                <div class="bg-blue-50 rounded-xl p-6 mb-8" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold text-navy mb-4">PalanARについて</h3>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-4">
+                        <li>• PalanAR（パラナル）とはWebAR作成ができるノーコードツール</li>
+                        <li>• 開発の目的や規模に応じて柔軟に活用、ご提案いたします</li>
+                        <li>• Tech ConnectはPalanAR認定パートナー：PalanARより優先サポートが受けられます</li>
+                        <li>• PalanAR有料プラン：月額費用がかかりますが、高機能なAR開発が可能</li>
+                        <li>• 案件によりPalanAR有料プラン（月額・実費）が必要な場合があります</li>
+                    </ul>
+                    <div class="text-center">
+                        <a href="https://palanar.com" target="_blank" rel="noopener" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+                            最新情報は公式サイトへ →
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
                     </div>
-                    <p class="text-sm mb-2">この特別価格は先着50社様限定です</p>
-                    <div id="countdown-timer" class="text-2xl font-bold mb-4"></div>
                 </div>
                 
-                <div class="text-center mt-8">
+                <div class="text-center">
                     <a href="#contact" class="btn-primary inline-block hover-3d" data-aos="fade-up" data-aos-delay="300">
                         今すぐ無料相談で特別価格を確保
                     </a>
                     <p class="text-sm text-gray-500 mt-2">※お申し込み後も料金は発生しません</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-navy" data-aos="fade-up">
+                継続サポート
+            </h2>
+            <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
+                AR体験の継続的な改善とメンテナンスをサポートします
+            </p>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="200">
+                    <!-- スタンダードプラン -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-2 border-accent-yellow relative">
+                        <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-accent-yellow text-navy px-4 py-1 rounded-full text-sm font-bold">
+                            おすすめ
+                        </div>
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-navy mb-4 mt-2">スタンダードプラン</h3>
+                            <div class="mb-4">
+                                <p class="text-3xl font-bold text-navy">¥3,000</p>
+                                <p class="text-sm text-gray-600">/月（税込）</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-600 mb-8">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                月1回15分程度の軽微更新
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                リンク変更・素材差し替え等
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                アクセス解析月次レポート
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                メール・チャットサポート
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- ライトプラン -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 border-2 border-gray-200 hover:shadow-xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <h3 class="text-xl font-bold text-navy mb-4">ライトプラン</h3>
+                            <div class="mb-4">
+                                <p class="text-3xl font-bold text-navy">¥1,000</p>
+                                <p class="text-sm text-gray-600">/月（税込）</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 text-sm text-gray-600 mb-8">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                アクセス解析月次レポートのみ
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-300 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                コンテンツ更新なし
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-gray-300 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                サポート対応なし
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 注記 -->
+                <div class="bg-yellow-50 rounded-lg p-6 mt-8" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-yellow-600 mr-3 flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-yellow-800 mb-2">なぜ月額が発生するのですか？</h4>
+                            <p class="text-sm text-yellow-700">
+                                AR体験を提供するための外部サービス利用料（PalanAR等）やサーバー維持費が実費として発生する場合があります。
+                                詳しくは<a href="#faq" class="underline hover:no-underline">よくある質問</a>をご確認ください。
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -970,6 +1074,7 @@
                     <a href="#about" class="text-gray-400 hover:text-white transition-colors">サービス</a>
                     <a href="#cases" class="text-gray-400 hover:text-white transition-colors">事例</a>
                     <a href="#pricing" class="text-gray-400 hover:text-white transition-colors">料金</a>
+                    <a href="#support" class="text-gray-400 hover:text-white transition-colors">サポート</a>
                     <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
                 </div>
                 <p class="text-gray-500 text-sm">© 2024 Tech Connect株式会社. All rights reserved.</p>
