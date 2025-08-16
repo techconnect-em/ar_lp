@@ -972,41 +972,39 @@
                     まずはお気軽にご相談ください。無料でご提案いたします。
                 </p>
                 
-                <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex justify-center">
                     <!-- Contact Form -->
-                    <div data-aos="fade-right" data-aos-delay="200">
-                        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6" id="contact-form">
+                    <div class="w-full max-w-2xl" data-aos="fade-up" data-aos-delay="200">
+                        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-8" id="contact-form">
                             <input type="hidden" name="form-name" value="contact">
                             <input type="text" name="bot-field" class="hidden" tabindex="-1" autocomplete="off">
                             <div>
-                                <label for="company" class="block text-sm font-medium mb-2">会社名・団体名</label>
-                                <input type="text" id="company" name="company" aria-label="会社名・団体名" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none" placeholder="株式会社○○">
+                                <label for="company" class="block text-sm font-medium mb-3">会社名・団体名</label>
+                                <input type="text" id="company" name="company" aria-label="会社名・団体名" class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg" placeholder="株式会社○○">
                             </div>
                             
                             <div>
-                                <label for="name" class="block text-sm font-medium mb-2">お名前 <span class="text-red-400">*必須</span></label>
-                                <input type="text" id="name" name="name" required aria-label="お名前 必須" aria-required="true" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none" placeholder="山田 太郎">
+                                <label for="name" class="block text-sm font-medium mb-3">お名前 <span class="text-red-400">*必須</span></label>
+                                <input type="text" id="name" name="name" required aria-label="お名前 必須" aria-required="true" class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg" placeholder="山田 太郎">
                             </div>
                             
                             <div>
-                                <label for="email" class="block text-sm font-medium mb-2">メールアドレス <span class="text-red-400">*必須</span></label>
-                                <input type="email" id="email" name="email" required aria-label="メールアドレス 必須" aria-required="true" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none" placeholder="example@company.com">
+                                <label for="email" class="block text-sm font-medium mb-3">メールアドレス <span class="text-red-400">*必須</span></label>
+                                <input type="email" id="email" name="email" required aria-label="メールアドレス 必須" aria-required="true" class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg" placeholder="example@company.com">
                             </div>
                             
                             
                             
                             <div>
-                                <label for="message" class="block text-sm font-medium mb-2">お問い合わせ内容</label>
-                                <textarea id="message" name="message" rows="4" aria-label="お問い合わせ内容" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none" placeholder="ご質問やご要望をお聞かせください"></textarea>
+                                <label for="message" class="block text-sm font-medium mb-3">お問い合わせ内容</label>
+                                <textarea id="message" name="message" rows="5" aria-label="お問い合わせ内容" class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg resize-vertical" placeholder="ご質問やご要望をお聞かせください"></textarea>
                             </div>
                             
-                            <button type="submit" class="w-full bg-accent-yellow text-navy py-3 px-6 rounded-lg font-bold hover:bg-accent-yellow/90 transition-colors">
+                            <button type="submit" class="w-full bg-accent-yellow text-navy py-4 px-8 rounded-lg font-bold text-lg hover:bg-accent-yellow/90 transition-colors shadow-lg hover:shadow-xl">
                                 送信する
                             </button>
                         </form>
                     </div>
-                    
-                    <!-- Contact Info -->
                 </div>
             </div>
         </div>
