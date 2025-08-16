@@ -80,16 +80,51 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.6;
-  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgZmlsbD0iI0Y5RTU0NyIgc3Ryb2tlPSIjMkI0NTcwIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMiIgZmlsbD0iIzJCNDU3MCIvPgo8L3N2Zz4=') 12 12, auto;
+  cursor: auto;
 }
 
-/* Custom Cursor Styles */
-a, button, .cursor-pointer {
-  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMTAiIGZpbGw9IiNGOUU1NDciIHN0cm9rZT0iIzJCNDU3MCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjE0IiBjeT0iMTQiIHI9IjMiIGZpbGw9IiMyQjQ1NzAiLz4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjlFNTQ3IiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=') 14 14, pointer;
+/* Advanced Custom Cursor with Glow Effect */
+.custom-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(249, 229, 71, 0.3) 0%, rgba(249, 229, 71, 0.1) 50%, transparent 80%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+  transition: all 0.1s ease;
+  transform: translate(-50%, -50%);
 }
 
-input, textarea, select {
-  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjE2IiBmaWxsPSIjMkI0NTcwIi8+CjxyZWN0IHg9IjgiIHk9IjYiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiIGZpbGw9IiNGOUU1NDciLz4KPHJlY3QgeD0iOCIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiIGZpbGw9IiNGOUU1NDciLz4KPC9zdmc+') 12 12, text;
+.custom-cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(249, 229, 71, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: cursorPulse 2s ease-in-out infinite;
+}
+
+.custom-cursor.hover {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(249, 229, 71, 0.4) 0%, rgba(249, 229, 71, 0.2) 50%, transparent 80%);
+}
+
+@keyframes cursorPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
 }
 
 /* Enhanced Custom Components */
@@ -958,6 +993,10 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   box-shadow: 0 8px 20px rgba(249, 229, 71, 0.4);
 }
 
+.bg-accent-yellow {
+  transition: all 0.3s ease;
+}
+
 .bg-accent-yellow:hover {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 10px 25px rgba(249, 229, 71, 0.5);
@@ -1005,7 +1044,13 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  animation: shimmerEffect 2s infinite;
+  animation: shimmerEffect 3s infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-shimmer:hover::after {
+  opacity: 1;
 }
 
 /* Enhanced Hover Effects for Interactive Elements */

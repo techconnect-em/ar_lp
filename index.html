@@ -170,21 +170,18 @@
         
         /* おしゃれなスクロール矢印 */
         .scroll-indicator {
-            position: fixed;
-            right: 30px;
-            bottom: 50%;
-            transform: translateY(50%);
+            position: absolute;
+            right: 50px;
+            bottom: 80px;
             z-index: 100;
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
         }
         
         .scroll-text {
             color: rgba(255, 255, 255, 0.8);
             font-size: 12px;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            transform: rotate(180deg);
+            margin-bottom: 15px;
+            text-align: center;
             font-weight: 300;
         }
         
@@ -248,6 +245,10 @@
         <input type="hidden" name="form-name" value="contact">
         <input name="bot-field">
     </form>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-navy flex items-center justify-center z-50">
         <div class="text-center">
@@ -1099,6 +1100,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🚀 Main site loading...');
             
+            // Initialize custom cursor
+            initCustomCursor();
+            
             // Show loading screen
             const loadingScreen = document.getElementById('loading-screen');
             if (loadingScreen) {
@@ -1309,6 +1313,53 @@
                 hideLoadingScreen();
             }
         }, 10000);
+        
+        // Custom Cursor Implementation
+        function initCustomCursor() {
+            const cursor = document.getElementById('customCursor');
+            if (!cursor) return;
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+            
+            // Update mouse position
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+            
+            // Smooth cursor movement
+            function updateCursor() {
+                const diffX = mouseX - cursorX;
+                const diffY = mouseY - cursorY;
+                
+                cursorX += diffX * 0.1;
+                cursorY += diffY * 0.1;
+                
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+                
+                requestAnimationFrame(updateCursor);
+            }
+            updateCursor();
+            
+            // Add hover effect on interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, .cursor-pointer');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                
+                element.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            });
+            
+            console.log('✅ Custom cursor initialized');
+        }
     </script>
     
     <!-- Google Analytics (placeholder) -->
