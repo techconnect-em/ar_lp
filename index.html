@@ -279,33 +279,12 @@
                     <div class="text-center">
                         <h3 class="text-lg font-semibold text-navy mb-4">② マーカーにカメラを向ける</h3>
                         <div class="marker-container">
-                            <img src="assets/ARmarkar.png" alt="ARマーカー画像" class="mx-auto max-w-full h-48 object-contain border-2 border-gray-200 rounded-lg shadow-md">
+                            <img src="assets/ARmarkar.png" alt="ARマーカー画像" class="mx-auto w-80 h-80 object-contain border-2 border-gray-200 rounded-lg shadow-md">
                         </div>
                         <p class="text-sm text-gray-600 mt-4">
                             この画像にスマートフォンのカメラを向けてください
                         </p>
                     </div>
-                </div>
-                
-                <!-- Instructions -->
-                <div class="mt-8 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
-                    <h4 class="font-semibold text-blue-800 mb-2">📱 体験手順</h4>
-                    <ol class="text-sm text-blue-700 space-y-2">
-                        <li>1. QRコードをスマートフォンで読み取る</li>
-                        <li>2. 表示されたページでカメラを許可する</li>
-                        <li>3. マーカー画像にカメラを向ける</li>
-                        <li>4. AR効果をお楽しみください！</li>
-                    </ol>
-                </div>
-                
-                <!-- Download/Print Options -->
-                <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-accent-yellow text-navy px-6 py-3 rounded-full font-semibold hover:bg-accent-yellow/90 transition-colors" onclick="downloadMarker()">
-                        📄 マーカーをダウンロード
-                    </button>
-                    <button class="bg-gray-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-700 transition-colors" onclick="printMarker()">
-                        🖨️ マーカーを印刷
-                    </button>
                 </div>
             </div>
         </div>
@@ -384,9 +363,9 @@
                 </div>
                 
                 <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" data-aos="fade-up" data-aos-delay="400" style="text-shadow: none;">
-                    <button id="arExperienceBtn" class="w-full sm:w-auto bg-accent-yellow text-slate-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-accent-yellow/80 transition-all duration-300 btn-shimmer" style="text-shadow: none;" aria-label="AR体験方法を見る">
+                    <a href="#" id="arExperienceBtn" class="w-full sm:w-auto bg-accent-yellow text-slate-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-accent-yellow/80 transition-all duration-300 inline-block text-center btn-shimmer" style="text-shadow: none;" aria-label="AR体験方法を見る">
                         📱 AR体験してみる
-                    </button>
+                    </a>
                     <a href="#contact" class="w-full sm:w-auto bg-slate-800 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:bg-slate-700 transition-all duration-300 inline-block text-center interactive-hover" style="text-shadow: none;" aria-label="お問い合わせフォームへ移動">
                         ✉️ 無料で相談する
                     </a>
@@ -1428,45 +1407,6 @@
             }
         }
         
-        function downloadMarker() {
-            const link = document.createElement('a');
-            link.href = 'assets/ARmarkar.png';
-            link.download = 'AR-marker.png';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-        
-        function printMarker() {
-            const markerImg = document.querySelector('.marker-container img');
-            if (markerImg) {
-                const printWindow = window.open('', '_blank');
-                printWindow.document.write(`
-                    <html>
-                        <head>
-                            <title>ARマーカー印刷</title>
-                            <style>
-                                body { margin: 0; padding: 20px; text-align: center; }
-                                img { max-width: 100%; height: auto; }
-                                h1 { font-family: Arial, sans-serif; margin-bottom: 20px; }
-                                @media print { 
-                                    body { margin: 0; padding: 0; }
-                                    img { page-break-inside: avoid; }
-                                }
-                            </style>
-                        </head>
-                        <body>
-                            <h1>ARマーカー</h1>
-                            <img src="${markerImg.src}" alt="ARマーカー">
-                            <p>このマーカーにスマートフォンのカメラを向けてAR体験をお楽しみください。</p>
-                        </body>
-                    </html>
-                `);
-                printWindow.document.close();
-                printWindow.focus();
-                printWindow.print();
-            }
-        }
     </script>
     
     <!-- Google Analytics (placeholder) -->
