@@ -88,13 +88,16 @@ body {
   position: fixed;
   width: 40px;
   height: 40px;
-  background: radial-gradient(circle, rgba(249, 229, 71, 0.3) 0%, rgba(249, 229, 71, 0.1) 50%, transparent 80%);
+  background: radial-gradient(circle, rgba(249, 229, 71, 0.4) 0%, rgba(249, 229, 71, 0.2) 50%, transparent 80%);
+  border: 2px solid rgba(43, 69, 112, 0.3);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: screen;
   transition: all 0.1s ease;
   transform: translate(-50%, -50%);
+  box-shadow: 
+    0 0 20px rgba(249, 229, 71, 0.3),
+    inset 0 0 15px rgba(249, 229, 71, 0.1);
 }
 
 .custom-cursor::before {
@@ -104,7 +107,8 @@ body {
   left: 50%;
   width: 20px;
   height: 20px;
-  background: rgba(249, 229, 71, 0.2);
+  background: rgba(249, 229, 71, 0.3);
+  border: 1px solid rgba(43, 69, 112, 0.2);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: cursorPulse 2s ease-in-out infinite;
@@ -113,7 +117,11 @@ body {
 .custom-cursor.hover {
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle, rgba(249, 229, 71, 0.4) 0%, rgba(249, 229, 71, 0.2) 50%, transparent 80%);
+  background: radial-gradient(circle, rgba(249, 229, 71, 0.5) 0%, rgba(249, 229, 71, 0.3) 50%, transparent 80%);
+  border-color: rgba(43, 69, 112, 0.4);
+  box-shadow: 
+    0 0 30px rgba(249, 229, 71, 0.4),
+    inset 0 0 20px rgba(249, 229, 71, 0.2);
 }
 
 @keyframes cursorPulse {
