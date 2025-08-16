@@ -80,6 +80,16 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.6;
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="%23F9E547" stroke="%232B4570" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="%232B4570"/></svg>'), auto;
+}
+
+/* Custom Cursor Styles */
+a, button, .cursor-pointer {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" fill="%23F9E547" stroke="%232B4570" stroke-width="2"/><circle cx="14" cy="14" r="3" fill="%232B4570"/><circle cx="14" cy="14" r="8" fill="none" stroke="%23F9E547" stroke-width="1" opacity="0.5"/></svg>'), pointer;
+}
+
+input, textarea, select {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="10" y="4" width="4" height="16" fill="%232B4570"/><rect x="8" y="6" width="8" height="2" fill="%23F9E547"/><rect x="8" y="16" width="8" height="2" fill="%23F9E547"/></svg>'), text;
 }
 
 /* Enhanced Custom Components */
@@ -92,8 +102,12 @@ body {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 10px 30px rgba(249, 229, 71, 0.4);
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 
+    0 15px 40px rgba(249, 229, 71, 0.5),
+    0 0 20px rgba(249, 229, 71, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  filter: brightness(1.1);
 }
 
 .btn-primary::before {
@@ -119,9 +133,12 @@ body {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 12px 35px rgba(255, 255, 255, 0.3),
+    0 0 15px rgba(249, 229, 71, 0.2);
+  border-color: rgba(249, 229, 71, 0.5);
 }
 
 .btn-outline {
@@ -933,6 +950,55 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   background: linear-gradient(90deg, var(--accent-yellow), var(--navy));
   width: 0%;
   transition: width 0.1s ease;
+}
+
+/* Enhanced Button Effects */
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(249, 229, 71, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(249, 229, 71, 0);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.btn-primary:active {
+  animation: buttonPulse 0.6s ease-out;
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shimmerEffect 2s infinite;
+}
+
+/* Enhanced Hover Effects for Interactive Elements */
+.interactive-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* Enhanced Animations and Effects */
