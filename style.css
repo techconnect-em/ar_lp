@@ -80,16 +80,16 @@ html {
 body {
   font-family: 'Noto Sans JP', sans-serif;
   line-height: 1.6;
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="%23F9E547" stroke="%232B4570" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="%232B4570"/></svg>'), auto;
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iOCIgZmlsbD0iI0Y5RTU0NyIgc3Ryb2tlPSIjMkI0NTcwIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMiIgZmlsbD0iIzJCNDU3MCIvPgo8L3N2Zz4=') 12 12, auto;
 }
 
 /* Custom Cursor Styles */
 a, button, .cursor-pointer {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" fill="%23F9E547" stroke="%232B4570" stroke-width="2"/><circle cx="14" cy="14" r="3" fill="%232B4570"/><circle cx="14" cy="14" r="8" fill="none" stroke="%23F9E547" stroke-width="1" opacity="0.5"/></svg>'), pointer;
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjgiIGhlaWdodD0iMjgiIHZpZXdCb3g9IjAgMCAyOCAyOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iMTAiIGZpbGw9IiNGOUU1NDciIHN0cm9rZT0iIzJCNDU3MCIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjE0IiBjeT0iMTQiIHI9IjMiIGZpbGw9IiMyQjQ1NzAiLz4KPGNpcmNsZSBjeD0iMTQiIGN5PSIxNCIgcj0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjlFNTQ3IiBzdHJva2Utd2lkdGg9IjEiIG9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4=') 14 14, pointer;
 }
 
 input, textarea, select {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="10" y="4" width="4" height="16" fill="%232B4570"/><rect x="8" y="6" width="8" height="2" fill="%23F9E547"/><rect x="8" y="16" width="8" height="2" fill="%23F9E547"/></svg>'), text;
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iMTAiIHk9IjQiIHdpZHRoPSI0IiBoZWlnaHQ9IjE2IiBmaWxsPSIjMkI0NTcwIi8+CjxyZWN0IHg9IjgiIHk9IjYiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiIGZpbGw9IiNGOUU1NDciLz4KPHJlY3QgeD0iOCIgeT0iMTYiIHdpZHRoPSI4IiBoZWlnaHQ9IjIiIGZpbGw9IiNGOUU1NDciLz4KPC9zdmc+') 12 12, text;
 }
 
 /* Enhanced Custom Components */
@@ -950,6 +950,23 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
   background: linear-gradient(90deg, var(--accent-yellow), var(--navy));
   width: 0%;
   transition: width 0.1s ease;
+}
+
+/* Specific Button Hover Effects */
+.nav-contact-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(249, 229, 71, 0.4);
+}
+
+.bg-accent-yellow:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(249, 229, 71, 0.5);
+  filter: brightness(1.1);
+}
+
+.bg-slate-800:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Enhanced Button Effects */
