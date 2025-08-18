@@ -632,13 +632,24 @@
     <section id="cases" class="py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-navy" data-aos="fade-up">
-                導入事例
+                制作実績
             </h2>
             
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="case-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-500">AR名刺デモ画像</span>
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                        <video class="w-full h-full object-cover" preload="metadata" muted>
+                            <source src="assets/ARmeishi.mov" type="video/quicktime">
+                            <source src="assets/ARmeishi.mov" type="video/mp4">
+                            <span class="text-white">動画を読み込めません</span>
+                        </video>
+                        <button class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group" onclick="playVideo(this)">
+                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </button>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-navy">AR名刺</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">営業活動での差別化に成功。初回訪問時のインパクトで商談成約率が30%向上。</p>
@@ -649,20 +660,33 @@
                 </div>
                 
                 <div class="case-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-500">商品カタログデモ画像</span>
+                    <div class="aspect-video bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                        <video class="w-full h-full object-cover" preload="metadata" muted>
+                            <source src="assets/ARCD.mp4" type="video/mp4">
+                            <span class="text-white">動画を読み込めません</span>
+                        </video>
+                        <button class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group" onclick="playVideo(this)">
+                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <svg class="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </button>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-navy">商品カタログ</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">製品の使い方を3Dで表現。顧客理解度の向上により、問い合わせ件数が50%増加。</p>
+                    <h3 class="text-xl font-bold mb-3 text-navy">AR CD</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">CDジャケットからアーティストの3Dモデルが飛び出すAR体験。音楽と映像の新しい楽しみ方を提供。</p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tag">製造業</span>
-                        <span class="tag">BtoB</span>
+                        <span class="tag">エンタメ</span>
+                        <span class="tag">音楽</span>
                     </div>
                 </div>
                 
                 <div class="case-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center">
-                        <span class="text-gray-500">文化財ARデモ画像</span>
+                    <div class="aspect-video bg-gray-200 rounded-lg mb-6 flex items-center justify-center relative">
+                        <div class="text-center">
+                            <div class="text-4xl mb-2">🚀</div>
+                            <span class="text-gray-500 font-medium">Coming Soon</span>
+                        </div>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-navy">文化財AR</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">歴史的建造物の復元をARで表現。観光客満足度向上とSNS拡散効果を実現。</p>
@@ -1293,6 +1317,32 @@
             }
             
             console.log('✅ Basic functionality initialized');
+        }
+        
+        // Video playback functionality
+        function playVideo(button) {
+            const video = button.parentElement.querySelector('video');
+            if (video) {
+                if (video.paused) {
+                    video.play();
+                    button.style.display = 'none';
+                    
+                    // Show button again when video ends
+                    video.addEventListener('ended', () => {
+                        button.style.display = 'flex';
+                        video.currentTime = 0;
+                    }, { once: true });
+                    
+                    // Allow clicking video to pause and show button
+                    video.addEventListener('click', () => {
+                        video.pause();
+                        button.style.display = 'flex';
+                    });
+                } else {
+                    video.pause();
+                    button.style.display = 'flex';
+                }
+            }
         }
         
         // Window resize
