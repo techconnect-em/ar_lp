@@ -1086,8 +1086,11 @@
     </section>
 
     <!-- About Me Section -->
-    <section id="about-me" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
+    <section id="about-me" class="py-16 bg-gray-50 relative overflow-hidden">
+        <!-- 3D Animation Canvas -->
+        <canvas id="aboutme-canvas" class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 1;"></canvas>
+        
+        <div class="container mx-auto px-4 relative" style="z-index: 2;">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-navy" data-aos="fade-up">
                     About Me
@@ -1096,10 +1099,22 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <!-- Profile Image -->
                     <div class="flex justify-center" data-aos="fade-right">
-                        <div class="w-64 h-64 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 p-1">
-                            <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                                <div class="text-6xl">👨‍💻</div>
+                        <div class="relative group">
+                            <!-- Floating AR Icons -->
+                            <div class="floating-ar-icon floating-ar-icon-1 absolute -top-4 -right-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl">📱</div>
+                            <div class="floating-ar-icon floating-ar-icon-2 absolute top-8 -left-6 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-xl">🎯</div>
+                            <div class="floating-ar-icon floating-ar-icon-3 absolute -bottom-2 -left-4 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl">✨</div>
+                            <div class="floating-ar-icon floating-ar-icon-4 absolute -bottom-4 right-8 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-xl">💫</div>
+                            
+                            <!-- Main Profile Circle -->
+                            <div class="w-64 h-64 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl profile-circle">
+                                <div class="w-full h-full rounded-full bg-gray-200 flex items-center justify-center transition-all duration-300 group-hover:bg-gray-100">
+                                    <div class="text-6xl transition-transform duration-300 group-hover:scale-110">👨‍💻</div>
+                                </div>
                             </div>
+                            
+                            <!-- Pulsing Ring -->
+                            <div class="absolute inset-0 w-64 h-64 rounded-full border-4 border-blue-400 opacity-30 pulse-ring"></div>
                         </div>
                     </div>
                     
@@ -1200,6 +1215,9 @@
             
             // Initialize AR popup
             initArPopup();
+            
+            // Initialize About Me 3D animation
+            initAboutMe3D();
             
             // Show loading screen
             const loadingScreen = document.getElementById('loading-screen');
@@ -1422,10 +1440,139 @@
             }
         }
         
+        // About Me 3D Animation System
+        let aboutMeParticleSystem = null;
+        
+        function initAboutMe3D() {
+            const canvas = document.getElementById('aboutme-canvas');
+            if (!canvas || !window.THREE) {
+                console.log('About Me 3D: Canvas or THREE.js not available');
+                return;
+            }
+
+            try {
+                // Scene setup
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+                
+                renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                
+                // Subtle floating particles
+                const particleGeometry = new THREE.BufferGeometry();
+                const particleCount = 50; // Much fewer than hero section
+                const positions = new Float32Array(particleCount * 3);
+                const colors = new Float32Array(particleCount * 3);
+                const sizes = new Float32Array(particleCount);
+                
+                for (let i = 0; i < particleCount; i++) {
+                    positions[i * 3] = (Math.random() - 0.5) * 15;
+                    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+                    positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
+                    
+                    // Soft colors - blue, purple, pink
+                    const colorChoice = Math.random();
+                    if (colorChoice < 0.33) {
+                        colors[i * 3] = 0.3 + Math.random() * 0.4; // R
+                        colors[i * 3 + 1] = 0.6 + Math.random() * 0.4; // G
+                        colors[i * 3 + 2] = 1; // B (blue tones)
+                    } else if (colorChoice < 0.66) {
+                        colors[i * 3] = 0.6 + Math.random() * 0.4; // R
+                        colors[i * 3 + 1] = 0.3 + Math.random() * 0.4; // G
+                        colors[i * 3 + 2] = 1; // B (purple tones)
+                    } else {
+                        colors[i * 3] = 1; // R
+                        colors[i * 3 + 1] = 0.4 + Math.random() * 0.3; // G
+                        colors[i * 3 + 2] = 0.7 + Math.random() * 0.3; // B (pink tones)
+                    }
+                    
+                    sizes[i] = Math.random() * 3 + 1;
+                }
+                
+                particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+                particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+                particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+                
+                const particleMaterial = new THREE.ShaderMaterial({
+                    transparent: true,
+                    vertexColors: true,
+                    vertexShader: `
+                        attribute float size;
+                        varying vec3 vColor;
+                        varying float vOpacity;
+                        void main() {
+                            vColor = color;
+                            vOpacity = 0.6;
+                            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                            gl_Position = projectionMatrix * mvPosition;
+                            gl_PointSize = size * (300.0 / -mvPosition.z);
+                        }
+                    `,
+                    fragmentShader: `
+                        varying vec3 vColor;
+                        varying float vOpacity;
+                        void main() {
+                            float dist = distance(gl_PointCoord, vec2(0.5));
+                            if (dist > 0.5) discard;
+                            float opacity = vOpacity * (1.0 - dist * 2.0);
+                            gl_FragColor = vec4(vColor, opacity);
+                        }
+                    `
+                });
+                
+                const particles = new THREE.Points(particleGeometry, particleMaterial);
+                scene.add(particles);
+                
+                camera.position.z = 8;
+                
+                // Animation loop
+                let time = 0;
+                function animate() {
+                    requestAnimationFrame(animate);
+                    time += 0.005; // Much slower than hero
+                    
+                    const positions = particleGeometry.attributes.position.array;
+                    for (let i = 0; i < particleCount; i++) {
+                        const i3 = i * 3;
+                        // Gentle floating motion
+                        positions[i3 + 1] += Math.sin(time + i * 0.3) * 0.002;
+                        positions[i3] += Math.cos(time + i * 0.2) * 0.001;
+                    }
+                    
+                    particleGeometry.attributes.position.needsUpdate = true;
+                    particles.rotation.y += 0.001;
+                    
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+                
+                // Resize handler
+                const onResize = () => {
+                    const rect = canvas.getBoundingClientRect();
+                    camera.aspect = rect.width / rect.height;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(rect.width, rect.height);
+                };
+                
+                window.addEventListener('resize', onResize);
+                
+                aboutMeParticleSystem = { scene, camera, renderer, onResize };
+                console.log('✅ About Me 3D animation initialized');
+                
+            } catch (error) {
+                console.error('About Me 3D initialization failed:', error);
+            }
+        }
+        
         // Window resize
         window.addEventListener('resize', () => {
             if (particleSystem && particleSystem.onWindowResize) {
                 particleSystem.onWindowResize();
+            }
+            if (aboutMeParticleSystem && aboutMeParticleSystem.onResize) {
+                aboutMeParticleSystem.onResize();
             }
         });
         
