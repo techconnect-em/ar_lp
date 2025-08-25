@@ -168,53 +168,6 @@
         
         /* クリーンアップ済み - 不要なエフェクトを削除してボタンの可読性を向上 */
         
-        /* おしゃれなスクロール矢印 */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-        }
-        
-        .scroll-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 12px;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-align: center;
-            font-weight: 300;
-        }
-        
-        .scroll-arrow {
-            width: 1px;
-            height: 60px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, 
-                rgba(249, 229, 71, 0.8) 50%, 
-                transparent 100%);
-            margin: 0 auto;
-            position: relative;
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-        
-        .scroll-arrow::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 8px solid rgba(249, 229, 71, 0.8);
-        }
-        
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.6; transform: translateY(0); }
-            50% { opacity: 1; transform: translateY(10px); }
-        }
         
         /* ヘッダーメニュー位置調整 */
         .header-nav {
@@ -377,12 +330,6 @@
                 </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- おしゃれなスクロールインジケーター -->
-        <div class="scroll-indicator">
-            <div class="scroll-text">SCROLL</div>
-            <div class="scroll-arrow"></div>
         </div>
         
     </section>
