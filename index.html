@@ -588,18 +588,14 @@
             
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="case-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="aspect-[3/4] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                        <video class="w-full h-full object-cover" preload="metadata" muted>
-                            <source src="assets/ARmeishi.mp4" type="video/mp4">
-                            <span class="text-white">動画を読み込めません</span>
-                        </video>
-                        <button class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group" onclick="playVideo(this)">
-                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </button>
+                    <div class="aspect-[9/16] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                        <iframe class="w-full h-full rounded-lg" 
+                                src="https://www.youtube.com/embed/ekIf83xyv1Q" 
+                                title="AR名刺デモ - Tech Connect"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-navy">AR名刺</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">営業活動での差別化に成功。初回訪問時のインパクトで商談成約率が向上。</p>
@@ -610,18 +606,14 @@
                 </div>
                 
                 <div class="case-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="aspect-[3/4] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                        <video class="w-full h-full object-cover" preload="metadata" muted>
-                            <source src="assets/ARCD.mp4" type="video/mp4">
-                            <span class="text-white">動画を読み込めません</span>
-                        </video>
-                        <button class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group" onclick="playVideo(this)">
-                            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                                <svg class="w-8 h-8 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </div>
-                        </button>
+                    <div class="aspect-[9/16] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
+                        <iframe class="w-full h-full rounded-lg" 
+                                src="https://www.youtube.com/embed/bS-VoyHnkRE" 
+                                title="ARカードデモ - Tech Connect"
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                allowfullscreen>
+                        </iframe>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-navy">AR CD</h3>
                     <p class="text-gray-600 mb-6 leading-relaxed">CDジャケットを移すと音楽や動画、3Dモデルが飛び出すAR体験。音楽と映像の新しい楽しみ方を提供します。</p>
@@ -1380,31 +1372,6 @@
             console.log('✅ Basic functionality initialized');
         }
         
-        // Video playback functionality
-        function playVideo(button) {
-            const video = button.parentElement.querySelector('video');
-            if (video) {
-                if (video.paused) {
-                    video.play();
-                    button.style.display = 'none';
-                    
-                    // Show button again when video ends
-                    video.addEventListener('ended', () => {
-                        button.style.display = 'flex';
-                        video.currentTime = 0;
-                    }, { once: true });
-                    
-                    // Allow clicking video to pause and show button
-                    video.addEventListener('click', () => {
-                        video.pause();
-                        button.style.display = 'flex';
-                    });
-                } else {
-                    video.pause();
-                    button.style.display = 'flex';
-                }
-            }
-        }
         
         // About Me 3D Animation System
         let aboutMeParticleSystem = null;
