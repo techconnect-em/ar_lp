@@ -300,7 +300,7 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mt-4 pb-4" style="display: none;">
+            <div id="mobile-menu" class="mt-4 pb-4">
                 <a href="#about" class="block py-2 text-gray-700 hover:text-navy">サービス</a>
                 <a href="#cases" class="block py-2 text-gray-700 hover:text-navy">事例</a>
                 <a href="#pricing" class="block py-2 text-gray-700 hover:text-navy">料金</a>
@@ -1298,99 +1298,21 @@
                 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
                 const mobileMenu = document.getElementById('mobile-menu');
                 
-                console.log('Mobile menu button found:', !!mobileMenuBtn);
-                console.log('Mobile menu found:', !!mobileMenu);
-                
-                if (mobileMenuBtn) {
-                    const btnStyle = window.getComputedStyle(mobileMenuBtn);
-                    console.log('Button display:', btnStyle.display);
-                    console.log('Button visibility:', btnStyle.visibility);
-                }
-                
                 if (mobileMenuBtn && mobileMenu) {
                     mobileMenuBtn.addEventListener('click', function(e) {
                         e.preventDefault();
-                        e.stopPropagation();
                         
-                        try {
-                            const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '' || mobileMenu.style.display === 'none !important';
-                            
-                            if (isHidden) {
-                                // Complete rebuild approach
-                                const menuLinks = mobileMenu.querySelectorAll('a');
-                                console.log('Found menu links:', menuLinks.length);
-                                
-                                // Collect menu data
-                                const menuData = [];
-                                menuLinks.forEach((link, index) => {
-                                    console.log('Styling link', index, ':', link.textContent);
-                                    menuData.push({
-                                        text: link.textContent.trim(),
-                                        href: link.getAttribute('href'),
-                                        target: link.getAttribute('target')
-                                    });
-                                });
-                                
-                                // Completely rebuild menu HTML
-                                let menuHTML = '';
-                                menuData.forEach((item, index) => {
-                                    const targetAttr = item.target ? `target="${item.target}" rel="noopener noreferrer"` : '';
-                                    menuHTML += `
-                                        <div style="
-                                            display: block !important;
-                                            padding: 16px !important;
-                                            border-bottom: 1px solid #ddd !important;
-                                            background: white !important;
-                                            margin: 0 !important;
-                                        ">
-                                            <a href="${item.href}" ${targetAttr} style="
-                                                display: block !important;
-                                                color: #000000 !important;
-                                                font-size: 18px !important;
-                                                font-weight: 600 !important;
-                                                text-decoration: none !important;
-                                                font-family: Arial, sans-serif !important;
-                                                line-height: 1.4 !important;
-                                                padding: 8px 0 !important;
-                                            ">${item.text}</a>
-                                        </div>
-                                    `;
-                                });
-                                
-                                // Set menu container style and HTML
-                                mobileMenu.style.cssText = `
-                                    display: block !important;
-                                    visibility: visible !important;
-                                    opacity: 1 !important;
-                                    position: relative !important;
-                                    z-index: 999 !important;
-                                    background: white !important;
-                                    border: 2px solid #000000 !important;
-                                    border-radius: 8px !important;
-                                    margin-top: 1rem !important;
-                                    padding: 0 !important;
-                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
-                                    width: 100% !important;
-                                    max-width: 100% !important;
-                                `;
-                                
-                                mobileMenu.innerHTML = menuHTML;
-                                console.log('Menu rebuilt with HTML:', menuHTML);
+                        // Toggle the 'show' class
+                        mobileMenu.classList.toggle('show');
+                        
+                        // Update hamburger icon
+                        const icon = mobileMenuBtn.querySelector('svg path');
+                        if (icon) {
+                            if (mobileMenu.classList.contains('show')) {
+                                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
                             } else {
-                                mobileMenu.style.cssText = 'display: none !important;';
+                                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
                             }
-                            
-                            // Update hamburger icon
-                            const icon = mobileMenuBtn.querySelector('svg path');
-                            if (icon) {
-                                if (isHidden) {
-                                    icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
-                                } else {
-                                    icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
-                                }
-                            }
-                        } catch (iconError) {
-                            // Silently handle icon errors
                         }
                     });
                 }
