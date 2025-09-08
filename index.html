@@ -300,7 +300,7 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden mt-4 pb-4" style="display: none;">
+            <div id="mobile-menu" class="mt-4 pb-4 block md:hidden" style="display: none;">
                 <a href="#about" class="block py-2 text-gray-700 hover:text-navy">サービス</a>
                 <a href="#cases" class="block py-2 text-gray-700 hover:text-navy">事例</a>
                 <a href="#pricing" class="block py-2 text-gray-700 hover:text-navy">料金</a>
@@ -1305,15 +1305,21 @@
                         console.log('Mobile menu clicked');
                         
                         try {
-                            const isHidden = mobileMenu.style.display === 'none';
+                            const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '' || mobileMenu.style.display === 'none !important';
                             console.log('Menu currently hidden:', isHidden);
+                            console.log('Menu style.display:', mobileMenu.style.display);
+                            console.log('Menu computed style display:', window.getComputedStyle(mobileMenu).display);
                             
                             if (isHidden) {
-                                mobileMenu.style.display = 'block';
-                                console.log('Menu shown - display set to block');
+                                mobileMenu.style.cssText = 'display: block !important;';
+                                mobileMenu.style.visibility = 'visible';
+                                mobileMenu.style.opacity = '1';
+                                console.log('Menu shown - display set to block with !important');
                             } else {
-                                mobileMenu.style.display = 'none';
-                                console.log('Menu hidden - display set to none');
+                                mobileMenu.style.cssText = 'display: none !important;';
+                                mobileMenu.style.visibility = 'hidden';
+                                mobileMenu.style.opacity = '0';
+                                console.log('Menu hidden - display set to none with !important');
                             }
                             
                             // Update hamburger icon
