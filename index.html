@@ -292,7 +292,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="p-2 touch-manipulation block md:hidden" style="min-width: 44px; min-height: 44px;">
+                <button id="mobile-menu-btn" class="p-2 touch-manipulation block md:hidden" style="min-width: 44px; min-height: 44px; position: relative; z-index: 1000;">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -1292,8 +1292,20 @@
         function initBasicFunctionality() {
             // Mobile menu with improved error handling
             try {
+                console.log('Window width:', window.innerWidth);
+                console.log('Window height:', window.innerHeight);
+                
                 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
                 const mobileMenu = document.getElementById('mobile-menu');
+                
+                console.log('Mobile menu button found:', !!mobileMenuBtn);
+                console.log('Mobile menu found:', !!mobileMenu);
+                
+                if (mobileMenuBtn) {
+                    const btnStyle = window.getComputedStyle(mobileMenuBtn);
+                    console.log('Button display:', btnStyle.display);
+                    console.log('Button visibility:', btnStyle.visibility);
+                }
                 
                 if (mobileMenuBtn && mobileMenu) {
                     mobileMenuBtn.addEventListener('click', function(e) {
