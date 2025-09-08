@@ -14,7 +14,7 @@
     <meta property="og:description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://techconnect-em.com">
-    <meta property="og:image" content="https://techconnect-em.com/assets/OGP%E7%94%BB%E5%83%8F.png">
+    <meta property="og:image" content="https://techconnect-em.com/assets/ogp-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
@@ -22,7 +22,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ARマーケティング｜Tech Connect - 拡張現実で差別化を">
     <meta name="twitter:description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。">
-    <meta name="twitter:image" content="https://techconnect-em.com/assets/OGP%E7%94%BB%E5%83%8F.png">
+    <meta name="twitter:image" content="https://techconnect-em.com/assets/ogp-image.png">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -292,7 +292,7 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden">
+                <button id="mobile-menu-btn" class="md:hidden p-2 touch-manipulation" style="min-width: 44px; min-height: 44px;">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -300,7 +300,7 @@
             </div>
             
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+            <div id="mobile-menu" class="md:hidden mt-4 pb-4" style="display: none;">
                 <a href="#about" class="block py-2 text-gray-700 hover:text-navy">サービス</a>
                 <a href="#cases" class="block py-2 text-gray-700 hover:text-navy">事例</a>
                 <a href="#pricing" class="block py-2 text-gray-700 hover:text-navy">料金</a>
@@ -1214,6 +1214,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('🚀 Main site loading...');
             
+            // Initialize basic functionality first (including mobile menu)
+            initBasicFunctionality();
+            
             // Initialize custom cursor
             initCustomCursor();
             
@@ -1269,9 +1272,6 @@
                 console.error('❌ Error creating particles:', error);
             }
             
-            // Initialize basic functionality
-            initBasicFunctionality();
-            
             // Hide loading screen
             setTimeout(() => {
                 hideLoadingScreen();
@@ -1290,27 +1290,51 @@
         }
         
         function initBasicFunctionality() {
-            // Mobile menu
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    const isHidden = mobileMenu.classList.contains('hidden');
-                    
-                    if (isHidden) {
-                        mobileMenu.classList.remove('hidden');
-                    } else {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    const icon = mobileMenuBtn.querySelector('svg path');
-                    if (isHidden) {
-                        icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-                    } else {
-                        icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-                    }
-                });
+            // Mobile menu with improved error handling
+            try {
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+                
+                console.log('Mobile menu elements found:', !!mobileMenuBtn, !!mobileMenu);
+                
+                if (mobileMenuBtn && mobileMenu) {
+                    mobileMenuBtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        console.log('Mobile menu clicked');
+                        
+                        try {
+                            const isHidden = mobileMenu.style.display === 'none';
+                            console.log('Menu currently hidden:', isHidden);
+                            
+                            if (isHidden) {
+                                mobileMenu.style.display = 'block';
+                                console.log('Menu shown - display set to block');
+                            } else {
+                                mobileMenu.style.display = 'none';
+                                console.log('Menu hidden - display set to none');
+                            }
+                            
+                            // Update hamburger icon
+                            const icon = mobileMenuBtn.querySelector('svg path');
+                            if (icon) {
+                                if (isHidden) {
+                                    icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+                                } else {
+                                    icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+                                }
+                            }
+                        } catch (iconError) {
+                            console.error('Error toggling menu:', iconError);
+                        }
+                    });
+                    console.log('Mobile menu event listener attached successfully');
+                } else {
+                    console.error('Mobile menu elements not found');
+                }
+            } catch (error) {
+                console.error('Error initializing mobile menu:', error);
             }
             
             // Smooth scrolling
