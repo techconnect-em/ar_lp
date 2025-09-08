@@ -1295,20 +1295,13 @@
                 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
                 const mobileMenu = document.getElementById('mobile-menu');
                 
-                console.log('Mobile menu elements found:', !!mobileMenuBtn, !!mobileMenu);
-                
                 if (mobileMenuBtn && mobileMenu) {
                     mobileMenuBtn.addEventListener('click', function(e) {
                         e.preventDefault();
                         e.stopPropagation();
                         
-                        console.log('Mobile menu clicked');
-                        
                         try {
                             const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '' || mobileMenu.style.display === 'none !important';
-                            console.log('Menu currently hidden:', isHidden);
-                            console.log('Menu style.display:', mobileMenu.style.display);
-                            console.log('Menu computed style display:', window.getComputedStyle(mobileMenu).display);
                             
                             if (isHidden) {
                                 // Complete CSS override
@@ -1322,12 +1315,11 @@
                                     border: 1px solid #e5e5e5 !important;
                                     border-radius: 8px !important;
                                     margin-top: 1rem !important;
-                                    padding-bottom: 1rem !important;
+                                    padding: 1rem !important;
+                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
                                 `;
-                                console.log('Menu shown - complete CSS override applied');
                             } else {
                                 mobileMenu.style.cssText = 'display: none !important;';
-                                console.log('Menu hidden - display set to none with !important');
                             }
                             
                             // Update hamburger icon
@@ -1340,12 +1332,9 @@
                                 }
                             }
                         } catch (iconError) {
-                            console.error('Error toggling menu:', iconError);
+                            // Silently handle icon errors
                         }
                     });
-                    console.log('Mobile menu event listener attached successfully');
-                } else {
-                    console.error('Mobile menu elements not found');
                 }
             } catch (error) {
                 console.error('Error initializing mobile menu:', error);
