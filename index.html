@@ -1316,7 +1316,48 @@
                             const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '' || mobileMenu.style.display === 'none !important';
                             
                             if (isHidden) {
-                                // Complete CSS override
+                                // Complete rebuild approach
+                                const menuLinks = mobileMenu.querySelectorAll('a');
+                                console.log('Found menu links:', menuLinks.length);
+                                
+                                // Collect menu data
+                                const menuData = [];
+                                menuLinks.forEach((link, index) => {
+                                    console.log('Styling link', index, ':', link.textContent);
+                                    menuData.push({
+                                        text: link.textContent.trim(),
+                                        href: link.getAttribute('href'),
+                                        target: link.getAttribute('target')
+                                    });
+                                });
+                                
+                                // Completely rebuild menu HTML
+                                let menuHTML = '';
+                                menuData.forEach((item, index) => {
+                                    const targetAttr = item.target ? `target="${item.target}" rel="noopener noreferrer"` : '';
+                                    menuHTML += `
+                                        <div style="
+                                            display: block !important;
+                                            padding: 16px !important;
+                                            border-bottom: 1px solid #ddd !important;
+                                            background: white !important;
+                                            margin: 0 !important;
+                                        ">
+                                            <a href="${item.href}" ${targetAttr} style="
+                                                display: block !important;
+                                                color: #000000 !important;
+                                                font-size: 18px !important;
+                                                font-weight: 600 !important;
+                                                text-decoration: none !important;
+                                                font-family: Arial, sans-serif !important;
+                                                line-height: 1.4 !important;
+                                                padding: 8px 0 !important;
+                                            ">${item.text}</a>
+                                        </div>
+                                    `;
+                                });
+                                
+                                // Set menu container style and HTML
                                 mobileMenu.style.cssText = `
                                     display: block !important;
                                     visibility: visible !important;
@@ -1324,59 +1365,17 @@
                                     position: relative !important;
                                     z-index: 999 !important;
                                     background: white !important;
-                                    border: 1px solid #e5e5e5 !important;
+                                    border: 2px solid #000000 !important;
                                     border-radius: 8px !important;
                                     margin-top: 1rem !important;
-                                    padding: 1rem !important;
-                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+                                    padding: 0 !important;
+                                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+                                    width: 100% !important;
+                                    max-width: 100% !important;
                                 `;
                                 
-                                // Style menu items with extreme overrides
-                                const menuLinks = mobileMenu.querySelectorAll('a');
-                                console.log('Found menu links:', menuLinks.length);
-                                
-                                menuLinks.forEach((link, index) => {
-                                    console.log('Styling link', index, ':', link.textContent);
-                                    
-                                    // Complete style override
-                                    link.style.cssText = `
-                                        display: block !important;
-                                        visibility: visible !important;
-                                        opacity: 1 !important;
-                                        padding: 12px 16px !important;
-                                        margin: 0 !important;
-                                        color: #000000 !important;
-                                        background-color: transparent !important;
-                                        text-decoration: none !important;
-                                        border-bottom: 1px solid #e0e0e0 !important;
-                                        font-family: 'Noto Sans JP', sans-serif !important;
-                                        font-size: 18px !important;
-                                        font-weight: 600 !important;
-                                        line-height: 1.5 !important;
-                                        text-align: left !important;
-                                        width: 100% !important;
-                                        height: auto !important;
-                                        min-height: 48px !important;
-                                        box-sizing: border-box !important;
-                                        white-space: normal !important;
-                                        overflow: visible !important;
-                                        z-index: 1001 !important;
-                                        position: relative !important;
-                                    `;
-                                    
-                                    // Force text visibility
-                                    if (link.textContent) {
-                                        link.innerHTML = `<span style="color: #000000 !important; font-size: 18px !important; font-weight: 600 !important;">${link.textContent}</span>`;
-                                    }
-                                    
-                                    // Add hover effect
-                                    link.addEventListener('mouseenter', function() {
-                                        this.style.backgroundColor = '#f0f0f0 !important';
-                                    });
-                                    link.addEventListener('mouseleave', function() {
-                                        this.style.backgroundColor = 'transparent !important';
-                                    });
-                                });
+                                mobileMenu.innerHTML = menuHTML;
+                                console.log('Menu rebuilt with HTML:', menuHTML);
                             } else {
                                 mobileMenu.style.cssText = 'display: none !important;';
                             }
