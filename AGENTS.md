@@ -27,3 +27,6 @@
 - Follow the repo convention: imperative, sentence-case commit subjects (e.g., `Improve hero particle density`).
 - Each PR should describe motivation, summarize UI/UX changes, and attach before/after screenshots for visible updates.
 - Link relevant issue or task IDs and list browsers/devices used during manual QA; flag any skipped checks explicitly.
+
+## Recent Agent Notes
+- 2024-10-18: Updated pricing section to two-plan structure with refined copy, removed PalanAR references, and introduced premium styling (badges, animations) aligning with overall LP design. Added AR marker guidance in notes.
