@@ -14,10 +14,10 @@
   background-attachment: fixed;
 }
 
-/* Tailwind CSS Configuration */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/* Tailwind CSS Configuration
+   Note: Tailwind is loaded via CDN in index.html. 
+   These imports are not needed for the runtime but kept as reference for the utility classes used.
+*/
 
 /* Custom CSS Variables */
 :root {

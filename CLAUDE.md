@@ -43,9 +43,14 @@ This is an AR (Augmented Reality) marketing landing page for Tech Connect, a ser
 ## Business Context
 
 ### Service Tiers (Pricing Section)
-1. **Simple AR Start**: ¥10,000 - Uses PalanAR free plan, includes credit display
-2. **Original AR**: ¥15,000 - Template-based with no credit display  
-3. **Custom Made**: Quote-based - Full custom development
+### Service Tiers (Pricing Section)
+1. **STANDARD PACKAGE**: Normal ¥25,000 (Special Campaign: ¥15,000)
+   - Includes marker registration, material placement, testing, and 6 months server maintenance.
+2. **Maintenance Plans** (after initial 6 months):
+   - **Light**: ¥800/month - Hosting only
+   - **Standard**: ¥5,000/month - Hosting + minor updates + support
+   - **Premium**: ¥10,000/month - Hosting + updates (x2) + priority support + reports
+3. **Spot Menu**: One-time fixes/reports for non-subscribers
 
 ### PalanAR Integration
 - Tech Connect is a PalanAR certified partner
