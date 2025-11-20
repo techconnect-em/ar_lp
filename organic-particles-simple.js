@@ -39,9 +39,9 @@ class OrganicParticleSystem {
 
     getOptimalParticleCount() {
         const width = window.innerWidth;
-        if (width < 640) return 5000;      // Mobile
-        if (width <= 1024) return 10000;   // Tablet
-        return 20000;                      // Desktop
+        if (width < 640) return 10000;     // Mobile
+        if (width <= 1024) return 30000;   // Tablet
+        return 60000;                      // Desktop (High density)
     }
 
     checkWebGLSupport() {
@@ -88,15 +88,18 @@ class OrganicParticleSystem {
     generateTextPositions(text) {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        const width = 200;
-        const height = 100;
+
+        // Massive canvas to ensure no clipping and high resolution curves
+        const width = 1024;
+        const height = 1024;
         canvas.width = width;
         canvas.height = height;
 
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, width, height);
 
-        ctx.font = 'bold 80px Arial'; // Bold font for density
+        // Huge font size for smooth curves
+        ctx.font = '900 500px "Inter", "Arial Black", sans-serif';
         ctx.fillStyle = '#ffffff';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -106,19 +109,91 @@ class OrganicParticleSystem {
         const data = imageData.data;
         const targets = [];
 
-        for (let y = 0; y < height; y += 2) { // Step 2 for density control
-            for (let x = 0; x < width; x += 2) {
+        // Step 5 to ensure we don't exceed particle count too much
+        const step = 5;
+
+        for (let y = 0; y < height; y += step) {
+            for (let x = 0; x < width; x += step) {
                 const index = (y * width + x) * 4;
-                if (data[index] > 128) { // If pixel is bright enough
+                if (data[index] > 128) {
                     // Map 2D canvas to 3D world space
-                    // Center the text
-                    const posX = (x - width / 2) * 0.5;
-                    const posY = -(y - height / 2) * 0.5;
+                    // Scale calculation:
+                    // Canvas width 1024. Target 3D width ~60 units.
+                    // 60 / 1024 = 0.058
+                    const scale = 0.06;
+                    const posX = (x - width / 2) * scale;
+                    const posY = -(y - height / 2) * scale;
+
+                    // Position at Z=0
                     targets.push(new THREE.Vector3(posX, posY, 0));
                 }
             }
         }
+
+        // Shuffle targets to prevent "bottom cut off" if we have more targets than particles
+        // Fisher-Yates Shuffle
+        for (let i = targets.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [targets[i], targets[j]] = [targets[j], targets[i]];
+        }
+
         return targets;
+    }
+
+    animate() {
+        if (!this.isRunning) return;
+
+        this.animationId = requestAnimationFrame(this.animate.bind(this));
+
+        this.time += 0.01;
+
+        // Morph Cycle Logic
+        const cycle = this.time % 10.0;
+        let targetMorph = 0;
+
+        if (cycle > 4.0 && cycle < 9.0) {
+            targetMorph = 1; // Form text
+        } else {
+            targetMorph = 0; // Chaos
+        }
+
+        // Smoothly interpolate current uMorph towards targetMorph
+        const currentMorph = this.material.uniforms.uMorph.value;
+        this.material.uniforms.uMorph.value += (targetMorph - currentMorph) * 0.02;
+
+        // Update uniforms
+        if (this.material) {
+            this.material.uniforms.uTime.value = this.time;
+
+            // Smooth mouse interpolation
+            const currentMouse = this.material.uniforms.uMouse.value;
+            currentMouse.x += (this.mouseX - currentMouse.x) * 0.05;
+            currentMouse.y += (this.mouseY - currentMouse.y) * 0.05;
+        }
+
+        // Rotation Logic: Face front when text is formed
+        if (this.particles) {
+            const morph = this.material.uniforms.uMorph.value;
+
+            if (morph < 0.2) {
+                // Chaos mode: Continuous rotation
+                this.particles.rotation.y += 0.002;
+                // Keep rotation within 0-2PI range to avoid long spins
+                this.particles.rotation.y = this.particles.rotation.y % (Math.PI * 2);
+            } else {
+                // Text mode: Rotate towards 0 (Front)
+                // Find shortest path to 0
+                let currentRot = this.particles.rotation.y;
+                // Normalize to -PI...PI
+                if (currentRot > Math.PI) currentRot -= Math.PI * 2;
+                if (currentRot < -Math.PI) currentRot += Math.PI * 2;
+
+                // Smoothly interpolate to 0
+                this.particles.rotation.y = currentRot * 0.95;
+            }
+        }
+
+        this.renderer.render(this.scene, this.camera);
     }
 
     createParticles(textTargets) {
@@ -131,10 +206,11 @@ class OrganicParticleSystem {
         const colors = new Float32Array(this.particleCount * 3);
 
         const colorPalette = [
-            new THREE.Color('#fbbf24'), // Gold
-            new THREE.Color('#22d3ee'), // Cyan
+            new THREE.Color('#ffd700'), // Bright Gold
+            new THREE.Color('#00ffff'), // Bright Cyan
             new THREE.Color('#ffffff'), // White
-            new THREE.Color('#818cf8')  // Indigo
+            new THREE.Color('#a78bfa'), // Bright Indigo
+            new THREE.Color('#fbbf24')  // Amber
         ];
 
         for (let i = 0; i < this.particleCount; i++) {
@@ -154,10 +230,10 @@ class OrganicParticleSystem {
                 targetPos = new THREE.Vector3(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
             }
 
-            // Add some jitter to targets so they aren't perfectly grid-aligned
-            targets[i * 3] = targetPos.x + (Math.random() - 0.5) * 2;
-            targets[i * 3 + 1] = targetPos.y + (Math.random() - 0.5) * 2;
-            targets[i * 3 + 2] = targetPos.z + (Math.random() - 0.5) * 5; // Some depth in text
+            // Minimal jitter for sharp text
+            targets[i * 3] = targetPos.x + (Math.random() - 0.5) * 0.2;
+            targets[i * 3 + 1] = targetPos.y + (Math.random() - 0.5) * 0.2;
+            targets[i * 3 + 2] = targetPos.z + (Math.random() - 0.5) * 0.5;
 
             scales[i] = Math.random();
 
@@ -192,6 +268,7 @@ class OrganicParticleSystem {
 
                 varying vec3 vColor;
                 varying float vAlpha;
+                varying float vMorph;
 
                 // Simplex noise function (simplified)
                 vec3 mod289(vec3 x) { return x - floor(x * (1.0 / 289.0)) * 289.0; }
@@ -247,6 +324,7 @@ class OrganicParticleSystem {
 
                 void main() {
                     vColor = color;
+                    vMorph = uMorph;
 
                     // --- Chaos Position Logic ---
                     vec3 chaosPos = position;
@@ -257,9 +335,9 @@ class OrganicParticleSystem {
 
                     // --- Target Position Logic ---
                     vec3 targetPos = aTarget;
-                    // Add "swimming" noise to target position so they aren't static
+                    // Reduced noise amplitude for sharper text
                     float noise = snoise(vec3(targetPos.x * 0.1, targetPos.y * 0.1, uTime * 0.5));
-                    targetPos += vec3(noise * 0.5, noise * 0.5, noise * 2.0);
+                    targetPos += vec3(noise * 0.1, noise * 0.1, noise * 0.2);
 
                     // --- Morphing ---
                     // Smooth interpolation
@@ -275,8 +353,9 @@ class OrganicParticleSystem {
                     vec4 mvPosition = modelViewMatrix * vec4(finalPos, 1.0);
                     gl_Position = projectionMatrix * mvPosition;
 
-                    // Size
-                    gl_PointSize = (300.0 * aScale * uPixelRatio) * (1.0 / -mvPosition.z);
+                    // Size - Increased when text is formed for better coverage
+                    float sizeMultiplier = mix(400.0, 500.0, uMorph);
+                    gl_PointSize = (sizeMultiplier * aScale * uPixelRatio) * (1.0 / -mvPosition.z);
 
                     // Alpha
                     vAlpha = smoothstep(80.0, 0.0, -mvPosition.z);
@@ -285,13 +364,21 @@ class OrganicParticleSystem {
             fragmentShader: `
                 varying vec3 vColor;
                 varying float vAlpha;
+                varying float vMorph;
 
                 void main() {
                     float r = distance(gl_PointCoord, vec2(0.5));
                     if (r > 0.5) discard;
+                    
+                    // Enhanced glow effect - softer falloff for brighter appearance
                     float glow = 1.0 - (r * 2.0);
-                    glow = pow(glow, 1.5);
-                    gl_FragColor = vec4(vColor, vAlpha * glow);
+                    glow = pow(glow, 0.8);
+                    
+                    // Strong brightness boost when formed (text mode)
+                    float brightnessBoost = mix(1.0, 2.5, vMorph);
+                    vec3 finalColor = vColor * brightnessBoost;
+                    
+                    gl_FragColor = vec4(finalColor, vAlpha * glow);
                 }
             `,
             uniforms: {
@@ -339,51 +426,7 @@ class OrganicParticleSystem {
         this.material.uniforms.uPixelRatio.value = Math.min(window.devicePixelRatio, 2);
     }
 
-    animate() {
-        if (!this.isRunning) return;
 
-        this.animationId = requestAnimationFrame(this.animate.bind(this));
-
-        this.time += 0.01;
-
-        // Morph Cycle Logic
-        // Cycle every 10 seconds (approx)
-        // 0-4s: Chaos
-        // 4-5s: Transition to Text
-        // 5-9s: Text
-        // 9-10s: Transition to Chaos
-        const cycle = this.time % 10.0;
-        let targetMorph = 0;
-
-        if (cycle > 4.0 && cycle < 9.0) {
-            targetMorph = 1; // Form text
-        } else {
-            targetMorph = 0; // Chaos
-        }
-
-        // Smoothly interpolate current uMorph towards targetMorph
-        const currentMorph = this.material.uniforms.uMorph.value;
-        this.material.uniforms.uMorph.value += (targetMorph - currentMorph) * 0.02;
-
-        // Update uniforms
-        if (this.material) {
-            this.material.uniforms.uTime.value = this.time;
-
-            // Smooth mouse interpolation
-            const currentMouse = this.material.uniforms.uMouse.value;
-            currentMouse.x += (this.mouseX - currentMouse.x) * 0.05;
-            currentMouse.y += (this.mouseY - currentMouse.y) * 0.05;
-        }
-
-        // Gentle rotation of the entire system
-        if (this.particles) {
-            // Rotate less when formed
-            const rotationSpeed = 0.05 * (1.0 - this.material.uniforms.uMorph.value);
-            this.particles.rotation.y += rotationSpeed * 0.1;
-        }
-
-        this.renderer.render(this.scene, this.camera);
-    }
 
     pauseAnimation() {
         this.isRunning = false;

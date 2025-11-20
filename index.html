@@ -10,6 +10,13 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/TechConnectロゴ (3).png">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <!-- OGP Tags -->
     <meta property="og:title" content="ARマーケティング｜Tech Connect - 拡張現実で差別化を">
     <meta property="og:description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。">
@@ -65,74 +72,25 @@
         }
 
         /* 横向きスマートフォン - より現実的な縦横比 */
+        /* Hero Text Container - Minimalist & Open */
         .hero-text-enhanced {
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            background: rgba(20, 20, 30, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 3rem 4rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow:
-                0 0 0 1px rgba(0, 0, 0, 0.5),
-                0 20px 50px rgba(0, 0, 0, 0.5),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             position: relative;
-            width: 850px;
-            height: 480px;
-            max-width: 95vw;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        /* モバイル表示時のスマートフォンレイヤー調整 */
-        @media (max-width: 768px) {
-            .hero-text-enhanced {
-                width: 92vw;
-                height: auto;
-                min-height: 500px;
-                padding: 2.5rem 1.5rem;
-                border-radius: 24px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-text-enhanced {
-                min-height: 550px;
-                padding: 2rem 1.2rem;
-            }
-        }
-
-        /* スマートフォンのノッチ（上部中央） */
-        .hero-text-enhanced::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 140px;
-            height: 28px;
-            background: #000;
-            border-radius: 0 0 18px 18px;
             z-index: 10;
+            padding: 2rem;
+            text-align: center;
+            /* No background, no border */
         }
 
-        /* カメラとスピーカー */
+        /* Strong Text Shadow for Readability */
+        .hero-text-enhanced h1,
+        .hero-text-enhanced p {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Remove smartphone notch/camera decorations */
+        .hero-text-enhanced::before,
         .hero-text-enhanced::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 6px;
-            background: #1a1a1a;
-            border-radius: 4px;
-            z-index: 11;
+            display: none;
         }
 
         /* ホームインジケーター（下部中央） */
@@ -336,21 +294,75 @@
 
         <!-- Hero Content -->
         <div class="relative z-10 container mx-auto px-4 flex justify-center items-center min-h-screen pt-20">
+            <!-- AR Scan Frame (Stylish & Animated) -->
+            <div
+                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 translate-y-[calc(-50%+30px)] w-[88vw] max-w-[900px] h-[65vh] max-h-[650px] pointer-events-none">
+                <!-- Corner Brackets -->
+                <div class="absolute inset-0 flex flex-col justify-between p-0">
+                    <div class="flex justify-between">
+                        <!-- Top Left -->
+                        <div class="relative w-16 h-16 md:w-24 md:h-24">
+                            <div
+                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                            <div
+                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                        </div>
+                        <!-- Top Right -->
+                        <div class="relative w-16 h-16 md:w-24 md:h-24">
+                            <div
+                                class="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                            <div
+                                class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <!-- Bottom Left -->
+                        <div class="relative w-16 h-16 md:w-24 md:h-24">
+                            <div
+                                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-1 h-full bg-gradient-to-t from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                        </div>
+                        <!-- Bottom Right -->
+                        <div class="relative w-16 h-16 md:w-24 md:h-24">
+                            <div
+                                class="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                            <div
+                                class="absolute bottom-0 right-0 w-1 h-full bg-gradient-to-t from-cyan-400 via-white to-transparent rounded-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scanning Line Animation -->
+                <div
+                    class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-60 animate-scan-line">
+                </div>
+            </div>
+
             <div class="smartphone-container" data-aos="fade-up">
                 <div class="hero-text-enhanced">
-                    <h1 class="text-4xl md:text-6xl font-black mb-4 text-white" style="line-height: 1.4;">
+                    <h1 class="text-4xl md:text-6xl font-black mb-4 text-white reveal-text reveal-delay-1"
+                        style="line-height: 1.4;">
                         ARで『見せる』から<br>
                         <span class="text-accent-yellow" style="vertical-align: baseline;">『魅せる』</span>へ。
                     </h1>
 
-                    <div class="text-lg md:text-xl mb-10 text-white space-y-3">
+                    <div class="text-lg md:text-xl mb-10 text-white space-y-3 reveal-text reveal-delay-2">
                         <p class="text-accent-yellow font-bold">スマホをかざすだけで</p>
                         <p class="text-xl md:text-2xl font-semibold">動画や3Dが飛び出す！</p>
                         <p class="text-accent-yellow font-bold text-lg md:text-xl">ARコンテンツ企画・制作サービス</p>
                     </div>
 
-                    <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center" data-aos="fade-up"
-                        data-aos-delay="400" style="text-shadow: none;">
+                    <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center reveal-text reveal-delay-3"
+                        style="text-shadow: none;">
                         <a href="#" id="arExperienceBtn"
                             class="w-full sm:w-auto bg-accent-yellow text-slate-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-accent-yellow/80 transition-all duration-300 inline-block text-center btn-shimmer"
                             style="text-shadow: none;" aria-label="AR体験方法を見る">
@@ -1688,51 +1700,62 @@
             }
         }, 10000);
 
-        // Custom Cursor Implementation
+        // Custom Cursor & Interactive Features Implementation
         function initCustomCursor() {
-            const cursor = document.getElementById('customCursor');
-            if (!cursor) return;
+            const cursor = document.querySelector('.custom-cursor');
+            const follower = document.querySelector('.custom-cursor-follower');
 
-            let mouseX = 0;
-            let mouseY = 0;
-            let cursorX = 0;
-            let cursorY = 0;
+            if (!cursor || !follower) return;
 
-            // Update mouse position
+            // Mouse movement
             document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+
+                // Follower with slight delay
+                setTimeout(() => {
+                    follower.style.left = e.clientX + 'px';
+                    follower.style.top = e.clientY + 'px';
+                }, 50);
             });
 
-            // Smooth cursor movement
-            function updateCursor() {
-                const diffX = mouseX - cursorX;
-                const diffY = mouseY - cursorY;
-
-                cursorX += diffX * 0.1;
-                cursorY += diffY * 0.1;
-
-                cursor.style.left = cursorX + 'px';
-                cursor.style.top = cursorY + 'px';
-
-                requestAnimationFrame(updateCursor);
-            }
-            updateCursor();
-
-            // Add hover effect on interactive elements
-            const interactiveElements = document.querySelectorAll('a, button, input, textarea, select, .cursor-pointer');
-
-            interactiveElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
+            // Hover effects
+            const interactiveElements = document.querySelectorAll('a, button, .service-card, .case-card, .benefit-card, input, textarea, select');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('active');
+                    follower.classList.add('active');
                 });
-
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('active');
+                    follower.classList.remove('active');
                 });
             });
 
-            console.log('✅ Custom cursor initialized');
+            // 3D Tilt Effect for Cards
+            const cards = document.querySelectorAll('.service-card, .case-card, .benefit-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    // Calculate rotation (max 10 degrees)
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                });
+            });
+
+            console.log('✅ Interactive features initialized');
         }
 
         // AR Experience Popup Functions
@@ -1796,6 +1819,16 @@
         }
 
     </script>
+
+    <!-- Custom Cursor Elements -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Floating CTA -->
+    <a href="#contact" class="floating-cta glass-panel">
+        <span class="text-2xl">📱</span>
+        <span class="font-bold text-sm">AR体験</span>
+    </a>
 
     <!-- Google Analytics (placeholder) -->
     <!-- Google tag (gtag.js) -->
