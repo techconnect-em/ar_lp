@@ -453,8 +453,9 @@ class OrganicParticleSystem {
 
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('hero-canvas');
-    if (canvas) {
-        new OrganicParticleSystem(canvas);
+    // Hero section particles (with text formation)
+    const heroCanvas = document.getElementById('hero-canvas');
+    if (heroCanvas) {
+        new OrganicParticleSystem(heroCanvas);
     }
 });
