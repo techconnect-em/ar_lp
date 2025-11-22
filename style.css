@@ -1813,29 +1813,39 @@ button:focus:not(:focus-visible) {
 
 .tc-price-highlight {
   position: relative;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  background: linear-gradient(120deg, rgba(249, 229, 71, 0.88), rgba(255, 220, 90, 0.42));
-  border: 1px solid rgba(249, 229, 71, 0.6);
-  border-radius: 999px;
-  padding: 14px 26px;
+  gap: 8px;
+  background: linear-gradient(120deg, rgba(249, 229, 71, 0.75), rgba(255, 220, 90, 0.35));
+  border: 1px solid rgba(249, 229, 71, 0.5);
+  border-radius: 20px;
+  padding: 12px 20px;
   width: fit-content;
   margin-top: 6px;
-  box-shadow: 0 12px 28px rgba(249, 229, 71, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 20px rgba(249, 229, 71, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.3);
   overflow: hidden;
   animation: tc-price-glow 6s ease-in-out infinite;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@media (min-width: 640px) {
+  .tc-price-highlight {
+    flex-direction: row;
+    gap: 16px;
+    border-radius: 999px;
+    padding: 14px 26px;
+  }
 }
 
 .tc-price-highlight::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
   transform: translateX(-120%);
   animation: tc-price-shimmer 3.2s linear infinite;
-  opacity: 0.8;
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -1846,23 +1856,40 @@ button:focus:not(:focus-visible) {
 
 .tc-price-badge {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  font-size: 0.78rem;
+  gap: 4px;
+  font-size: 0.7rem;
   font-weight: 800;
   color: #fff5f5;
   background: linear-gradient(145deg, #ff8a8a 0%, #ff3b3f 45%, #ff7676 100%);
   border-radius: 999px;
-  padding: 8px 20px;
-  letter-spacing: 0.04em;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45), 0 8px 20px rgba(239, 68, 68, 0.45);
+  padding: 4px 12px;
+  letter-spacing: 0.02em;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 4px 12px rgba(239, 68, 68, 0.35);
   animation: tc-badge-pulse 2.6s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .tc-price-badge {
+    flex-direction: column;
+    gap: 0;
+    font-size: 0.78rem;
+    padding: 8px 20px;
+  }
 }
 
 .tc-badge-line {
-  display: block;
+  display: inline;
   line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .tc-badge-line {
+    display: block;
+  }
 }
 
 .tc-price-main {
@@ -1872,9 +1899,11 @@ button:focus:not(:focus-visible) {
 }
 
 .tc-price-highlight:hover {
-  box-shadow: 0 16px 34px rgba(249, 229, 71, 0.42), 0 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 28px rgba(249, 229, 71, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.45);
   transform: translateY(-2px);
 }
+
+
 
 @keyframes tc-price-glow {
 
