@@ -1,33 +1,33 @@
-# Repository Guidelines
+# リポジトリガイドライン
 
-## Project Structure & Module Organization
-- `index.html` — single-page experience for the AR marketing landing site.
-- `style.css` — layered Tailwind imports plus custom effects; treat as the source stylesheet.
-- `organic-particles-simple.js` — Three.js particle background with WebGL fallback logic.
-- `assets/` — production-ready imagery (≤1 MB, many filenames in Japanese); respect existing naming.
-- `CLAUDE.md` — historical agent conversation notes; check before changing agreed flows.
+## プロジェクト構造とモジュール構成
+- `index.html` — ARマーケティングランディングサイトのシングルページ体験。
+- `style.css` — Tailwindのインポートとカスタムエフェクトを階層化；これをソーススタイルシートとして扱います。
+- `organic-particles-simple.js` — WebGLフォールバックロジックを備えたThree.jsパーティクル背景。
+- `assets/` — 本番用画像（1MB以下、日本語ファイル名多数）；既存の命名規則を尊重してください。
+- `CLAUDE.md` — 過去のエージェント対話メモ；合意されたフローを変更する前に確認してください。
 
-## Build, Test, and Development Commands
-- `python3 -m http.server 8000` — serve the site locally at `http://localhost:8000/index.html`.
-- `npx tailwindcss -i style.css -o style.bundle.css --watch` — compile Tailwind utilities when iterating on styles; swap the `<link>` tag to the bundle for manual QA.
-- Use any static-file server (e.g., `npx serve`) for cross-device testing; no bundler required for baseline edits.
+## ビルド、テスト、開発コマンド
+- `python3 -m http.server 8000` — ローカルでサイトを `http://localhost:8000/index.html` でホストします。
+- `npx tailwindcss -i style.css -o style.bundle.css --watch` — スタイルの反復開発時にTailwindユーティリティをコンパイル；手動QAのために`<link>`タグをバンドル版に切り替えてください。
+- クロスデバイステストには任意の静的ファイルサーバー（例：`npx serve`）を使用してください；基本的な編集にはバンドラーは不要です。
 
-## Coding Style & Naming Conventions
-- HTML/JavaScript: 4-space indentation. CSS: 2 spaces inside rules.
-- Prefer descriptive classes that match customer-facing language (`.hero-text-enhanced`, `.btn-primary-alt`).
-- Console diagnostics in JavaScript should stay concise and emoji-prefixed, mirroring existing logs.
-- Keep new source files ASCII; retain UTF-8 text where already present (marketing copy, asset names).
+## コーディングスタイルと命名規則
+- HTML/JavaScript: 4スペースインデント。CSS: ルール内2スペース。
+- 顧客向けの言語に一致する説明的なクラス名を優先してください（`.hero-text-enhanced`, `.btn-primary-alt`）。
+- JavaScriptのコンソール診断は簡潔にし、既存のログに合わせて絵文字のプレフィックスを付けてください。
+- 新しいソースファイルはASCIIを維持してください；既に存在するUTF-8テキスト（マーケティングコピー、アセット名）は保持してください。
 
-## Testing Guidelines
-- Manual smoke test in latest Chrome, Safari, and a mobile emulator; verify the WebGL fallback (`hero-static-bg`) and AR CTA flow end-to-end.
-- Run Lighthouse before shipping visual changes; highlight perf/accessibility deltas ≥5 points in PRs.
-- After content updates, scan QR/Instagram links and confirm AR entry points remain valid.
+## テストガイドライン
+- 最新のChrome、Safari、およびモバイルエミュレーターで手動スモークテストを行う；WebGLフォールバック（`.hero-static-bg`）とAR CTAフローをエンドツーエンドで検証してください。
+- 視覚的な変更を出荷する前にLighthouseを実行してください；PRでは5ポイント以上のパフォーマンス/アクセシビリティの差分を強調してください。
+- コンテンツ更新後、QR/Instagramリンクをスキャンし、ARエントリーポイントが有効であることを確認してください。
 
-## Commit & Pull Request Guidelines
-- Commit messages use imperative, sentence-case subjects (e.g., `Improve hero particle density`).
-- Pull requests should explain motivation, summarize UI/UX changes, attach before/after screenshots for visual updates, link relevant issues, and list browsers/devices tested; call out skipped checks explicitly.
+## コミットとプルリクエストのガイドライン
+- コミットメッセージは命令形、センテンスケースの件名を使用してください（例：`Improve hero particle density`）。
+- プルリクエストでは、動機の説明、UI/UX変更の要約、視覚的な更新の前後スクリーンショットの添付、関連する課題へのリンク、テストしたブラウザ/デバイスのリストを含めてください；スキップしたチェックは明示的に記述してください。
 
-## Agent Tips
-- Preserve existing IDs and Tailwind utility patterns to avoid breaking animations or CTA tracking.
-- Before heavy refactors, skim `CLAUDE.md` for stakeholder constraints.
-- Treat `.DS_Store` changes as noise—restore them before committing.
+## エージェントへのヒント
+- アニメーションやCTAトラッキングの破損を避けるため、既存のIDとTailwindユーティリティパターンを保持してください。
+- 大規模なリファクタリングの前に、ステークホルダーの制約について `CLAUDE.md` に目を通してください。
+- `.DS_Store` の変更はノイズとして扱ってください—コミット前に復元してください。

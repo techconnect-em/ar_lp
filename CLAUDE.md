@@ -1,89 +1,82 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+このファイルは、このリポジトリのコードを扱う際に Claude Code (claude.ai/code) が参照するためのガイドラインを提供します。
 
-## Project Overview
+## プロジェクト概要
 
-This is an AR (Augmented Reality) marketing landing page for Tech Connect, a service that helps businesses integrate AR technology into their marketing materials like business cards, flyers, catalogs, and product labels. The site utilizes PalanAR as the underlying AR platform.
+このプロジェクトは、AR（拡張現実）技術を名刺、チラシ、カタログ、商品ラベルなどのマーケティング資料に統合するサービス「Tech Connect」のマーケティング用ランディングページです。アプリ不要のWebAR技術を活用し、ブラウザだけで体験できるARサービスを紹介しています。
 
-## Architecture
+## アーキテクチャ
 
-### Core Files
-- `index.html` - Single-page application with all sections inline
-- `style.css` - Custom styles with Tailwind CSS integration and CSS custom properties
-- `organic-particles-simple.js` - Optimized Three.js particle system for hero background
-- `assets/` - AR demo images and static assets
+### 主要ファイル
+- `index.html` - すべてのセクションをインラインで記述したシングルページアプリケーション
+- `style.css` - Tailwind CSSの統合とCSSカスタムプロパティを使用したカスタムスタイル
+- `organic-particles-simple.js` - ヒーローセクションの背景用に最適化されたThree.jsパーティクルシステム
+- `assets/` - ARデモ画像および静的アセット
 
-### Technology Stack
-- **Frontend**: Vanilla HTML/CSS/JavaScript (no build process)
-- **CSS Framework**: Tailwind CSS (CDN) + custom utility classes
-- **3D Graphics**: Three.js (r128) with performance optimizations for mobile
-- **Animations**: AOS (Animate On Scroll) library
-- **Forms**: Netlify Forms with spam protection
-- **Fonts**: Google Fonts (Noto Sans JP primary, Montserrat accent)
+### 技術スタック
+- **フロントエンド**: Vanilla HTML/CSS/JavaScript (ビルドプロセスなし)
+- **CSSフレームワーク**: Tailwind CSS (CDN) + カスタムユーティリティクラス
+- **3Dグラフィックス**: Three.js (r128) モバイル向けパフォーマンス最適化済み
+- **アニメーション**: AOS (Animate On Scroll) ライブラリ
+- **フォーム**: Netlify Forms (スパム保護機能付き)
+- **フォント**: Google Fonts (Noto Sans JPをメイン、Montserratをアクセントに使用)
 
-### Critical Design Patterns
+### 重要なデザインパターン
 
-#### CSS Architecture
-- CSS custom properties in `:root` for consistent theming (`--navy`, `--accent-yellow`)
-- Tailwind `@layer utilities` for component-style classes (`.btn-primary`, `.hero-card`, etc.)
-- Mobile-first responsive design with careful attention to performance
+#### CSSアーキテクチャ
+- `:root` でのCSSカスタムプロパティによる一貫したテーマ設定 (`--navy`, `--accent-yellow`)
+- Tailwind `@layer utilities` を使用したコンポーネントスタイルクラス (`.btn-primary`, `.hero-card` など)
+- パフォーマンスに配慮したモバイルファーストのレスポンシブデザイン
 
-#### Performance Optimizations
-- Particle system adapts count based on screen size (2000/3500/5000 particles)
-- WebGL detection with static fallback (`hero-static-bg` class)
-- Tab visibility API pauses animations when not visible
-- Debounced resize handling (150ms) to prevent performance issues
+#### パフォーマンス最適化
+- 画面サイズに応じてパーティクル数を調整 (2000/3500/5000個)
+- WebGL検出機能と静的フォールバック (`hero-static-bg` クラス)
+- タブの表示状態APIを使用したアニメーションの一時停止 (非表示時)
+- パフォーマンス問題を防ぐためのリサイズ処理のデバウンス (150ms)
 
-#### Form Integration
-- Netlify Forms with hidden blueprint form for SPA detection
-- Honeypot field for spam protection (`bot-field`)
-- Custom validation with accessible error handling
+#### フォーム統合
+- SPA検出用の隠しブループリントフォームを使用したNetlify Forms
+- スパム保護用のハニーポットフィールド (`bot-field`)
+- アクセシビリティに配慮したエラー処理付きのカスタムバリデーション
 
-## Business Context
+## ビジネスコンテキスト
 
-### Service Tiers (Pricing Section)
-### Service Tiers (Pricing Section)
-1. **STANDARD PACKAGE**: Normal ¥25,000 (Special Campaign: ¥15,000)
-   - Includes marker registration, material placement, testing, and 6 months server maintenance.
-2. **Maintenance Plans** (after initial 6 months):
-   - **Light**: ¥800/month - Hosting only
-   - **Standard**: ¥5,000/month - Hosting + minor updates + support
-   - **Premium**: ¥10,000/month - Hosting + updates (x2) + priority support + reports
-3. **Spot Menu**: One-time fixes/reports for non-subscribers
+### サービスプラン (料金セクション)
+1. **STANDARD PACKAGE**: 通常 ¥25,000 (キャンペーン価格: ¥15,000)
+   - マーカー登録、素材配置、テスト、6ヶ月間のサーバー保守を含む
+2. **保守プラン** (最初の6ヶ月経過後):
+   - **Light**: ¥800/月 - ホスティングのみ
+   - **Standard**: ¥5,000/月 - ホスティング + 小規模な更新 + サポート
+   - **Premium**: ¥10,000/月 - ホスティング + 更新(x2) + 優先サポート + レポート
+3. **スポットメニュー**: 契約者以外向けの単発修正/レポート
 
-### PalanAR Integration
-- Tech Connect is a PalanAR certified partner
-- Free plan suitable for small projects only
-- Paid plans required for high-volume or advanced features
-- Monthly costs are external service fees, not Tech Connect charges
+## 開発ワークフロー
 
-## Development Workflows
+### スタイル変更時の注意点
+- 常にモバイルで最初にテストを行ってください - パーティクルシステムにはモバイル向けの最適化が含まれています
+- 新しい色を追加する前に、既存のCSSカスタムプロパティを使用してください
+- 特にボタンにおいては、高いコントラスト比 (WCAG AA) を維持してください
+- ハードウェアアクセラレーションを無効にしてWebGLフォールバックをテストしてください
 
-### Making Style Changes
-- Always test on mobile first - particle system has mobile-specific optimizations
-- Use existing CSS custom properties before adding new colors
-- Maintain high contrast ratios (WCAG AA) especially for buttons
-- Test WebGL fallback by disabling hardware acceleration
+### コンテンツ更新
+- ヒーローキャッチコピー: 一貫性を保つため、メインタイトルとサブ要素の両方を更新してください
+- 料金: すべての価格は税込表示です - このパターンを維持してください
+- ナビゲーション: 3つのナビゲーションインスタンス（デスクトップ、モバイル、フッター）すべてを同時に更新してください
 
-### Content Updates
-- Hero catchphrases: Update both main title and sub-elements for consistency
-- Pricing: All prices are tax-inclusive (税込) - maintain this pattern
-- Navigation: Update all three nav instances (desktop, mobile, footer) simultaneously
+### パフォーマンスに関する考慮事項
+- ヒーローセクションのパーティクルシステムはパフォーマンス重要度が高いため、低スペックのモバイルデバイスで変更をテストしてください
+- AOSアニメーションには適切な遅延 (100ms刻み) を設定してください
+- フォーム送信はNetlifyによって処理されます - サーバーサイドコードは不要です
 
-### Performance Considerations
-- Hero particle system is performance-critical - test changes on low-end mobile devices
-- AOS animations should have appropriate delays (100ms increments)
-- Form submissions are handled by Netlify - no server-side code needed
+## デプロイ
 
-## Deployment
+静的サイトとして以下にデプロイされます:
+- **プライマリ**: GitHub Pages (techconnect-em.github.io/ar_lp)
+- **代替**: Netlify (フォーム処理を含む)
+- ビルドプロセスは不要 - リポジトリファイルから直接デプロイ
 
-Static site deployed via:
-- **Primary**: GitHub Pages (techconnect-em.github.io/ar_lp)
-- **Alternative**: Netlify (includes form handling)
-- No build process required - direct deployment from repository files
-
-### Git Workflow
-- All changes should include both commit and push (`git push origin main`)
-- Commit messages should be descriptive and include the 🤖 signature template
-- Test major style changes locally before pushing to prevent layout breaks
+### Gitワークフロー
+- すべての変更はコミットとプッシュの両方を行う必要があります (`git push origin main`)
+- コミットメッセージは説明的にし、🤖のシグネチャテンプレートを含めてください
+- レイアウト崩れを防ぐため、主要なスタイル変更はプッシュ前にローカルでテストしてください
