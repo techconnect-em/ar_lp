@@ -612,6 +612,50 @@ body {
   background-color: #f9fafb;
 }
 
+/* Guidelines Accordion Styles */
+.guideline-item,
+.guideline-item-compact {
+  transition: box-shadow 0.3s ease;
+}
+
+.guideline-item:hover,
+.guideline-item-compact:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.guideline-header:focus {
+  outline: 2px solid var(--accent-yellow);
+  outline-offset: 2px;
+}
+
+.guideline-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+  opacity: 0;
+}
+
+.guideline-content.show {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.guideline-icon {
+  font-weight: 300;
+}
+
+.guideline-item.open .guideline-icon,
+.guideline-item-compact.open .guideline-icon {
+  transform: rotate(45deg);
+}
+
+.guideline-highlight {
+  font-weight: 700;
+  color: var(--navy);
+  background: linear-gradient(transparent 60%, rgba(255, 237, 0, 0.4) 60%);
+  padding: 0 4px;
+}
+
 /* Tags */
 .tag {
   background-color: var(--accent-yellow);
