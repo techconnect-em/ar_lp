@@ -4,22 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARマーケティング｜Tech Connect - 拡張現実で差別化を</title>
-    <meta name="description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。Tech Connectがビジネスの未来をサポート。">
+    <title>Tech Connect｜アプリ不要のWebARで、足を止める「体験」をつくる</title>
+    <meta name="description"
+        content="アプリ不要のWebARで、お客さんが足を止める「体験」をつくります。イベントの集客・回遊から、名刺・チラシ・商品の販促まで。企画から当日の運営まで、つくる本人が直接対応。無料相談受付中。">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/TechConnectロゴ (3).png">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
-
     <!-- OGP Tags -->
-    <meta property="og:title" content="ARマーケティング｜Tech Connect - 拡張現実で差別化を">
-    <meta property="og:description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。">
+    <meta property="og:title" content="Tech Connect｜アプリ不要のWebARで、足を止める「体験」をつくる">
+    <meta property="og:description" content="アプリ不要のWebARで、お客さんが足を止める「体験」を。イベント集客から印刷物・商品の販促まで。無料相談受付中。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://techconnect-em.com/">
     <meta property="og:site_name" content="Tech Connect">
@@ -27,2218 +21,561 @@
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="AR技術でマーケティングに革新を - Tech Connect">
+    <meta property="og:image:alt" content="アプリ不要のWebARで足を止める体験をつくる - Tech Connect">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@techconnect">
-    <meta name="twitter:title" content="ARマーケティング｜Tech Connect - 拡張現実で差別化を">
-    <meta name="twitter:description" content="AR（拡張現実）技術でマーケティングに革新を。名刺、チラシ、カタログをARで魅力的に。">
+    <meta name="twitter:title" content="Tech Connect｜アプリ不要のWebARで、足を止める「体験」をつくる">
+    <meta name="twitter:description" content="アプリ不要のWebARで、お客さんが足を止める「体験」を。イベント集客から印刷物・商品の販促まで。無料相談受付中。">
     <meta name="twitter:image" content="https://techconnect-em.com/assets/ogp-image.png?v=4">
-    <meta name="twitter:image:alt" content="AR技術でマーケティングに革新を - Tech Connect">
+    <meta name="twitter:image:alt" content="アプリ不要のWebARで足を止める体験をつくる - Tech Connect">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
+    <!-- Fonts (Claude Design canon: Zen Kaku Gothic New + Noto Sans JP + Montserrat) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Montserrat:wght@600;700;800&display=swap"
         rel="stylesheet">
-
-    <!-- Three.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous"></script>
-
-
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Enhanced readability styles -->
-    <style>
-        .smartphone-container {
-            position: relative;
-            display: inline-block;
-            transform: perspective(1200px) rotateY(-8deg) rotateX(3deg);
-            filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.5));
-            transition: transform 0.5s ease;
-        }
-
-        .smartphone-container:hover {
-            transform: perspective(1200px) rotateY(-5deg) rotateX(2deg) translateY(-10px);
-        }
-
-        /* 横向きスマートフォン - より現実的な縦横比 */
-        /* Hero Text Container - Minimalist & Open */
-        .hero-text-enhanced {
-            position: relative;
-            z-index: 10;
-            padding: 2rem;
-            text-align: center;
-            /* No background, no border */
-        }
-
-        /* Strong Text Shadow for Readability */
-        .hero-text-enhanced h1,
-        .hero-text-enhanced p {
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Remove smartphone notch/camera decorations */
-        .hero-text-enhanced::before,
-        .hero-text-enhanced::after {
-            display: none;
-        }
-
-        /* ホームインジケーター（下部中央） */
-        .smartphone-container::after {
-            content: '';
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 2px;
-            z-index: 10;
-        }
-
-
-        .large-catchphrase {
-            font-size: 1.5rem;
-            line-height: 1.3;
-        }
-
-        @media (min-width: 768px) {
-            .large-catchphrase {
-                font-size: 2rem;
-                line-height: 1.2;
-            }
-        }
-
-        .glow-text-enhanced {
-            text-shadow:
-                0 0 8px currentColor,
-                0 0 12px rgba(249, 229, 71, 0.6),
-                0 0 16px rgba(249, 229, 71, 0.4),
-                2px 2px 8px rgba(0, 0, 0, 0.8),
-                1px 1px 4px rgba(0, 0, 0, 0.9);
-        }
-
-        .glow-text-subtle {
-            text-shadow:
-                0 0 5px currentColor,
-                0 0 8px rgba(249, 229, 71, 0.4),
-                0 0 12px rgba(249, 229, 71, 0.2),
-                2px 2px 6px rgba(0, 0, 0, 0.8),
-                1px 1px 3px rgba(0, 0, 0, 0.9);
-        }
-
-        /* クリーンアップ済み - 不要なエフェクトを削除してボタンの可読性を向上 */
-
-
-        /* ヘッダーメニュー位置調整 */
-        .header-nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-contact-btn {
-            display: flex;
-            align-items: center;
-            height: 40px;
-        }
-    </style>
 </head>
 
-<body class="font-noto-sans">
-    <!-- Hidden Blueprint Form for Netlify Forms SPA Detection -->
-    <form name="contact" method="POST" data-netlify="true" hidden>
-        <input name="company">
-        <input name="name">
-        <input name="email">
-        <textarea name="message"></textarea>
-        <input type="hidden" name="form-name" value="contact">
-        <input name="bot-field">
-    </form>
+<body>
 
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="customCursor"></div>
-
-    <!-- AR Experience Popup -->
-    <div id="arPopup" class="ar-popup-overlay hidden">
-        <div class="ar-popup-content">
-            <div class="ar-popup-header">
-                <h2 class="text-2xl font-bold text-navy mb-2">AR体験方法</h2>
-                <button class="ar-popup-close" id="closeArPopup" aria-label="ポップアップを閉じる">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="ar-popup-body">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- QR Code Section -->
-                    <div class="text-center">
-                        <h3 class="text-lg font-semibold text-navy mb-4">① QRコードを読み取り</h3>
-                        <div class="qr-code-container">
-                            <img src="assets/qr_code_flyer.png" alt="AR体験用QRコード"
-                                class="mx-auto w-48 h-48 border-2 border-gray-200 rounded-lg shadow-md">
-                        </div>
-                        <p class="text-sm text-gray-600 mt-4">
-                            スマートフォンのカメラでQRコードを読み取ってください
-                        </p>
-                    </div>
-
-                    <!-- Marker Image Section -->
-                    <div class="text-center">
-                        <h3 class="text-lg font-semibold text-navy mb-4">② マーカーにカメラを向ける</h3>
-                        <div class="marker-container">
-                            <img src="assets/marker_flyer.webp" alt="ARマーカー画像"
-                                class="mx-auto w-80 h-80 object-contain border-2 border-gray-200 rounded-lg shadow-md">
-                        </div>
-                        <p class="text-sm text-gray-600 mt-4">
-                            この画像にスマートフォンのカメラを向けてください
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <!-- ============================= Header ============================= -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a href="#top" class="brand">
+                <span class="brand__name">Tech Connect</span>
+                <span class="brand__chip">WebAR</span>
+            </a>
+            <nav class="site-nav">
+                <a href="#service">できること</a>
+                <a href="#reason">選ばれる理由</a>
+                <a href="#cases">制作実績</a>
+                <a href="#price">料金の目安</a>
+                <a href="#cases">導入事例</a>
+                <a href="#faq">よくある質問</a>
+            </nav>
+            <a href="#contact" class="btn btn--primary btn--sm">
+                <span>無料で相談する</span>
+                <span class="btn__arrow" aria-hidden="true">›</span>
+            </a>
         </div>
-    </div>
-
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-navy flex items-center justify-center z-50">
-        <div class="text-center">
-            <div class="loading-spinner mb-4"></div>
-            <div class="text-accent-yellow text-xl font-bold">Loading Experience...</div>
-            <div class="text-white mt-2">ARで心ときめく感動体験を実現する</div>
-        </div>
-    </div>
-    <!-- Header -->
-    <header class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-1">
-                    <img src="assets/TechConnectロゴ (3).png" alt="Tech Connect Logo" class="h-8 w-8">
-                    <span class="text-2xl font-bold text-blue-900">Tech Connect</span>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex header-nav">
-                    <div class="nav-links">
-                        <a href="#about" class="text-gray-700 hover:text-blue-900 transition-colors">サービス</a>
-                        <a href="#cases" class="text-gray-700 hover:text-blue-900 transition-colors">事例</a>
-                        <a href="#pricing" class="text-gray-700 hover:text-blue-900 transition-colors">料金</a>
-                        <a href="#support" class="text-gray-700 hover:text-blue-900 transition-colors">サポート</a>
-                        <a href="#faq" class="text-gray-700 hover:text-blue-900 transition-colors">FAQ</a>
-                        <a href="#about-me" class="text-gray-700 hover:text-blue-900 transition-colors">About Me</a>
-                        <a href="https://www.instagram.com/techconnect.em/" target="_blank" rel="noopener noreferrer"
-                            class="text-gray-700 hover:text-blue-900 transition-colors flex items-center gap-1">
-                            <img src="assets/Instagram_Glyph_White.png" alt="Instagram" class="w-5 h-5 filter invert">
-                            Instagram
-                        </a>
-                    </div>
-                    <a href="#contact"
-                        class="nav-contact-btn bg-accent-yellow text-blue-900 px-6 py-2 rounded-full font-medium hover:bg-accent-yellow/80 transition-colors">無料で相談</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="p-2 touch-manipulation block md:hidden"
-                    style="min-width: 44px; min-height: 44px; position: relative; z-index: 1000;">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="mt-4 pb-4">
-                <a href="#about" class="block py-2 text-gray-700 hover:text-navy">サービス</a>
-                <a href="#cases" class="block py-2 text-gray-700 hover:text-navy">事例</a>
-                <a href="#pricing" class="block py-2 text-gray-700 hover:text-navy">料金</a>
-                <a href="#support" class="block py-2 text-gray-700 hover:text-navy">サポート</a>
-                <a href="#faq" class="block py-2 text-gray-700 hover:text-navy">FAQ</a>
-                <a href="#about-me" class="block py-2 text-gray-700 hover:text-navy">About Me</a>
-                <a href="https://www.instagram.com/techconnect.em/" target="_blank" rel="noopener noreferrer"
-                    class="block py-2 text-gray-700 hover:text-navy flex items-center gap-2">
-                    <img src="assets/Instagram_Glyph_White.png" alt="Instagram" class="w-5 h-5 filter invert">
-                    Instagram
-                </a>
-                <a href="#contact" class="block py-2 bg-accent-yellow text-navy px-4 rounded mt-2 text-center">無料で相談</a>
-            </div>
-        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section relative overflow-hidden min-h-screen flex items-center">
-        <!-- Three.js Canvas -->
-        <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
-
-        <!-- Particle Background -->
-        <div id="particles-bg" class="absolute inset-0"></div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 container mx-auto px-4 flex justify-center items-center min-h-screen pt-20">
-            <!-- AR Scan Frame (Stylish & Animated) -->
-            <div
-                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 translate-y-[calc(-50%+30px)] w-[88vw] max-w-[900px] h-[65vh] max-h-[650px] pointer-events-none">
-                <!-- Corner Brackets -->
-                <div class="absolute inset-0 flex flex-col justify-between p-0">
-                    <div class="flex justify-between">
-                        <!-- Top Left -->
-                        <div class="relative w-16 h-16 md:w-24 md:h-24">
-                            <div
-                                class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                            <div
-                                class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                        </div>
-                        <!-- Top Right -->
-                        <div class="relative w-16 h-16 md:w-24 md:h-24">
-                            <div
-                                class="absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                            <div
-                                class="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex justify-between">
-                        <!-- Bottom Left -->
-                        <div class="relative w-16 h-16 md:w-24 md:h-24">
-                            <div
-                                class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                            <div
-                                class="absolute bottom-0 left-0 w-1 h-full bg-gradient-to-t from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                        </div>
-                        <!-- Bottom Right -->
-                        <div class="relative w-16 h-16 md:w-24 md:h-24">
-                            <div
-                                class="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-l from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                            <div
-                                class="absolute bottom-0 right-0 w-1 h-full bg-gradient-to-t from-cyan-400 via-white to-transparent rounded-full">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Scanning Line Animation -->
-                <div
-                    class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent opacity-60 animate-scan-line">
-                </div>
-            </div>
-
-            <div class="smartphone-container" data-aos="fade-up">
-                <div class="hero-text-enhanced">
-                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-4 text-white reveal-text reveal-delay-1"
-                        style="line-height: 1.4;">
-                        そのアイデア、<br>
-                        <span class="text-accent-yellow" style="vertical-align: baseline;">AR</span>で<span
-                            class="text-accent-yellow" style="vertical-align: baseline;">カタチ</span>にしてみませんか？
+    <main>
+        <!-- ============================= Hero ============================= -->
+        <section id="top" class="hero">
+            <img class="hero__blob" src="assets/decorations/blob-light.png" alt="" aria-hidden="true">
+            <div class="hero__grid">
+                <div>
+                    <p class="hero__pre">アプリ不要のWebARで、</p>
+                    <h1 class="hero__title">
+                        お客さんが<br>足を止める<span class="hero__title-mark">「体験」</span>、<br>つくります。
                     </h1>
+                    <p class="hero__lead">
+                        イベントや名刺・チラシに「見てみたい」を。<br>
+                        企画から当日の運営まで、つくる本人が直接担当します。
+                    </p>
 
-                    <div class="text-lg md:text-xl mb-10 text-white space-y-3 reveal-text reveal-delay-2">
-                        <p class="font-bold"><span class="text-accent-yellow">『こんなこといいな』</span>を一緒に創る</p>
-                        <p class="text-xl md:text-2xl font-semibold">WebAR制作パートナー</p>
+                    <div class="hero__features">
+                        <div class="feature feature--row">
+                            <img class="feature__icon" src="assets/icons/phone.png" alt="">
+                            <div class="feature__body">
+                                <h3 class="feature__title">アプリ不要で<br>すぐ体験</h3>
+                            </div>
+                        </div>
+                        <div class="feature feature--row">
+                            <img class="feature__icon" src="assets/icons/people.png" alt="">
+                            <div class="feature__body">
+                                <h3 class="feature__title">企画から導入まで<br>まるごとサポート</h3>
+                            </div>
+                        </div>
+                        <div class="feature feature--row">
+                            <img class="feature__icon" src="assets/icons/printer.png" alt="">
+                            <div class="feature__body">
+                                <h3 class="feature__title">イベント・印刷物<br>どちらも対応</h3>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center reveal-text reveal-delay-3"
-                        style="text-shadow: none;">
-                        <a href="#" id="arExperienceBtn"
-                            class="w-full sm:w-auto bg-accent-yellow text-slate-900 px-8 py-4 rounded-full text-lg font-bold hover:bg-accent-yellow/80 transition-all duration-300 inline-block text-center btn-shimmer"
-                            style="text-shadow: none;" aria-label="AR体験方法を見る">
-                            📱 AR体験してみる
+                    <div class="hero__actions">
+                        <a href="#contact" class="btn btn--primary btn--lg">
+                            <span>こんなことできる？を相談する（無料）</span>
+                            <span class="btn__arrow" aria-hidden="true">›</span>
                         </a>
-                        <a href="#contact"
-                            class="w-full sm:w-auto bg-slate-800 text-white px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:shadow-2xl hover:bg-slate-700 transition-all duration-300 inline-block text-center interactive-hover"
-                            style="text-shadow: none;" aria-label="お問い合わせフォームへ移動">
-                            ✉️ 無料で相談する
+                        <a href="#cases" class="btn btn--secondary btn--lg">
+                            <span>30秒でAR体験してみる</span>
                         </a>
                     </div>
+                    <p class="hero__note">売り込みは行いません。「まだ思いつきの段階」の相談こそ歓迎です。</p>
                 </div>
-            </div>
-        </div>
 
-    </section>
-
-    <!-- Problem Section -->
-    <!-- Desire Section -->
-    <section id="pain" class="py-32 bg-gray-50 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0"
-                style="background-image: radial-gradient(circle, #1e3a8a 1px, transparent 1px); background-size: 30px 30px;">
-            </div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-navy" data-aos="fade-up">
-                こんな「やりたい」をもっていませんか？
-            </h2>
-
-            <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
-                <div class="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
-                    <ul class="space-y-6 md:space-y-8">
-                        <li
-                            class="flex items-start md:items-center p-4 rounded-lg hover:bg-yellow-50 transition-colors">
-                            <span
-                                class="inline-flex items-center justify-center w-8 h-8 bg-accent-yellow text-navy rounded-full mr-4 flex-shrink-0 font-bold shadow-sm">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </span>
-                            <span class="text-lg md:text-xl text-gray-700 font-medium">もっと<span
-                                    class="text-navy font-bold border-b-4 border-accent-yellow/50">面白い企画</span>をやりたいけれど、技術的なことがわからない</span>
-                        </li>
-                        <li
-                            class="flex items-start md:items-center p-4 rounded-lg hover:bg-yellow-50 transition-colors">
-                            <span
-                                class="inline-flex items-center justify-center w-8 h-8 bg-accent-yellow text-navy rounded-full mr-4 flex-shrink-0 font-bold shadow-sm">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </span>
-                            <span class="text-lg md:text-xl text-gray-700 font-medium">デジタルを使って、他とは違う<span
-                                    class="text-navy font-bold border-b-4 border-accent-yellow/50">新しい体験</span>をお客さんに届けたい</span>
-                        </li>
-                        <li
-                            class="flex items-start md:items-center p-4 rounded-lg hover:bg-yellow-50 transition-colors">
-                            <span
-                                class="inline-flex items-center justify-center w-8 h-8 bg-accent-yellow text-navy rounded-full mr-4 flex-shrink-0 font-bold shadow-sm">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
-                                        d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </span>
-                            <span class="text-lg md:text-xl text-gray-700 font-medium">いきなり大きな予算はかけられないけど、まずは<span
-                                    class="text-navy font-bold border-b-4 border-accent-yellow/50">小さくARを試して</span>みたい</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Positive CTA Copy -->
-            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
-                <div class="inline-block px-4 py-4">
-                    <p class="text-2xl md:text-3xl text-navy font-bold mb-4">
-                        そのアイデア、<br class="md:hidden">Tech Connectが<span class="text-blue-600">技術</span>でサポートします。
-                    </p>
-                    <p class="text-lg text-gray-600 font-medium">
-                        『こんなことできる？』とお気軽にご相談ください。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-16 bg-gradient-to-b from-slate-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- 見出しと基本説明 -->
-            <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-navy" data-aos="fade-up">
-                    Tech Connectが提供する技術は、AR（拡張現実）という技術です。
-                </h2>
-                <p class="text-xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="50">
-                    〜 そもそもAR（拡張現実）とは？ 〜
-                </p>
-                <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-lg text-gray-700 mb-6">
-                        ARとは、スマートフォンのカメラ越しに現実世界を見ると、デジタル情報が重なって表示される技術です。
-                    </p>
-                    <div class="mb-8 flex justify-center" data-aos="fade-up" data-aos-delay="150">
-                        <img src="assets/ar_demo2.JPG" alt="スマートフォン越しにARコンテンツを体験している様子"
-                            class="rounded-2xl shadow-xl w-full max-w-xl aspect-video object-cover">
+                <div class="hero__media-wrap">
+                    <div class="hero__media">
+                        <video src="assets/制作実績/hero-digest-01.mp4"
+                            poster="assets/制作実績/hero-digest-01-poster.jpg"
+                            autoplay muted loop playsinline></video>
                     </div>
-                    <p class="text-base text-gray-600 mb-8">
-                        たとえば、ポケモンGOやカメラアプリSNOWはAR技術を活用したアプリです。<br>
-                        あたかも現実世界にポケモンが現れたような没入感を与えます。
-                    </p>
-
-                    <!-- 有名アプリの例 -->
-                    <div class="mt-6 flex flex-wrap justify-center gap-8">
-                        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/ar_world_overlay_800.png" alt="ARで現実世界に情報を重ねる例"
-                                class="w-64 h-64 rounded-xl shadow-lg object-cover">
-                            <p class="mt-3 text-sm text-gray-600 text-center">ARで現実に重ねる例</p>
-                        </div>
-                        <div class="flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
-                            <img src="assets/ar_face_filter_generic_800.png" alt="顔にエフェクトを重ねる例"
-                                class="w-64 h-64 rounded-xl shadow-lg object-cover">
-                            <p class="mt-3 text-sm text-gray-600 text-center">顔にエフェクトを重ねる例</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- AR体験の種類説明 -->
-            <div class="mt-12 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
-                <div class="bg-blue-50 rounded-xl p-8 border border-blue-200">
-                    <h3 class="text-lg font-bold text-navy mb-6 text-center">AR体験の種類について</h3>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-white rounded-lg p-5 border border-gray-200">
-                            <div class="flex items-center mb-3">
-                                <div class="w-3 h-3 bg-red-400 rounded-full mr-3"></div>
-                                <h4 class="font-semibold text-gray-800">専用アプリダウンロード型</h4>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">App StoreやGoogle
-                                Playから専用アプリをダウンロードして利用。高機能なAR制作が可能ですが、体験のハードルが上がります。</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-5 border border-green-200 ring-2 ring-green-200">
-                            <div class="flex items-center mb-3">
-                                <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
-                                <h4 class="font-semibold text-gray-800">Webアプリ型</h4>
-                            </div>
-                            <p class="text-sm text-gray-600 leading-relaxed">
-                                ブラウザから直接利用可能。アプリインストール不要で手軽にAR体験できるのがメリットです。</p>
-                        </div>
-                    </div>
-
-                    <!-- Tech Connect強調セクション -->
-                    <div class="bg-accent-yellow rounded-lg p-6 text-center mb-6">
-                        <div class="flex items-center justify-center mb-2">
-                            <svg class="w-6 h-6 text-navy mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            <h4 class="text-xl font-bold text-navy">Tech Connect の特徴</h4>
-                        </div>
-                        <p class="text-navy font-bold text-lg mb-1">
-                            Tech ConnectではWebARアプリを提供します！
-                        </p>
-                        <p class="text-navy text-sm">
-                            アプリのインストールは一切不要。QRコードを読み取るだけですぐにAR体験を開始できます。
-                        </p>
-                    </div>
-
-                    <div class="text-center">
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            AR体験のステップは「QRコード読み取り → カメラ許可 → カメラで対象物を認識 → 3D/動画コンテンツ表示」という流れになります
-                        </p>
+                    <div class="hero__badge">
+                        <span class="hero__badge-strong">アプリ不要</span>
+                        <span class="hero__badge-sub">Webブラウザで<br>今すぐ体験</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="mt-12 max-w-full mx-auto px-8">
-                <!-- AR体験の４STEPタイトル -->
-                <h3 class="text-2xl font-bold text-center text-navy mb-8" data-aos="fade-up" data-aos-delay="300">
-                    AR体験の４STEP</h3>
-
-                <!-- 4ステップ中央配置 -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-                    <!-- ステップ1 -->
-                    <article
-                        class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm items-center"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="w-full h-64 mb-4 flex items-center justify-center p-4">
-                            <img src="assets/STEP1.png" alt="STEP1: QRコードを読む"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-2 text-lg font-bold text-center">STEP①<br class="sm:hidden"> QRコードを読む</h3>
-                        <p class="mt-2 text-slate-600 text-center">スマホのカメラでQRコードを読み取る（またはNFCタグを読み取る）</p>
-                        <div class="mt-auto pt-4 text-sm text-slate-400 text-center">※ タッチでNFCタグからでもOK</div>
-                    </article>
-
-                    <!-- ステップ2 -->
-                    <article
-                        class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm items-center"
-                        data-aos="fade-up" data-aos-delay="150">
-                        <div class="w-full h-64 mb-4 flex items-center justify-center p-4">
-                            <img src="assets/STEP2.png" alt="STEP2: カメラを許可"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-2 text-lg font-bold text-center">STEP②<br class="sm:hidden"> カメラを許可</h3>
-                        <p class="mt-2 text-slate-600 text-center">ブラウザのカメラアクセスを「許可」をタップ</p>
-                        <div class="mt-auto pt-4 text-sm text-slate-400 text-center">※ AR表示はカメラ映像が必須です</div>
-                    </article>
-
-                    <!-- ステップ3 -->
-                    <article
-                        class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm items-center"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div class="w-full h-64 mb-4 flex items-center justify-center p-4">
-                            <img src="assets/STEP3.png" alt="STEP3: カメラを向ける"
-                                class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-2 text-lg font-bold text-center">STEP③<br class="sm:hidden"> カメラを向ける</h3>
-                        <p class="mt-2 text-slate-600 text-center">名刺・チラシ・商品のマーカー画像にカメラを向ける</p>
-                        <div class="mt-auto pt-4 text-sm text-slate-400 text-center">※ マーカーを認識するとARを表示</div>
-                    </article>
-
-                    <!-- ステップ4 -->
-                    <article
-                        class="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm items-center"
-                        data-aos="fade-up" data-aos-delay="250">
-                        <div class="w-full h-64 mb-4 flex items-center justify-center p-4">
-                            <img src="assets/STEP4.png" alt="STEP4: 3Dが動く" class="max-w-full max-h-full object-contain">
-                        </div>
-                        <h3 class="mt-2 text-lg font-bold text-center">STEP④<br class="sm:hidden"> 3Dが動く！</h3>
-                        <p class="mt-2 text-slate-600 text-center">画面に3Dモデルや動画が重なって動き出す</p>
-                        <div class="mt-auto pt-4 text-sm text-slate-400 text-center">※ リアルタイムで表示</div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Benefits Section -->
-    <section id="about" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-navy" data-aos="fade-up">
-                ARで変わる！5つのメリット
-            </h2>
-            <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
-                拡張現実技術があなたのビジネスに革新をもたらします
-            </p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="benefit-card group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy group-hover:text-blue-600 transition-colors">記憶に残る</h3>
-                    <p class="text-gray-600 leading-relaxed">他社との差別化を図り、強いインパクトで顧客の記憶に残る体験を提供します。</p>
+        <!-- ============================= Service ============================= -->
+        <section id="service" class="section section--paper">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-heading__eyebrow">Service</span>
+                    <h2 class="section-heading__title section-heading__title--underline">できること</h2>
+                    <p class="section-heading__lead">目的に合わせて、2つのAR体験をご用意しています。</p>
                 </div>
 
-                <div class="benefit-card group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy group-hover:text-blue-600 transition-colors">情報量UP</h3>
-                    <p class="text-gray-600 leading-relaxed">紙面では伝えきれない情報を動画や3Dで表現し、より多くの情報を提供できます。</p>
-                </div>
-
-                <div class="benefit-card group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy group-hover:text-blue-600 transition-colors">誘導率UP</h3>
-                    <p class="text-gray-600 leading-relaxed">WebサイトやSNSへのスムーズな誘導で、顧客の行動を促します。</p>
-                </div>
-
-                <div class="benefit-card group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy group-hover:text-blue-600 transition-colors">話題性</h3>
-                    <p class="text-gray-600 leading-relaxed">思わずシェアしたくなる新しい体験で、効果的なPRとバズを生み出します。</p>
-                </div>
-
-                <div class="benefit-card group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 lg:col-span-1 md:col-span-2 lg:col-start-2"
-                    data-aos="fade-up" data-aos-delay="500">
-                    <div
-                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-4 text-navy group-hover:text-blue-600 transition-colors">エンゲージメント向上
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed">楽しみながら情報に触れるため、顧客とより深い関係性を構築できます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Strengths Section: Why Tech Connect? -->
-    <!-- Strengths Section: Why Tech Connect? -->
-    <section id="why-us" class="py-20 bg-gradient-to-r from-blue-900 to-slate-900 relative overflow-hidden">
-        <!-- Background Decoration (Same as CTA) -->
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-full h-full opacity-30"
-                style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
-            </div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10 box-border">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white" data-aos="fade-up">
-                Tech Connectが<br class="md:hidden">選ばれる3つの理由
-            </h2>
-            <p class="text-center text-gray-300 mb-16" data-aos="fade-up" data-aos-delay="100">
-                ただ作るだけではない。あなたのビジネスの「パートナー」として。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto box-border">
-                <!-- Reason 1: Partnership -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 relative overflow-hidden group hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 box-border"
-                    data-aos="fade-up" data-aos-delay="150">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-accent-yellow"></div>
-                    <div
-                        class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-accent-yellow transition-colors">
-                        「体験ファースト」のベストな技術
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        技術ありきではなく、<span
-                            class="text-accent-yellow font-bold">「ユーザーがどう感じるか」</span>から逆算して最適な方法をご提案。特にアプリ不要で<span
-                            class="text-accent-yellow font-bold">手軽に体験できるWebAR</span>を主軸に、UXを考慮したベストな技術をご提案します。
-                    </p>
-                </div>
-
-                <!-- Reason 2: Experience-first Technology -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 relative overflow-hidden group hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 box-border"
-                    data-aos="fade-up" data-aos-delay="250">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-accent-yellow"></div>
-                    <div
-                        class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-accent-yellow transition-colors">
-                        「スモールスタート」できる料金体系
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        いきなり大きな予算をかける必要はありません。まずは<span
-                            class="text-accent-yellow font-bold">基本機能だけではじめて</span>、効果を見ながら機能を追加していく「積み上げ型」のプラン。<span
-                            class="text-accent-yellow font-bold">最小限のリスク</span>ではじめられます。
-                    </p>
-                </div>
-
-                <!-- Reason 3: Flexible Pricing -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 relative overflow-hidden group hover:-translate-y-2 hover:bg-white/15 transition-all duration-300 box-border"
-                    data-aos="fade-up" data-aos-delay="350">
-                    <div class="absolute top-0 left-0 w-2 h-full bg-accent-yellow"></div>
-                    <div
-                        class="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-8 h-8 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4 group-hover:text-accent-yellow transition-colors">
-                        「エンジニアが直接対話」で伴走
-                    </h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        ご相談からお見積り、制作、納品まで、<span
-                            class="text-accent-yellow font-bold">すべて私（エンジニア本人）が直接対応</span>します。「こんなことできる？」というアイデア段階から、公開後の運用まで<span
-                            class="text-accent-yellow font-bold">一貫して伴走</span>。伝言ゲームのモヤモヤがありません。
-                    </p>
-                </div>
-            </div>
-
-            <!-- Empathy Message -->
-            <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="400">
-                <p
-                    class="text-lg text-white font-bold bg-white/10 inline-block px-8 py-4 rounded-full border border-white/20 backdrop-blur-sm">
-                    「デジタルを使って面白いことしたいけど、技術的なことがわからない…」そんな時は、<span class="text-accent-yellow font-bold">Tech
-                        Connect</span>に相談ください。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cases Section -->
-    <section id="cases" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-navy" data-aos="fade-up">
-                制作実績
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="case-card" data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="aspect-[9/16] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                        <iframe class="w-full h-full rounded-lg"
-                            src="https://www.youtube.com/embed/7NUW6kBXlsA?modestbranding=1&rel=0&showinfo=0&controls=1&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1"
-                            title="AR名刺デモ - Tech Connect" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-navy">AR名刺</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">初対面で絶大なインパクト。あなたのことを覚えてもらえる確率が格段に上がります。</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">営業ツール</span>
-                        <span class="tag">BtoB</span>
-                    </div>
-                </div>
-
-                <div class="case-card" data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="aspect-[9/16] bg-gray-900 rounded-lg mb-6 flex items-center justify-center relative overflow-hidden">
-                        <iframe class="w-full h-full rounded-lg"
-                            src="https://www.youtube.com/embed/Tjd0_y_4A6E?modestbranding=1&rel=0&showinfo=0&controls=1&fs=0&cc_load_policy=0&iv_load_policy=3&autohide=1"
-                            title="ARカードデモ - Tech Connect" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-navy">AR CD</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">ミニチュアCDのジャケットを映すと音楽や動画、3Dモデルが飛び出す！音楽と映像の新しい楽しみ方を提供します。
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">エンタメ</span>
-                        <span class="tag">音楽</span>
-                    </div>
-                </div>
-
-                <div class="case-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="aspect-[3/4] bg-gray-200 rounded-lg mb-6 flex items-center justify-center relative">
-                        <div class="text-center">
-                            <span class="text-gray-500 font-medium text-lg">Coming Soon</span>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-navy">文化財×AR</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">歴史的文化財をARで体験。文化財の認知度向上、記憶定着率の向上、SNSでの拡散が期待できます。</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag">観光</span>
-                        <span class="tag">自治体</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Intermediate CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-blue-900 to-slate-900 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 left-0 w-full h-full opacity-30"
-                style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;">
-            </div>
-        </div>
-        <div class="container mx-auto px-4 relative z-10 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6" data-aos="fade-up">
-                まだ「思いつき」の段階でも<br class="md:hidden">構いません。
-            </h2>
-            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                「こんなことできる？」という軽い相談から、具体的な企画まで。<br class="md:hidden">あなたの「やりたい」を技術でサポートします。
-            </p>
-            <div data-aos="fade-up" data-aos-delay="200">
-                <a href="#contact"
-                    class="inline-block bg-accent-yellow text-navy px-10 py-4 rounded-full text-xl font-bold hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl">
-                    まずはアイデアの壁打ちから（無料）
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="tc-section tc-pricing">
-        <div class="tc-container">
-            <h2 class="tc-sec-title" data-aos="fade-up">AR制作費用について</h2>
-            <div class="tc-sec-lead" data-aos="fade-up" data-aos-delay="50">
-                <p class="text-lg md:text-xl font-medium text-navy mb-4">
-                    ARは、一部の大企業だけのものではありません。
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    小さく始めて、必要な分だけ体験を広げていく。<br>
-                    Tech Connectは、そんな<strong class="text-navy">ARのベストプラクティス</strong>をご提案します。
-                </p>
-                <p class="text-gray-500 text-sm mt-4">
-                    下記は、体験の深さごとに整理した制作費の目安です。<br>
-                    目的やご予算に合わせて調整できますので、まずはイメージづくりとしてご覧ください。
-                </p>
-            </div>
-
-            <!-- 3 Plans Grid -->
-            <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12 pt-6 items-stretch">
-
-                <!-- Plan 1: Light AR -->
-                <div class="tc-card tc-plan-card" data-aos="fade-up" data-aos-delay="100">
-                    <!-- ① プラン名 -->
-                    <div class="tc-plan-header tc-plan-light">
-                        <span class="tc-plan-number">PLAN 01</span>
-                        <h3 class="tc-plan-title">ライトAR</h3>
-                        <p class="tc-plan-subtitle">テンプレ活用</p>
-                    </div>
-                    <div class="tc-plan-body">
-                        <!-- ② 誰向けか -->
-                        <p class="tc-plan-tagline">
-                            <strong>ARをもっと身近に。</strong><br>
-                            まずは手軽に「驚き」をプラスしたい方へ
-                        </p>
-                        <!-- ③ 価格 -->
-                        <div class="tc-plan-price-area">
-                            <div class="tc-price-main-large">¥15,000<span class="tc-price-suffix">〜</span></div>
-                            <p class="tc-price-tax-inline">（税込 ¥16,500〜）</p>
-                            <p class="tc-price-note">
-                                <span class="tc-monitor-badge">🎁 10社限定モニター価格</span>
-                                <span class="ml-2 bg-accent-yellow text-navy text-xs font-bold px-2 py-0.5 rounded">57%
-                                    OFF</span><br>
-                                <span class="tc-price-original"
-                                    style="text-decoration: line-through;">通常価格：¥35,000〜</span>
-                            </p>
-                        </div>
-                        <!-- ④ プラン内容 -->
-                        <div class="tc-plan-content">
-                            <span class="tc-content-label">プラン内容</span>
-                            <ul class="tc-content-list">
-                                <li><strong>テンプレートを活用した画像認識AR</strong></li>
-                                <li>提供素材（画像・動画・3D）の配置と演出調整</li>
-                                <li>リンクボタン設置（Web遷移など）</li>
-                                <li>既存の印刷物・商品への組込みも可（制限あり）</li>
-                            </ul>
-                        </div>
-                        <!-- ⑤ 完成イメージ -->
-                        <div class="tc-plan-example-image">
-                            <span class="tc-example-image-label">💡 完成イメージ</span>
-                            <ul class="tc-example-list">
-                                <li>AR名刺 / ARチラシ / ARカタログ</li>
-                                <li>ロゴ・動画表示のシンプルAR</li>
-                            </ul>
-                            <p class="tc-example-description">名刺やチラシをかざすと、ロゴアニメーションや紹介動画が再生され、そのままWebサイトへ遷移</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plan 2: Interactive AR -->
-                <div class="tc-card tc-plan-card" data-aos="fade-up" data-aos-delay="200">
-                    <!-- ① プラン名 -->
-                    <div class="tc-plan-header tc-plan-interactive">
-                        <span class="tc-plan-number">PLAN 02</span>
-                        <h3 class="tc-plan-title">インタラクティブAR</h3>
-                        <p class="tc-plan-subtitle">反応・条件分岐あり</p>
-                    </div>
-                    <div class="tc-plan-body">
-                        <!-- ② 誰向けか -->
-                        <p class="tc-plan-tagline">
-                            ユーザーの<strong>「アクション」</strong>に反応する。<br>没入感のある体験を創りたい方へ
-                        </p>
-                        <!-- ③ 価格 -->
-                        <div class="tc-plan-price-area">
-                            <div class="tc-price-main-large">¥100,000<span class="tc-price-suffix">〜</span></div>
-                            <p class="tc-price-tax-inline">（税込 ¥110,000〜）</p>
-                            <p class="tc-price-note">内容により変動</p>
-                            <div class="tc-price-area-spacer"></div>
-                        </div>
-                        <!-- ④ プラン内容 -->
-                        <div class="tc-plan-content">
-                            <span class="tc-content-label">プラン内容</span>
-                            <ul class="tc-content-list">
-                                <li><strong>操作に反応する</strong>双方向のAR体験（ARゲーム等）</li>
-                                <li>顔・手・身体認識技術を活用した高度な演出</li>
-                                <li>タップや動きに応じた複雑な分岐・応答</li>
-                            </ul>
-                        </div>
-                        <!-- ⑤ 完成イメージ -->
-                        <div class="tc-plan-example-image">
-                            <span class="tc-example-image-label">💡 完成イメージ</span>
-                            <ul class="tc-example-list">
-                                <li>ARゲーム / 特別なフォト演出（顔認識）</li>
-                                <li>反応・条件分岐がある高機能AR</li>
-                            </ul>
-                            <p class="tc-example-description">画面上の動きに反応してスコアが変わるARゲームや、撮影すると演出が変化する体験型フォトコンテンツ</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Plan 3: Custom AR -->
-                <div class="tc-card tc-plan-card" data-aos="fade-up" data-aos-delay="300">
-                    <!-- ① プラン名 -->
-                    <div class="tc-plan-header tc-plan-custom">
-                        <span class="tc-plan-number">PLAN 03</span>
-                        <h3 class="tc-plan-title">カスタムAR</h3>
-                        <p class="tc-plan-subtitle">システム構築</p>
-                    </div>
-                    <div class="tc-plan-body">
-                        <!-- ② 誰向けか -->
-                        <p class="tc-plan-tagline">
-                            単発コンテンツではなく、<br><strong>「仕組み」</strong>としてARを導入したい方へ
-                        </p>
-                        <!-- ③ 価格 -->
-                        <div class="tc-plan-price-area">
-                            <div class="tc-price-main-large">¥300,000<span class="tc-price-suffix">〜</span></div>
-                            <p class="tc-price-tax-inline">（税込 ¥330,000〜）</p>
-                            <p class="tc-price-note">個別お見積り</p>
-                            <div class="tc-price-area-spacer"></div>
-                        </div>
-                        <!-- ④ プラン内容 -->
-                        <div class="tc-plan-content">
-                            <span class="tc-content-label">プラン内容</span>
-                            <ul class="tc-content-list">
-                                <li><strong>複数地点を連携</strong>させたAR周遊システム</li>
-                                <li>位置情報・地図連動など大規模な仕組み構築</li>
-                                <li>要件定義（課題整理）から技術選定まで並走</li>
-                            </ul>
-                        </div>
-                        <!-- ⑤ 完成イメージ -->
-                        <div class="tc-plan-example-image">
-                            <span class="tc-example-image-label">💡 完成イメージ</span>
-                            <ul class="tc-example-list">
-                                <li>AR観光ガイド（周遊システム）</li>
-                                <li>複数スポット連携の案内システム</li>
-                                <li>イベント会場の回遊促進AR</li>
-                            </ul>
-                            <p class="tc-example-description">地図や導線を軸に、複数地点・複数情報を整理して提示する観光・案内向けARシステム</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Common Notes - Accordion Style -->
-            <div class="tc-card" data-aos="fade-up" data-aos-delay="150">
-                <h3 class="tc-block-title">プラン共通事項</h3>
-                <p class="text-sm text-gray-600 mb-4">
-                    全プランに共通する、制作から公開までの基本条件です。
-                </p>
-
-                <div class="space-y-2">
-                    <!-- 1. 基本パッケージの内容（何が含まれるか最初に） -->
-                    <div class="guideline-item-compact border border-gray-200 rounded-lg overflow-hidden">
-                        <button
-                            class="guideline-header w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 transition-colors bg-white">
-                            <span class="font-semibold text-navy text-sm">基本パッケージに含まれる内容</span>
-                            <span
-                                class="guideline-icon text-lg text-gray-400 transition-transform duration-300">＋</span>
-                        </button>
-                        <div class="guideline-content hidden">
-                            <div class="px-4 pb-4 text-sm text-gray-600 bg-gray-50">
-                                <ul class="space-y-1">
-                                    <li>✅ 公開用QRコード・URLの発行</li>
-                                    <li>✅ ブラウザ動作テスト（iOS/Android最新環境）</li>
-                                    <li>✅ 初期公開から<span class="guideline-highlight">6ヶ月間</span>のサーバー維持費</li>
-                                    <li>✅ 納品後<span class="guideline-highlight">1ヶ月間</span>の無償動作保証</li>
-                                    <li>✅ 簡易的な運用ガイド</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. 納期の目安（どれくらいで届くか） -->
-                    <div class="guideline-item-compact border border-gray-200 rounded-lg overflow-hidden">
-                        <button
-                            class="guideline-header w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 transition-colors bg-white">
-                            <span class="font-semibold text-navy text-sm">納期の目安</span>
-                            <span
-                                class="guideline-icon text-lg text-gray-400 transition-transform duration-300">＋</span>
-                        </button>
-                        <div class="guideline-content hidden">
-                            <div class="px-4 pb-4 text-sm text-gray-600 bg-gray-50">
-                                <p class="mb-2">制作期間は、素材がすべて揃った時点（Day 0）からのカウントとなります。</p>
-                                <ul class="space-y-1">
-                                    <li>• スタンダードAR（単発）: <span class="guideline-highlight">最短 5営業日〜</span></li>
-                                    <li>• インタラクティブAR（ゲーム等）: <span class="guideline-highlight">10営業日〜</span></li>
-                                    <li>• カスタムAR: 要件定義完了後、個別にご提示</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. 公開期間とその後について（いつまで使えるか） -->
-                    <div class="guideline-item-compact border border-gray-200 rounded-lg overflow-hidden">
-                        <button
-                            class="guideline-header w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 transition-colors bg-white">
-                            <span class="font-semibold text-navy text-sm">公開期間とその後について</span>
-                            <span
-                                class="guideline-icon text-lg text-gray-400 transition-transform duration-300">＋</span>
-                        </button>
-                        <div class="guideline-content hidden">
-                            <div class="px-4 pb-4 text-sm text-gray-600 bg-gray-50">
-                                <ul class="space-y-1">
-                                    <li>• 公開期間: 標準で<span class="guideline-highlight">6ヶ月間</span></li>
-                                    <li>• 期間終了後: 月額保守プランまたはデータ保管（<span class="guideline-highlight">1年間無償</span>）を選択</li>
-                                    <li>• データの権利: ARコンテンツのURLは期間中ご自由に使用可</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. AR素材の容量制限（技術的な制約） -->
-                    <div class="guideline-item-compact border border-gray-200 rounded-lg overflow-hidden">
-                        <button
-                            class="guideline-header w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 transition-colors bg-white">
-                            <span class="font-semibold text-navy text-sm">AR素材の容量制限（UXポリシー）</span>
-                            <span
-                                class="guideline-icon text-lg text-gray-400 transition-transform duration-300">＋</span>
-                        </button>
-                        <div class="guideline-content hidden">
-                            <div class="px-4 pb-4 text-sm text-gray-600 bg-gray-50">
-                                <p class="mb-3">快適なAR体験のため、データの軽量化と読み込み速度の最適化を最優先しています。</p>
-
-                                <div class="mb-3">
-                                    <p class="font-bold text-navy mb-1">【容量制限】</p>
-                                    <p>上限サイズ: <span class="guideline-highlight">1ファイルあたり 25MB</span></p>
-                                    <p class="text-xs text-gray-500 mt-1">※ 容量は小さければ小さいほど、読み込み時間が短縮され、体験の質が向上します。</p>
-                                </div>
-
+                <div class="service__cards">
+                    <!-- 集客・回遊型AR -->
+                    <div class="service-card">
+                        <div class="service-card__top">
+                            <span class="tag tag--navy">集客・回遊型AR</span>
+                            <h3 class="service-card__title">人を集めて、<br>回遊させる。</h3>
+                            <div class="service-card__cols">
                                 <div>
-                                    <p class="font-bold text-navy mb-1">【素材の軽量化について】</p>
-                                    <p>高画質動画などは容量オーバーになりがちです。<br>
-                                        「圧縮方法がわからない」「圧縮作業にかける時間がない」場合は、オプションにて軽量化を代行可能です。お気軽にご相談ください。</p>
+                                    <p class="service-card__label">対象</p>
+                                    <p class="service-card__text">イベント・展示会・マルシェ・商業施設・地域イベント など</p>
+                                </div>
+                                <div>
+                                    <p class="service-card__label">こんな成果を生みます</p>
+                                    <ul class="service-card__outcomes">
+                                        <li><span class="service-card__check">✓</span>足を止める</li>
+                                        <li><span class="service-card__check">✓</span>回遊を促す</li>
+                                        <li><span class="service-card__check">✓</span>滞在時間を伸ばす</li>
+                                        <li><span class="service-card__check">✓</span>SNSで話題になる</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- 5. あらかじめご了承いただきたいこと（最後に注意事項） -->
-                    <div class="guideline-item-compact border border-gray-200 rounded-lg overflow-hidden">
-                        <button
-                            class="guideline-header w-full text-left p-4 flex justify-between items-center hover:bg-gray-50 transition-colors bg-white">
-                            <span class="font-semibold text-navy text-sm">あらかじめご了承いただきたいこと</span>
-                            <span
-                                class="guideline-icon text-lg text-gray-400 transition-transform duration-300">＋</span>
-                        </button>
-                        <div class="guideline-content hidden">
-                            <div class="px-4 pb-4 text-sm text-gray-600 bg-gray-50">
-                                <ul class="space-y-1">
-                                    <li>• 素材は原則としてお客様からご提供（制作代行はオプション）</li>
-                                    <li>• WebAR採用のためスマートフォンの標準ブラウザ（Safari/Chrome）での視聴が前提</li>
-                                    <li>• 納品後<span class="guideline-highlight">1ヶ月</span>以降の不具合は保守プラン内または有償対応</li>
-                                </ul>
-                            </div>
+                        <div class="service-card__footer service-card__footer--navy">
+                            <span>ARゲーム、スタンプラリー、フォトスポット など</span>
+                            <span class="service-card__chev" aria-hidden="true">›</span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Option Menu -->
-            <div class="tc-block" data-aos="fade-up" data-aos-delay="200">
-                <div class="tc-block-head">
-                    <h3 class="tc-block-title">オプションメニュー</h3>
-                    <p class="tc-block-caption">素材をお持ちでない方や、より演出を強化したい方向けのオプションです。</p>
-                </div>
-                <div class="tc-option-grid">
-                    <article class="tc-option">
-                        <h4><span>動画編集（カット・リサイズ）</span></h4>
-                        <p class="tc-option__desc">提供素材の編集・最適化</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥15,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥16,500〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>ARフォトフレーム</span></h4>
-                        <p class="tc-option__desc">カメラ映像に重ねるオリジナルのフォトフレーム</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥10,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥11,000〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>ARフォトフレーム（アニメーション付き）</span></h4>
-                        <p class="tc-option__desc">動きのあるフォトフレームで演出を強化</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥15,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥16,500〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>透過動画作成</span></h4>
-                        <p class="tc-option__desc">背景除去やクロマキー処理</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥15,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥16,500〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>マーカー画像デザイン</span></h4>
-                        <p class="tc-option__desc">認識用画像の新規制作</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥10,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥11,000〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>動画編集（テロップ・演出込み）</span></h4>
-                        <p class="tc-option__desc">字幕追加やエフェクト付与</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥30,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥33,000〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>3Dロゴアニメーション</span></h4>
-                        <p class="tc-option__desc">ロゴの立体化・動的演出</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥30,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥33,000〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>3Dスキャン（商品・人物）</span></h4>
-                        <p class="tc-option__desc">実物を3D化して表示</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">¥30,000〜</span>
-                            <span class="tc-price-tax">（税込 ¥33,000〜）</span>
-                        </div>
-                    </article>
-                    <article class="tc-option">
-                        <h4><span>3Dモデル制作</span></h4>
-                        <p class="tc-option__desc">建物・空間・キャラクターなど</p>
-                        <div class="tc-option__price">
-                            <span class="tc-price-base">別途お見積り</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- Support Section -->
-    <section id="support" class="py-16 bg-slate-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-navy" data-aos="fade-up">
-                運用・保守サポート
-            </h2>
-            <p class="text-center text-gray-600 mb-12" data-aos="fade-up" data-aos-delay="100">
-                6ヶ月間の公開期間終了後、継続をご希望の方向けのプランです。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12 items-stretch">
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 order-1 md:order-1"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-navy mb-2 text-center">プラン1：ライト</h3>
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-navy mb-1">¥800<span
-                                    class="text-base font-medium text-gray-500">/月</span></p>
-                            <p class="text-sm text-gray-600">（税込 ¥880）</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4 text-sm text-gray-600 flex-1">
-                        <div>
-                            <p class="font-semibold text-navy mb-2">含まれる内容</p>
-                            <ul class="space-y-1">
-                                <li>✅ AR公開の継続のみ</li>
-                            </ul>
-                            <p class="text-xs text-gray-500 mt-2">※修正・不具合対応・サポートは含まれません（都度対応可）</p>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-navy mb-2">こんな方におすすめ</p>
-                            <ul class="space-y-1">
-                                <li>・更新予定がなく、公開状態を維持したい方</li>
-                                <li>・最低限のコストで継続したい方</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-accent-yellow order-2 md:order-2"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-navy mb-2 text-center">プラン2：スタンダード</h3>
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-navy mb-1">¥5,000<span
-                                    class="text-base font-medium text-gray-500">/月</span></p>
-                            <p class="text-sm text-gray-600">（税込 ¥5,500）</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4 text-sm text-gray-600 flex-1">
-                        <div>
-                            <p class="font-semibold text-navy mb-2">含まれる内容</p>
-                            <ul class="space-y-1">
-                                <li>✅ AR公開の継続</li>
-                                <li>✅ 軽微な修正：月1回まで（リンク変更、画像・動画差し替え、テキスト修正）</li>
-                                <li>✅ 不具合対応（ブラウザ・OS仕様変更）</li>
-                                <li>✅ メールサポート（営業日48時間以内）</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-navy mb-2">こんな方におすすめ</p>
-                            <ul class="space-y-1">
-                                <li>・月1回程度の更新ニーズがある</li>
-                                <li>・最低限のサポートを確保しながら安心して運用したい</li>
-                                <li>・AR名刺やショップカードとして継続活用したい</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 flex flex-col h-full hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 order-3 md:order-3"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-navy mb-2 text-center">プラン3：プレミアム</h3>
-                        <div class="text-center">
-                            <p class="text-3xl font-bold text-navy mb-1">¥10,000<span
-                                    class="text-base font-medium text-gray-500">/月</span></p>
-                            <p class="text-sm text-gray-600">（税込 ¥11,000）</p>
-                        </div>
-                    </div>
-                    <div class="space-y-4 text-sm text-gray-600 flex-1">
-                        <div>
-                            <p class="font-semibold text-navy mb-2">含まれる内容</p>
-                            <ul class="space-y-1">
-                                <li>✅ AR公開の継続</li>
-                                <li>✅ 修正対応：月2回まで</li>
-                                <li>✅ 月次アクセスレポート</li>
-                                <li>✅ 不具合対応（優先・無償）</li>
-                                <li>✅ メールサポート（営業日24時間以内・優先）</li>
-                                <li>✅ プラットフォーム変更時の無償移行対応</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-semibold text-navy mb-2">こんな方におすすめ</p>
-                            <ul class="space-y-1">
-                                <li>・定期的に内容を更新して最新情報を届けたい</li>
-                                <li>・アクセスデータを見ながら改善したい</li>
-                                <li>・本格的にAR施策を継続運用したい</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="max-w-5xl mx-auto space-y-8">
-                <div class="bg-white border border-gray-200 rounded-xl p-6 md:p-8" data-aos="fade-up"
-                    data-aos-delay="150">
-                    <h3 class="text-lg font-semibold text-navy mb-4">スポットメニュー（都度対応）</h3>
-                    <p class="text-sm text-gray-600 mb-5">サポートプランに加入いただかない場合でも、以下の都度対応を承ります。</p>
-                    <div class="grid sm:grid-cols-2 gap-4 text-sm text-gray-700">
-                        <div class="bg-slate-50 rounded-lg border border-gray-200 p-4">
-                            <p class="font-semibold text-navy mb-1">修正対応</p>
-                            <p>リンク変更やテキスト差し替えなど<br>1回 ¥10,000</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-lg border border-gray-200 p-4">
-                            <p class="font-semibold text-navy mb-1">不具合対応</p>
-                            <p>ブラウザ／OS／プラットフォームの仕様変更による調整<br>1回 ¥15,000</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-lg border border-gray-200 p-4">
-                            <p class="font-semibold text-navy mb-1">アクセスレポート</p>
-                            <p>月次アクセスレポートを都度でご提供<br>1回 ¥3,000</p>
-                        </div>
-                        <div class="bg-slate-50 rounded-lg border border-gray-200 p-4">
-                            <p class="font-semibold text-navy mb-1">その他スポット対応</p>
-                            <p>内容に応じて個別お見積りいたします</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-4">※作業内容により費用が変動する場合がございます。お気軽にご相談ください。</p>
-                </div>
-
-                <div class="bg-amber-50 border border-amber-200 rounded-xl p-6 md:p-8" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <h3 class="text-lg font-semibold text-amber-700 mb-3">継続プラン未加入の場合</h3>
-                    <ul class="space-y-2 text-sm text-amber-800">
-                        <li>• 6ヶ月経過後、公開停止となります</li>
-                        <li>• データは1年間保管（非公開状態）します</li>
-                        <li>• 再開には再設定費¥15,000が必要です</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-16 bg-blue-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-navy" data-aos="fade-up">
-                よくある質問
-            </h2>
-
-            <div class="max-w-3xl mx-auto">
-                <!-- Q1: 最優先 - 具体的ではなくても相談OK -->
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">作りたいコンテンツが具体的ではないのですが、相談できますか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">もちろんです！むしろ<strong
-                                class="text-navy">「ぼんやりした段階」からお声がけください</strong>。御社の課題や「やりたいこと」をお聞きして、どんなARなら効果的か、企画から一緒に考えます。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Q2: 専門的な素材は必要？ -->
-                <div class="faq-item mt-4" data-aos="fade-up" data-aos-delay="150">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">依頼する際に、専門的な素材（3Dデータなど）は必要ですか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">いいえ、必須ではありません。<strong
-                                class="text-navy">ロゴや写真があれば大丈夫</strong>です。「3Dモデルなんて持ってない！」という場合でも、私がゼロから制作したり、既存の素材を活用する方法をご提案します。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Q3: 制作期間 -->
-                <div class="faq-item mt-4" data-aos="fade-up" data-aos-delay="200">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">制作期間はどのくらいかかりますか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">素材が揃っていれば<strong
-                                class="text-navy">最短1週間でドラフト（試作）をお見せ</strong>できます。「まずは実験的に早く出したい」や「じっくり作り込みたい」など、ご希望のスケジュールに合わせて進行します。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Q4: 修正対応 -->
-                <div class="faq-item mt-4" data-aos="fade-up" data-aos-delay="250">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">修正や変更には対応してもらえますか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">はい、<strong
-                                class="text-navy">基本料金内で「2回」まで</strong>の修正を含んでいます。最初のヒアリングでイメージをしっかり共有しますので、多くの場合はこの範囲で完成しますが、もし大幅な変更が必要な場合も柔軟にご相談に乗ります。
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Q5: 対応機種 -->
-                <div class="faq-item mt-4" data-aos="fade-up" data-aos-delay="300">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">どのスマートフォンでも体験できますか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">iPhone（Safari）、Android（Chrome）の標準ブラウザで動作します。<strong
-                                class="text-navy">専用アプリのダウンロードが不要</strong>なので、老若男女問わず、カメラをかざすだけで誰でもすぐに体験できるのが強みです。</p>
-                    </div>
-                </div>
-
-                <!-- Q6: 公開後の差し替え -->
-                <div class="faq-item mt-4" data-aos="fade-up" data-aos-delay="350">
-                    <button
-                        class="faq-question w-full text-left p-6 bg-white rounded-lg shadow-sm border border-blue-200 hover:border-accent-yellow transition-colors">
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-lg md:text-xl font-bold text-navy">公開した後に、コンテンツを差し替えることはできますか？</h3>
-                            <svg class="w-5 h-5 text-gray-500 transform transition-transform flex-shrink-0 ml-4"
-                                fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </div>
-                    </button>
-                    <div class="faq-answer hidden p-6 pt-0">
-                        <p class="text-gray-600 leading-relaxed">可能です！WebARのメリットは、<strong
-                                class="text-navy">QRコードを変えずに中身だけ更新できる</strong>ことです。「季節ごとに演出を変える」といった運用も得意ですので、サポートプランでの継続的な改善をおすすめしています。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Me Section -->
-    <section id="about-me" class="py-16 bg-gray-50 relative overflow-hidden">
-        <!-- 3D Animation Canvas -->
-        <canvas id="aboutme-canvas" class="absolute inset-0 w-full h-full pointer-events-none"
-            style="z-index: 1;"></canvas>
-
-        <div class="container mx-auto px-4 relative" style="z-index: 2;">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-navy" data-aos="fade-up">
-                    About Me
-                </h2>
-
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Profile Image -->
-                    <div class="flex justify-center" data-aos="fade-right">
-                        <div class="relative group">
-
-                            <!-- Main Profile Circle -->
-                            <div
-                                class="w-80 h-80 rounded-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400 p-1 transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl profile-circle">
-                                <div
-                                    class="w-full h-full rounded-full overflow-hidden transition-all duration-300 group-hover:shadow-inner">
-                                    <img src="assets/profile2.jpg" alt="水野真治のプロフィール写真"
-                                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                        style="object-position: 50% 20%;">
+                    <!-- 付加価値・販促型AR -->
+                    <div class="service-card">
+                        <div class="service-card__top">
+                            <span class="tag tag--green">付加価値・販促型AR</span>
+                            <h3 class="service-card__title">手に取ったモノを、<br>話題に変える。</h3>
+                            <div class="service-card__cols">
+                                <div>
+                                    <p class="service-card__label">対象</p>
+                                    <p class="service-card__text">名刺・チラシ・ポスター・商品パッケージ・カタログ・CD など</p>
+                                </div>
+                                <div>
+                                    <p class="service-card__label">こんな成果を生みます</p>
+                                    <ul class="service-card__outcomes">
+                                        <li><span class="service-card__check">✓</span>興味を深める</li>
+                                        <li><span class="service-card__check">✓</span>商品理解を促す</li>
+                                        <li><span class="service-card__check">✓</span>ブランド体験につなげる</li>
+                                        <li><span class="service-card__check">✓</span>配って終わりにしない</li>
+                                    </ul>
                                 </div>
                             </div>
-
-                            <!-- Pulsing Ring -->
-                            <div
-                                class="absolute inset-0 w-80 h-80 rounded-full border-4 border-blue-400 opacity-30 pulse-ring">
-                            </div>
                         </div>
-                    </div>
-
-                    <!-- Profile Content -->
-                    <div class="text-left" data-aos="fade-left">
-                        <h3 class="text-2xl font-bold text-navy mb-4">水野 真治</h3>
-                        <p class="text-lg text-navy mb-2 font-semibold">Tech Connect 代表</p>
-                        <p class="text-gray-600 mb-6">ARコンテンツクリエイター</p>
-
-                        <div class="space-y-4 text-gray-700">
-                            <p>
-                                これまで環境分析の会社で機器分析オペレーター、管理業務に携わってきました。今はARというテクノロジーの可能性に魅了され、「ARの民主化」を目標に個人開発をしています。
-                            </p>
-                            <p>
-                                近年、テクノロジーの発展により、AR開発のハードルが下がり身近な存在になってきました。中小企業や小規模事業者の方でも、手軽にARを取り入れて面白いコンテンツを作ることができます。ARで新しい価値を創造し、「面白い！」と感じてもらえるコンテンツを届けられたらと思います。
-                            </p>
-                            <p>
-                                AR名刺やARチラシ、体験型イベントなど、気軽に使えるARサービスを通じて、テクノロジーを使って人の心を動かすお手伝いができれば幸いです。
-                            </p>
-                        </div>
-
-                        <div class="mt-10 space-y-6">
-                            <div class="pl-5 border-l-4 border-blue-400 py-1" data-aos="fade-left" data-aos-delay="300">
-                                <p class="text-xs font-bold text-blue-500 uppercase tracking-widest mb-1">Background</p>
-                                <p class="text-gray-800 font-medium">環境分析エンジニア / システム開発経験</p>
-                            </div>
-                            <div class="pl-5 border-l-4 border-purple-500 py-1" data-aos="fade-left"
-                                data-aos-delay="400">
-                                <p class="text-xs font-bold text-purple-600 uppercase tracking-widest mb-1">Vision</p>
-                                <p class="text-gray-800 font-medium">「ARの民主化」を目指し活動</p>
-                            </div>
-                            <div class="pl-5 border-l-4 border-pink-400 py-1" data-aos="fade-left" data-aos-delay="500">
-                                <p class="text-xs font-bold text-pink-500 uppercase tracking-widest mb-1">Mission</p>
-                                <p class="text-gray-800 font-medium">「人生をエモーショナルに」</p>
-                            </div>
+                        <div class="service-card__footer service-card__footer--green">
+                            <span>名刺AR、チラシAR、商品ラベルAR など</span>
+                            <span class="service-card__chev" aria-hidden="true">›</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Personal Message -->
-                <div class="mt-12 bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-lg text-gray-700 leading-relaxed">
-                        <p class="mb-4">
-                            <span class="text-2xl text-navy font-bold">"</span>
-                            私のモットーは「人生をエモーショナルに」です。<br>
-                            "わあ、すごい！"と心が震える瞬間こそ、生きていて良かったと実感できる時間だと思っています。<br>
-                            そんな心ときめく瞬間を自ら生み出していきたい。
-                        </p>
-                        <p class="mb-4">
-                            私が大切にしているのは「テクノロジーを使って人の心を動かす」ことです。
-                        </p>
-                        <p>
-                            もし、あなたの事業や活動をもっと多くの人に届けたいとお考えでしたら、ぜひ一緒に"感動体験"を作っていきませんか？
-                            <span class="text-2xl text-navy font-bold">"</span>
-                        </p>
-                    </div>
-                    <div class="mt-6 text-right">
-                        <p class="text-navy font-semibold">— 水野 真治</p>
+                <div class="card card--pad-md">
+                    <div class="service__note">
+                        <span>ここにないアイデアも、お聞かせください。カスタムのご相談も歓迎です。</span>
+                        <a href="#contact" class="btn btn--ghost btn--sm">
+                            <span>無料で相談してみる</span>
+                            <span class="btn__arrow" aria-hidden="true">›</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-navy text-white relative overflow-hidden">
-        <!-- Particle Canvas -->
-        <canvas id="contact-canvas" class="absolute inset-0 w-full h-full"></canvas>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="max-w-4xl mx-auto">
-                <!-- Integrated CTA Message -->
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white" data-aos="fade-up"
-                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                        <span class="inline-block">まずは、あなたの</span><span class="inline-block">「やりたいこと」を</span><br
-                            class="md:hidden"><span class="inline-block">お聞かせください</span>
-                    </h2>
-                    <p class="text-lg md:text-xl text-gray-100 leading-relaxed" data-aos="fade-up" data-aos-delay="100"
-                        style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
-                        具体的な仕様が決まっていなくても大丈夫。<br class="hidden md:inline">
-                        「こんなことできる？」という段階から、エンジニアが直接サポートします。
-                    </p>
-                </div>
-
-                <div class="flex justify-center">
-                    <!-- Contact Form -->
-                    <div class="w-full max-w-2xl bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 shadow-2xl"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold text-center mb-8 text-white">お問い合わせフォーム</h3>
-                        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                            class="space-y-8" id="contact-form">
-                            <input type="hidden" name="form-name" value="contact">
-                            <input type="text" name="bot-field" class="hidden" tabindex="-1" autocomplete="off">
-                            <div>
-                                <label for="company" class="block text-sm font-medium mb-3">会社名・団体名 <span
-                                        class="text-xs font-normal text-gray-400 ml-2">※個人の場合は「個人」とご入力ください</span></label>
-                                <input type="text" id="company" name="company" aria-label="会社名・団体名"
-                                    class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg"
-                                    placeholder="株式会社○○">
-                            </div>
-
-                            <div>
-                                <label for="name" class="block text-sm font-medium mb-3">お名前 <span
-                                        class="text-red-400">*必須</span></label>
-                                <input type="text" id="name" name="name" required aria-label="お名前 必須"
-                                    aria-required="true"
-                                    class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg"
-                                    placeholder="山田 太郎">
-                            </div>
-
-                            <div>
-                                <label for="email" class="block text-sm font-medium mb-3">メールアドレス <span
-                                        class="text-red-400">*必須</span></label>
-                                <input type="email" id="email" name="email" required aria-label="メールアドレス 必須"
-                                    aria-required="true"
-                                    class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg"
-                                    placeholder="example@company.com">
-                            </div>
-
-                            <div>
-                                <label for="message" class="block text-sm font-medium mb-3">お問い合わせ内容</label>
-                                <textarea id="message" name="message" rows="5" aria-label="お問い合わせ内容"
-                                    class="w-full px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:border-accent-yellow focus:outline-none text-lg resize-vertical"
-                                    placeholder="ご質問や、「こんなARを作ってみたい」というアイデアなど、なんでもお書きください。"></textarea>
-                            </div>
-
-                            <button type="submit"
-                                class="w-full bg-accent-yellow text-navy py-4 px-8 rounded-lg font-bold text-lg hover:bg-accent-yellow/90 transition-colors shadow-lg hover:shadow-xl"
-                                aria-label="お問い合わせフォームを送信する">
-                                メッセージを送る（無料）
-                            </button>
-                        </form>
+        <!-- ============================= Case Study ============================= -->
+        <section id="cases" class="section section--white">
+            <div class="container">
+                <div class="case__head">
+                    <div class="section-heading section-heading--left">
+                        <span class="section-heading__eyebrow">Case Study</span>
+                        <h2 class="section-heading__title">制作実績</h2>
+                        <p class="section-heading__lead">イベントや印刷物のAR事例を、一部ご紹介します。</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <div class="text-2xl font-bold mb-4">Tech Connect</div>
-                <p class="text-gray-400 mb-4">ARの民主化で心ときめくコミュニケーション社会を実現</p>
-                <div class="flex justify-center space-x-6 mb-4">
-                    <a href="#about" class="text-gray-400 hover:text-white transition-colors">サービス</a>
-                    <a href="#cases" class="text-gray-400 hover:text-white transition-colors">事例</a>
-                    <a href="#pricing" class="text-gray-400 hover:text-white transition-colors">料金</a>
-                    <a href="#support" class="text-gray-400 hover:text-white transition-colors">サポート</a>
-                    <a href="#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
-                    <a href="#about-me" class="text-gray-400 hover:text-white transition-colors">About Me</a>
-                    <a href="https://www.instagram.com/techconnect.em/" target="_blank" rel="noopener noreferrer"
-                        class="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-                        <img src="assets/Instagram_Glyph_White.png" alt="Instagram" class="w-5 h-5">
-                        Instagram
+                    <a href="#contact" class="btn btn--ghost btn--sm">
+                        <span>事例をもっと見る</span>
+                        <span class="btn__arrow" aria-hidden="true">›</span>
                     </a>
                 </div>
-                <div class="flex justify-center space-x-6 mb-4 text-sm">
-                    <button onclick="openPrivacyModal()"
-                        class="text-gray-500 hover:text-white transition-colors text-sm">プライバシーポリシー</button>
-                    <button onclick="openTokushohoModal()"
-                        class="text-gray-500 hover:text-white transition-colors text-sm">特定商取引法に基づく表記</button>
+
+                <div class="case__grid">
+                    <a href="#contact" class="case-card">
+                        <div class="case-card__media">
+                            <video data-hover-play src="assets/制作実績/catch-the-fruits-01.mp4"
+                                poster="assets/制作実績/catch-the-fruits-01.jpg"
+                                muted loop playsinline preload="metadata"></video>
+                        </div>
+                        <div class="case-card__body">
+                            <h3 class="case-card__title">Catch The Fruits!（ARゲーム）</h3>
+                            <p class="case-card__text">会場でスマホをかざして落ちてくる果物をキャッチ。お子さん連れの足が自然と止まり、ブースに人だかりができます。</p>
+                            <div class="case-card__tags">
+                                <span class="tag tag--outline tag--sm">イベント・体験AR</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#contact" class="case-card">
+                        <div class="case-card__media">
+                            <video data-hover-play src="assets/制作実績/ar-art-jellyfish-01.mp4"
+                                poster="assets/制作実績/ar-art-jellyfish-01.jpg"
+                                muted loop playsinline preload="metadata"></video>
+                        </div>
+                        <div class="case-card__body">
+                            <h3 class="case-card__title">幻想ARデジタルアート</h3>
+                            <p class="case-card__text">ポスターにスマホをかざすと、作品が動き出すデジタルアート。会場での「写真を撮りたい」体験につながります。</p>
+                            <div class="case-card__tags">
+                                <span class="tag tag--outline tag--sm">印刷物・商品AR</span>
+                                <span class="tag tag--outline tag--sm">文化施設</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#contact" class="case-card">
+                        <div class="case-card__media">
+                            <img src="assets/制作実績/otowa-kabuki-01.jpg" alt="">
+                        </div>
+                        <div class="case-card__body">
+                            <h3 class="case-card__title">歌舞伎ARクイズラリー</h3>
+                            <p class="case-card__text">垂れ幕にスマホをかざすと、地元歌舞伎の映像が出現。30秒のクイズで答えがわかる仕組みで、地元文化のPRに。</p>
+                            <div class="case-card__tags">
+                                <span class="tag tag--outline tag--sm">観光・自治体</span>
+                                <span class="tag tag--outline tag--sm">文化財</span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <p class="text-gray-500 text-sm">© 2025 TechConnect. All rights reserved.／無断転載を禁じます。</p>
+                <p class="case__note">※掲載には主催者の承認が必要です。</p>
             </div>
+        </section>
+
+        <!-- ============================= Reason ============================= -->
+        <section id="reason" class="section section--navy">
+            <div class="container">
+                <div class="section-heading section-heading--left section-heading--invert">
+                    <span class="section-heading__eyebrow">Reason</span>
+                    <h2 class="section-heading__title">選ばれる理由</h2>
+                </div>
+                <div class="reason__grid">
+                    <div class="feature feature--column feature--invert">
+                        <img class="feature__icon" src="assets/icons/shield-check.png" alt="">
+                        <div class="feature__body">
+                            <h3 class="feature__title">体験してから、決められる</h3>
+                            <p class="feature__text">お打ち合わせで、あなたのロゴや商品を使ったデモをその場で見られます。体験してピンとこなければ、断っていただいて構いません。</p>
+                        </div>
+                    </div>
+                    <div class="feature feature--column feature--invert">
+                        <img class="feature__icon" src="assets/icons/report.png" alt="">
+                        <div class="feature__body">
+                            <h3 class="feature__title">まずは小さく、試せる</h3>
+                            <p class="feature__text">いきなり大きな投資は不要。名刺1枚・チラシ1種類からの小さなスタートで、効果を見ながら広げられる積み上げ型の料金設計です。</p>
+                        </div>
+                    </div>
+                    <div class="feature feature--column feature--invert">
+                        <img class="feature__icon" src="assets/icons/people.png" alt="">
+                        <div class="feature__body">
+                            <h3 class="feature__title">つくる本人が直接対応</h3>
+                            <p class="feature__text">営業担当も外注先もいません。最初のご相談から納品後のフォローまで、つくる本人が一貫して担当。話が早く、認識のズレが起きません。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================= Price ============================= -->
+        <section id="price" class="section section--paper">
+            <div class="container">
+                <div class="section-heading section-heading--left">
+                    <span class="section-heading__eyebrow">Price</span>
+                    <h2 class="section-heading__title">料金の目安</h2>
+                    <p class="section-heading__lead">内容や規模に応じて、お見積もりいたします。</p>
+                </div>
+                <div class="price__grid">
+                    <div class="price-card">
+                        <span class="price-card__category">イベント・体験AR</span>
+                        <div class="price-card__price">
+                            <span class="price-card__num">50</span>
+                            <span class="price-card__unit">万円〜</span>
+                        </div>
+                        <ul class="price-card__items">
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>スタンプラリー / フォトスポット</span></li>
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>クイズ・ゲーム など</span></li>
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>設置・運用サポート込み</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="price-card">
+                        <span class="price-card__category">印刷物・商品AR</span>
+                        <div class="price-card__price">
+                            <span class="price-card__num">30</span>
+                            <span class="price-card__unit">万円〜</span>
+                        </div>
+                        <ul class="price-card__items">
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>名刺 / チラシ / ポスター</span></li>
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>パッケージ / カタログ など</span></li>
+                            <li><span class="price-card__check" aria-hidden="true">✓</span><span>コンテンツ制作込み</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="price-cta">
+                        <p>お見積もり・ご相談は無料です。まずはお気軽にご相談ください。</p>
+                        <a href="#contact" class="btn btn--primary">
+                            <span>こんなことできる？を相談する（無料）</span>
+                            <span class="btn__arrow" aria-hidden="true">›</span>
+                        </a>
+                    </div>
+                </div>
+                <p class="price__note">※上記は目安です。内容やボリュームにより変動します。</p>
+            </div>
+        </section>
+
+        <!-- ============================= FAQ ============================= -->
+        <section id="faq" class="section section--white">
+            <div class="container faq__container">
+                <div class="section-heading">
+                    <span class="section-heading__eyebrow">FAQ</span>
+                    <h2 class="section-heading__title">よくある質問</h2>
+                </div>
+                <div class="faq__list">
+                    <div class="card card--pad-none">
+                        <div class="faq-item is-open">
+                            <button type="button" class="faq-item__q" aria-expanded="true">
+                                <span class="faq-item__qmark" aria-hidden="true">Q.</span>
+                                <span class="faq-item__qtext">アプリのダウンロードは必要ですか？</span>
+                                <span class="faq-item__toggle" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-item__a">
+                                <div class="faq-item__a-inner">
+                                    <div class="faq-item__a-row">
+                                        <span class="faq-item__amark" aria-hidden="true">A.</span>
+                                        <p class="faq-item__atext">いいえ、不要です。スマホのカメラやブラウザだけで、その場ですぐにAR体験を始められます。お客さまの手間が少ないので、イベントでも参加率が高くなります。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="faq-item__q" aria-expanded="false">
+                                <span class="faq-item__qmark" aria-hidden="true">Q.</span>
+                                <span class="faq-item__qtext">どのようなものがARになりますか？</span>
+                                <span class="faq-item__toggle" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-item__a">
+                                <div class="faq-item__a-inner">
+                                    <div class="faq-item__a-row">
+                                        <span class="faq-item__amark" aria-hidden="true">A.</span>
+                                        <p class="faq-item__atext">名刺・チラシ・ポスター・商品パッケージなどの印刷物のほか、会場の床や壁、看板などもAR体験の起点にできます。まずはやってみたいことをお聞かせください。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="faq-item__q" aria-expanded="false">
+                                <span class="faq-item__qmark" aria-hidden="true">Q.</span>
+                                <span class="faq-item__qtext">制作期間はどのくらいですか？</span>
+                                <span class="faq-item__toggle" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-item__a">
+                                <div class="faq-item__a-inner">
+                                    <div class="faq-item__a-row">
+                                        <span class="faq-item__amark" aria-hidden="true">A.</span>
+                                        <p class="faq-item__atext">内容によりますが、シンプルな印刷物ARでおよそ2〜3週間、イベント向けの体験ARで1〜2か月が目安です。スケジュールに合わせてご相談いただけます。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button type="button" class="faq-item__q" aria-expanded="false">
+                                <span class="faq-item__qmark" aria-hidden="true">Q.</span>
+                                <span class="faq-item__qtext">費用はどのくらいかかりますか？</span>
+                                <span class="faq-item__toggle" aria-hidden="true">+</span>
+                            </button>
+                            <div class="faq-item__a">
+                                <div class="faq-item__a-inner">
+                                    <div class="faq-item__a-row">
+                                        <span class="faq-item__amark" aria-hidden="true">A.</span>
+                                        <p class="faq-item__atext">印刷物・商品ARは30万円〜、イベント・体験ARは50万円〜が目安です。小さく始めて効果を見ながら広げることもできます。お見積もりは無料です。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================= Contact ============================= -->
+        <section id="contact" class="section section--navy">
+            <div class="container contact__grid">
+                <div>
+                    <span class="contact__eyebrow">Contact</span>
+                    <h2 class="contact__title">無料相談はこちら</h2>
+                    <p class="contact__lead">
+                        企画のご相談からお見積もりまで、無料で承ります。<br>
+                        「まだ思いつきの段階」でも大歓迎です。お気軽にお問い合わせください。
+                    </p>
+                </div>
+
+                <div class="contact__card">
+                    <!-- Netlify Forms: data-netlify + honeypot. Submitted via JS for in-page success. -->
+                    <form id="contact-form" name="contact" method="POST" data-netlify="true"
+                        netlify-honeypot="bot-field" class="contact__form">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p class="hp-field">
+                            <label>この欄は記入しないでください: <input name="bot-field"></label>
+                        </p>
+
+                        <div class="form-grid-2">
+                            <div class="field">
+                                <label class="field__label" for="c-name">
+                                    <span class="field__label-text">お名前</span>
+                                    <span class="field__badge field__badge--required">必須</span>
+                                </label>
+                                <input class="input" id="c-name" name="お名前" placeholder="例）山田 太郎" required>
+                            </div>
+                            <div class="field">
+                                <label class="field__label" for="c-co">
+                                    <span class="field__label-text">会社・団体名</span>
+                                    <span class="field__badge field__badge--optional">任意</span>
+                                </label>
+                                <input class="input" id="c-co" name="会社・団体名" placeholder="例）株式会社○○">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label" for="c-mail">
+                                <span class="field__label-text">メールアドレス</span>
+                                <span class="field__badge field__badge--required">必須</span>
+                            </label>
+                            <input class="input" id="c-mail" name="メールアドレス" type="email"
+                                placeholder="example@web-ar.jp" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="field__label" for="c-msg">
+                                <span class="field__label-text">ご相談内容</span>
+                                <span class="field__badge field__badge--required">必須</span>
+                            </label>
+                            <textarea class="input" id="c-msg" name="ご相談内容" rows="4"
+                                placeholder="例）イベントでのAR活用について相談したいです。" required></textarea>
+                        </div>
+
+                        <label class="form-agree">
+                            <input type="checkbox" id="c-agree">
+                            <span>プライバシーポリシーに同意する</span>
+                        </label>
+
+                        <button type="submit" id="c-submit" class="btn btn--primary btn--full is-disabled" disabled>
+                            <span>無料で相談する</span>
+                        </button>
+                    </form>
+
+                    <div id="contact-success" class="contact__success is-hidden">
+                        <img src="assets/icons/shield-check.png" alt="">
+                        <h3>送信しました</h3>
+                        <p>ご相談ありがとうございます。担当者より2営業日以内にご連絡いたします。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================= Footer ============================= -->
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <div class="brand">
+                <span class="brand__name">Tech Connect</span>
+                <span class="brand__chip">WebAR</span>
+            </div>
+            <nav class="site-footer__nav">
+                <a href="#service">できること</a>
+                <a href="#reason">選ばれる理由</a>
+                <a href="#cases">制作実績</a>
+                <a href="#price">料金の目安</a>
+                <a href="#cases">導入事例</a>
+                <a href="#">プライバシーポリシー</a>
+            </nav>
+            <span class="site-footer__copy">© Tech Connect</span>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" onload="console.log('✅ AOS loaded')"
-        onerror="console.error('❌ AOS failed to load')"></script>
-
-    <!-- Load simple organic particles (working version) -->
-    <script src="organic-particles-simple.js" onload="console.log('✅ Simple organic particles loaded')"
-        onerror="console.error('❌ Simple organic particles failed to load')"></script>
-
-    <!-- Load ambient particles for CTA and Contact sections -->
-    <script src="ambient-particles.js" onload="console.log('✅ Ambient particles loaded')"
-        onerror="console.error('❌ Ambient particles failed to load')"></script>
-
-    <!-- Simple working 3D particles implementation -->
+    <!-- ============================= Scripts ============================= -->
     <script>
-        let particleSystem = null;
-
-        // Wait for page to load
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('🚀 Main site loading...');
-
-            // Initialize basic functionality first (including mobile menu)
-            initBasicFunctionality();
-
-            // Initialize custom cursor
-            initCustomCursor();
-
-            // Initialize AR popup
-            initArPopup();
-
-            // Initialize About Me 3D animation
-            initAboutMe3D();
-
-            // Show loading screen
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen) {
-                loadingScreen.style.display = 'flex';
-            }
-
-            // Check dependencies
-            if (typeof THREE === 'undefined') {
-                console.error('❌ Three.js not loaded');
-                hideLoadingScreen();
-                return;
-            }
-            console.log('✅ Three.js available');
-
-            if (typeof OrganicParticleSystem === 'undefined') {
-                console.error('❌ OrganicParticleSystem not available');
-                hideLoadingScreen();
-                return;
-            }
-            console.log('✅ OrganicParticleSystem available');
-
-            // Initialize AOS
-            if (typeof AOS !== 'undefined') {
-                AOS.init({
-                    duration: 800,
-                    easing: 'ease-out-cubic',
-                    once: true,
-                    offset: 50
-                });
-                console.log('✅ AOS initialized');
-            }
-
-            // Initialize 3D particles
-            try {
-                const canvas = document.getElementById('hero-canvas');
-                if (canvas) {
-                    console.log('🎮 Creating particle system...');
-                    particleSystem = new OrganicParticleSystem(canvas, 5000);
-                    console.log('✅ Particle system created successfully');
-                } else {
-                    console.warn('⚠️ Canvas not found');
-                }
-            } catch (error) {
-                console.error('❌ Error creating particles:', error);
-            }
-
-            // Hide loading screen
-            setTimeout(() => {
-                hideLoadingScreen();
-            }, 2000);
+        // --- FAQ accordion -------------------------------------------------
+        document.querySelectorAll('.faq-item__q').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                const open = item.classList.toggle('is-open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
         });
 
-        function hideLoadingScreen() {
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen) {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                    console.log('✅ Loading screen hidden');
-                }, 500);
-            }
-        }
-
-        function initBasicFunctionality() {
-            // Mobile menu with improved error handling
-            try {
-                console.log('Window width:', window.innerWidth);
-                console.log('Window height:', window.innerHeight);
-
-                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-                const mobileMenu = document.getElementById('mobile-menu');
-
-                if (mobileMenuBtn && mobileMenu) {
-                    mobileMenuBtn.addEventListener('click', function (e) {
-                        e.preventDefault();
-
-                        // Toggle the 'show' class
-                        mobileMenu.classList.toggle('show');
-
-                        // Update hamburger icon
-                        const icon = mobileMenuBtn.querySelector('svg path');
-                        if (icon) {
-                            if (mobileMenu.classList.contains('show')) {
-                                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
-                            } else {
-                                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
-                            }
-                        }
-                    });
-                }
-            } catch (error) {
-                console.error('Error initializing mobile menu:', error);
-            }
-
-            // Smooth scrolling
-            const navLinks = document.querySelectorAll('a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-
-                    if (targetSection) {
-                        const headerHeight = 80;
-                        const targetPosition = targetSection.offsetTop - headerHeight - 20;
-
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // FAQ
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                const icon = question ? question.querySelector('svg') : null;
-
-                if (question && answer && icon) {
-                    question.addEventListener('click', function () {
-                        const isHidden = answer.classList.contains('hidden');
-
-                        // Close all other FAQ items
-                        faqItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                const otherAnswer = otherItem.querySelector('.faq-answer');
-                                const otherIcon = otherItem.querySelector('.faq-question svg');
-                                if (otherAnswer && otherIcon) {
-                                    otherAnswer.classList.add('hidden');
-                                    otherIcon.style.transform = 'rotate(0deg)';
-                                }
-                            }
-                        });
-
-                        // Toggle current item
-                        if (isHidden) {
-                            answer.classList.remove('hidden');
-                            icon.style.transform = 'rotate(180deg)';
-                        } else {
-                            answer.classList.add('hidden');
-                            icon.style.transform = 'rotate(0deg)';
-                        }
-                    });
-                }
-            });
-
-            // Guidelines Accordion
-            const guidelineItems = document.querySelectorAll('.guideline-item, .guideline-item-compact');
-            guidelineItems.forEach(item => {
-                const header = item.querySelector('.guideline-header');
-                const content = item.querySelector('.guideline-content');
-
-                if (header && content) {
-                    // Remove hidden class and let CSS handle visibility via max-height
-                    content.classList.remove('hidden');
-
-                    header.addEventListener('click', function () {
-                        const isOpen = item.classList.contains('open');
-
-                        // Toggle current item
-                        if (isOpen) {
-                            item.classList.remove('open');
-                            content.classList.remove('show');
-                        } else {
-                            item.classList.add('open');
-                            content.classList.add('show');
-                        }
-                    });
-                }
-            });
-
-            // Contact form - Simple success message
-            const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                // Check URL params for success
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.get('success') === 'true') {
-                    showSuccessMessage();
-                }
-
-                // Simple form validation (Netlify handles submission)
-                contactForm.addEventListener('submit', function (e) {
-                    const name = contactForm.querySelector('input[name="name"]').value;
-                    const email = contactForm.querySelector('input[name="email"]').value;
-
-                    if (!name || name.trim().length < 2) {
-                        e.preventDefault();
-                        alert('お名前は2文字以上で入力してください。');
-                        return;
-                    }
-
-                    if (!email || !email.includes('@')) {
-                        e.preventDefault();
-                        alert('正しいメールアドレスを入力してください。');
-                        return;
-                    }
-
-                    // Let Netlify handle the submission
-                    const submitBtn = contactForm.querySelector('button[type="submit"]');
-                    submitBtn.textContent = '送信中...';
-                    submitBtn.disabled = true;
-                });
-            }
-
-            function showSuccessMessage() {
-                const successHtml = `
-                    <div id="success-message" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center;">
-                        <div style="background: white; padding: 2rem; border-radius: 1rem; text-align: center; max-width: 400px; margin: 1rem;">
-                            <div style="color: #10B981; font-size: 3rem; margin-bottom: 1rem;">✓</div>
-                            <h3 style="color: #2B4570; font-size: 1.5rem; margin-bottom: 1rem;">送信ありがとうございました</h3>
-                            <p style="color: #666; margin-bottom: 1.5rem;">お問い合わせを受け付けました。<br>担当者より3営業日以内にご連絡いたします。</p>
-                            <button onclick="document.getElementById('success-message').remove(); window.history.replaceState({}, '', window.location.pathname);" style="background: #ffed00; color: #2B4570; padding: 0.75rem 2rem; border: none; border-radius: 0.5rem; font-weight: bold; cursor: pointer;">閉じる</button>
-                        </div>
-                    </div>
-                `;
-                document.body.insertAdjacentHTML('beforeend', successHtml);
-            }
-
-            console.log('✅ Basic functionality initialized');
-        }
-
-
-        // About Me 3D Animation System
-        let aboutMeParticleSystem = null;
-
-        function initAboutMe3D() {
-            const canvas = document.getElementById('aboutme-canvas');
-            if (!canvas || !window.THREE) {
-                console.log('About Me 3D: Canvas or THREE.js not available');
-                return;
-            }
-
-            try {
-                // Scene setup
-                const scene = new THREE.Scene();
-                const camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
-                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
-
-                renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-                // Subtle floating particles
-                const particleGeometry = new THREE.BufferGeometry();
-                const particleCount = 50; // Much fewer than hero section
-                const positions = new Float32Array(particleCount * 3);
-                const colors = new Float32Array(particleCount * 3);
-                const sizes = new Float32Array(particleCount);
-
-                for (let i = 0; i < particleCount; i++) {
-                    positions[i * 3] = (Math.random() - 0.5) * 15;
-                    positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
-                    positions[i * 3 + 2] = (Math.random() - 0.5) * 5;
-
-                    // Soft colors - blue, purple, pink
-                    const colorChoice = Math.random();
-                    if (colorChoice < 0.33) {
-                        colors[i * 3] = 0.3 + Math.random() * 0.4; // R
-                        colors[i * 3 + 1] = 0.6 + Math.random() * 0.4; // G
-                        colors[i * 3 + 2] = 1; // B (blue tones)
-                    } else if (colorChoice < 0.66) {
-                        colors[i * 3] = 0.6 + Math.random() * 0.4; // R
-                        colors[i * 3 + 1] = 0.3 + Math.random() * 0.4; // G
-                        colors[i * 3 + 2] = 1; // B (purple tones)
-                    } else {
-                        colors[i * 3] = 1; // R
-                        colors[i * 3 + 1] = 0.4 + Math.random() * 0.3; // G
-                        colors[i * 3 + 2] = 0.7 + Math.random() * 0.3; // B (pink tones)
-                    }
-
-                    sizes[i] = Math.random() * 3 + 1;
-                }
-
-                particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-                particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-                const particleMaterial = new THREE.ShaderMaterial({
-                    transparent: true,
-                    vertexColors: true,
-                    vertexShader: `
-                        attribute float size;
-                        varying vec3 vColor;
-                        varying float vOpacity;
-                        void main() {
-                            vColor = color;
-                            vOpacity = 0.6;
-                            vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                            gl_Position = projectionMatrix * mvPosition;
-                            gl_PointSize = size * (300.0 / -mvPosition.z);
-                        }
-                    `,
-                    fragmentShader: `
-                        varying vec3 vColor;
-                        varying float vOpacity;
-                        void main() {
-                            float dist = distance(gl_PointCoord, vec2(0.5));
-                            if (dist > 0.5) discard;
-                            float opacity = vOpacity * (1.0 - dist * 2.0);
-                            gl_FragColor = vec4(vColor, opacity);
-                        }
-                    `
-                });
-
-                const particles = new THREE.Points(particleGeometry, particleMaterial);
-                scene.add(particles);
-
-                camera.position.z = 8;
-
-                // Animation loop
-                let time = 0;
-                function animate() {
-                    requestAnimationFrame(animate);
-                    time += 0.005; // Much slower than hero
-
-                    const positions = particleGeometry.attributes.position.array;
-                    for (let i = 0; i < particleCount; i++) {
-                        const i3 = i * 3;
-                        // Gentle floating motion
-                        positions[i3 + 1] += Math.sin(time + i * 0.3) * 0.002;
-                        positions[i3] += Math.cos(time + i * 0.2) * 0.001;
-                    }
-
-                    particleGeometry.attributes.position.needsUpdate = true;
-                    particles.rotation.y += 0.001;
-
-                    renderer.render(scene, camera);
-                }
-
-                animate();
-
-                // Resize handler
-                const onResize = () => {
-                    const rect = canvas.getBoundingClientRect();
-                    camera.aspect = rect.width / rect.height;
-                    camera.updateProjectionMatrix();
-                    renderer.setSize(rect.width, rect.height);
-                };
-
-                window.addEventListener('resize', onResize);
-
-                aboutMeParticleSystem = { scene, camera, renderer, onResize };
-                console.log('✅ About Me 3D animation initialized');
-
-            } catch (error) {
-                console.error('About Me 3D initialization failed:', error);
-            }
-        }
-
-        // Window resize
-        window.addEventListener('resize', () => {
-            if (particleSystem && particleSystem.onWindowResize) {
-                particleSystem.onWindowResize();
-            }
-            if (aboutMeParticleSystem && aboutMeParticleSystem.onResize) {
-                aboutMeParticleSystem.onResize();
-            }
+        // --- Case card: play video on hover --------------------------------
+        document.querySelectorAll('video[data-hover-play]').forEach((v) => {
+            const card = v.closest('.case-card');
+            if (!card) return;
+            card.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
+            card.addEventListener('mouseleave', () => { v.pause(); });
         });
 
-        // Force hide loading screen after 10 seconds as absolute failsafe
-        setTimeout(() => {
-            const loadingScreen = document.getElementById('loading-screen');
-            if (loadingScreen && loadingScreen.style.display !== 'none') {
-                console.warn('⚠️ Force hiding loading screen after timeout');
-                hideLoadingScreen();
-            }
-        }, 10000);
+        // --- Contact form: enable on agree + AJAX submit (Netlify) ---------
+        (function () {
+            const form = document.getElementById('contact-form');
+            const agree = document.getElementById('c-agree');
+            const submit = document.getElementById('c-submit');
+            const success = document.getElementById('contact-success');
+            if (!form) return;
 
-        // Custom Cursor & Interactive Features Implementation
-        function initCustomCursor() {
-            const cursor = document.querySelector('.custom-cursor');
-            const follower = document.querySelector('.custom-cursor-follower');
-
-            if (!cursor || !follower) return;
-
-            // Mouse movement
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
-
-                // Follower with slight delay
-                setTimeout(() => {
-                    follower.style.left = e.clientX + 'px';
-                    follower.style.top = e.clientY + 'px';
-                }, 50);
+            agree.addEventListener('change', () => {
+                const on = agree.checked;
+                submit.disabled = !on;
+                submit.classList.toggle('is-disabled', !on);
             });
 
-            // Hover effects
-            const interactiveElements = document.querySelectorAll('a, button, .service-card, .case-card, .benefit-card, input, textarea, select');
-            interactiveElements.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.classList.add('active');
-                    follower.classList.add('active');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('active');
-                    follower.classList.remove('active');
-                });
-            });
-
-            // 3D Tilt Effect for Cards
-            const cards = document.querySelectorAll('.service-card, .case-card, .benefit-card');
-            cards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-
-                    // Calculate rotation (max 10 degrees)
-                    const rotateX = ((y - centerY) / centerY) * -10;
-                    const rotateY = ((x - centerX) / centerX) * 10;
-
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-                });
-            });
-
-            console.log('✅ Interactive features initialized');
-        }
-
-        // AR Experience Popup Functions
-        function initArPopup() {
-            const triggerBtns = document.querySelectorAll('#arExperienceBtn, #floatingArBtn');
-            const arPopup = document.getElementById('arPopup');
-            const closeBtn = document.getElementById('closeArPopup');
-
-            if (triggerBtns.length === 0 || !arPopup || !closeBtn) {
-                console.warn('⚠️ AR popup elements not found');
-                return;
-            }
-
-            // Open popup
-            triggerBtns.forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showArPopup();
-                });
-            });
-
-            // Close popup
-            closeBtn.addEventListener('click', hideArPopup);
-
-            // Close on overlay click
-            arPopup.addEventListener('click', (e) => {
-                if (e.target === arPopup) {
-                    hideArPopup();
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!agree.checked) return;
+                const body = new URLSearchParams(new FormData(form)).toString();
+                try {
+                    await fetch('/', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body
+                    });
+                } catch (_) {
+                    /* ローカル等で送信先が無い場合も、成功表示は出す（デザイン挙動を再現） */
                 }
+                form.classList.add('is-hidden');
+                success.classList.remove('is-hidden');
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
-
-            // Close on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && arPopup.classList.contains('show')) {
-                    hideArPopup();
-                }
-            });
-
-            console.log('✅ AR popup initialized');
-        }
-
-        function showArPopup() {
-            const arPopup = document.getElementById('arPopup');
-            if (arPopup) {
-                arPopup.classList.remove('hidden');
-                // Small delay to ensure transition works
-                setTimeout(() => {
-                    arPopup.classList.add('show');
-                }, 10);
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
-            }
-        }
-
-        function hideArPopup() {
-            const arPopup = document.getElementById('arPopup');
-            if (arPopup) {
-                arPopup.classList.remove('show');
-                setTimeout(() => {
-                    arPopup.classList.add('hidden');
-                }, 300); // Match transition duration
-                document.body.style.overflow = ''; // Restore scroll
-            }
-        }
-
+        })();
     </script>
 
-    <!-- Custom Cursor Elements -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
-
-    <!-- Floating CTA -->
-    <a href="#" id="floatingArBtn" class="floating-cta glass-panel" aria-label="AR体験方法を見る">
-        <span class="text-2xl">📱</span>
-        <span class="font-bold text-sm">AR体験</span>
-    </a>
-
-    <!-- Google Analytics (placeholder) -->
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics 4 — 公開時に GA_MEASUREMENT_ID を実IDへ差し替える -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -2246,191 +583,7 @@
         gtag('js', new Date());
         gtag('config', 'GA_MEASUREMENT_ID');
     </script>
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog"
-        aria-modal="true">
-        <!-- Background backdrop -->
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closePrivacyModal()"></div>
 
-        <div class="flex items-center justify-center min-h-screen p-4 text-center sm:p-0">
-            <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-2xl sm:w-full">
-                <!-- Header -->
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 border-b border-gray-200">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-lg leading-6 font-medium text-navy" id="modal-title">プライバシーポリシー</h3>
-                        <button onclick="closePrivacyModal()"
-                            class="text-gray-400 hover:text-gray-500 focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 overflow-y-auto max-h-[70vh]">
-                    <div class="prose prose-sm max-w-none text-gray-600">
-                        <p>当方は、お客様の個人情報の重要性を認識し、以下の通りプライバシーポリシーを定めます。</p>
-
-                        <h4 class="font-bold text-navy mt-4 mb-2">1. 個人情報の収集</h4>
-                        <p>当方は、お問い合わせやサービス提供の過程で、お名前、メールアドレス、電話番号等の個人情報を収集する場合があります。</p>
-
-                        <h4 class="font-bold text-navy mt-4 mb-2">2. 利用目的</h4>
-                        <p>収集した個人情報は、以下の目的で利用いたします。</p>
-                        <ul class="list-disc pl-5 mb-2">
-                            <li>お問い合わせへの回答</li>
-                            <li>サービスの提供およびご案内</li>
-                            <li>サービス改善のための分析</li>
-                        </ul>
-
-                        <h4 class="font-bold text-navy mt-4 mb-2">3. 第三者への提供</h4>
-                        <p>当方は、法令に基づく場合を除き、お客様の同意なく個人情報を第三者に提供することはありません。</p>
-
-                        <h4 class="font-bold text-navy mt-4 mb-2">4. 安全管理</h4>
-                        <p>当方は、個人情報の漏洩、滅失、毀損を防止するために適切な安全管理措置を講じます。</p>
-
-                        <h4 class="font-bold text-navy mt-4 mb-2">5. お問い合わせ</h4>
-                        <p>個人情報の取り扱いに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。</p>
-                    </div>
-                </div>
-
-                <!-- Footer -->
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" onclick="closePrivacyModal()"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-navy text-base font-medium text-white hover:bg-blue-900 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
-                        閉じる
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Tokushoho Modal -->
-    <div id="tokushohoModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title-tokushoho"
-        role="dialog" aria-modal="true">
-        <!-- Background backdrop -->
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" onclick="closeTokushohoModal()"></div>
-
-        <div class="flex items-center justify-center min-h-screen p-4 text-center sm:p-0">
-            <div
-                class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-2xl sm:w-full">
-                <!-- Header -->
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4 border-b border-gray-200">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-lg leading-6 font-medium text-navy" id="modal-title-tokushoho">特定商取引法に基づく表記</h3>
-                        <button onclick="closeTokushohoModal()"
-                            class="text-gray-400 hover:text-gray-500 focus:outline-none">
-                            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M6 18L18 6M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Content -->
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 overflow-y-auto max-h-[70vh]">
-                    <div class="prose prose-sm max-w-none text-gray-600">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td
-                                        class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy w-1/3 bg-gray-50">
-                                        販売業者</td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">TechConnect</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">
-                                        運営統括責任者</td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">水野 真治</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">所在地
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">請求があり次第提供致しますので、必要な方はお問合せください。</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">電話番号
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">請求があり次第提供致しますので、必要な方はお問合せください。</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">
-                                        メールアドレス</td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">shindy.emotion@gmail.com</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">販売価格
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">サイトに表示された金額（表示価格/消費税込）</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">
-                                        商品代金以外の<br>必要料金</td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">インターネット接続料金、通信料金</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">お支払方法
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">クレジットカード決済、銀行振込</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">引渡し時期
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">制作完了後、メールまたはダウンロード形式にて納品</td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-navy bg-gray-50">返品・交換
-                                    </td>
-                                    <td class="px-6 py-4 text-sm text-gray-900">デジタルコンテンツの性質上、返品・返金はお受けしておりません。</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Footer -->
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button" onclick="closeTokushohoModal()"
-                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-navy text-base font-medium text-white hover:bg-blue-900 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
-                        閉じる
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function openPrivacyModal() {
-            document.getElementById('privacyModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closePrivacyModal() {
-            document.getElementById('privacyModal').classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Restore background scrolling
-        }
-
-        function openTokushohoModal() {
-            document.getElementById('tokushohoModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeTokushohoModal() {
-            document.getElementById('tokushohoModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close on Escape key
-        document.addEventListener('keydown', function (event) {
-            if (event.key === "Escape") {
-                closePrivacyModal();
-                closeTokushohoModal();
-            }
-        });
-    </script>
 </body>
 
 </html>
