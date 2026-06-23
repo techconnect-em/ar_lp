@@ -1025,9 +1025,16 @@ textarea.input { resize: vertical; }
   justify-content: center;
   gap: 12px;
 }
-.about__photo-icon { width: 56px; height: 56px; opacity: 0.45; }
-.about__photo-cap { font-family: var(--font-body); font-size: var(--fs-sm); color: var(--ink-300); }
-.about__photo-tag { position: absolute; left: 18px; bottom: 18px; }
+.about__photo { overflow: hidden; }
+.about__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.about__photo-tag { position: absolute; left: 18px; bottom: 18px; z-index: 1; }
 .about__eyebrow {
   font-family: var(--font-eyebrow);
   font-weight: 700;
@@ -1151,6 +1158,58 @@ textarea.input { resize: vertical; }
   box-shadow: var(--shadow-md);
 }
 .price-cta-bar p { margin: 0; font-family: var(--font-body); font-size: var(--fs-body); }
+
+/* ---- 料金について（トップは導線のみ） ---- */
+.price__intro {
+  margin: 28px 0 0;
+  max-width: 680px;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+.price__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+.price__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex: 1 1 280px;
+  padding: 20px 24px;
+  background: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-body);
+  color: var(--text-heading);
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              border-color var(--dur-base) var(--ease-out);
+}
+.price__link:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--navy-300, var(--navy-800));
+}
+.price__link-arrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--navy-800);
+}
+.price__hint {
+  margin: 20px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--ink-500);
+}
 
 /* ---- Case study: bento grid ---- */
 .case__grid--bento {
