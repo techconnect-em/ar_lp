@@ -273,11 +273,11 @@ img, video { display: block; max-width: 100%; }
   display: inline-block;
 }
 .section-heading__title--underline {
-  padding-bottom: 14px;
+  padding-bottom: 0.3em;
   background-image: url('assets/decorations/underline-scribble.png');
   background-repeat: no-repeat;
   background-position: center bottom;
-  background-size: 180px auto;
+  background-size: 104% 0.5em;
 }
 .section-heading__lead {
   margin: 4px 0 0;
@@ -319,7 +319,8 @@ img, video { display: block; max-width: 100%; }
 .feature--column { flex-direction: column; align-items: flex-start; gap: 16px; }
 .feature__icon { flex: none; object-fit: contain; }
 .feature--row .feature__icon    { width: 34px; height: 34px; }
-.feature--column .feature__icon { width: 44px; height: 44px; }
+.feature--column .feature__icon { width: 52px; height: 52px; }
+.feature__head { display: flex; align-items: center; gap: 16px; }
 .feature__body { display: flex; flex-direction: column; gap: 8px; }
 .feature__title {
   margin: 0;
@@ -661,7 +662,7 @@ textarea.input { resize: vertical; }
 }
 .hero__lead {
   margin: 26px 0 0;
-  max-width: 440px;
+  max-width: 480px;
   font-family: var(--font-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
@@ -975,35 +976,61 @@ textarea.input { resize: vertical; }
 }
 
 /* ---- Voice (testimonials placeholder) ---- */
-.voice__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-.voice-card {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.voice-list { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+.voice-feature {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
   background: var(--white);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
-  padding: 28px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
-.voice-card__quote {
+.voice-feature--reverse { grid-template-columns: 1.18fr 0.82fr; }
+.voice-feature--reverse .voice-feature__media { order: 2; }
+.voice-feature--reverse .voice-feature__body { order: 1; }
+.voice-feature__media { position: relative; min-height: 280px; background: var(--paper-2); }
+.voice-feature__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.voice-feature__body {
+  margin: 0;
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.voice-feature__mark {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: 44px;
-  line-height: 0.4;
-  height: 22px;
+  font-size: 60px;
+  line-height: 0.2;
+  height: 30px;
   color: var(--sky-300);
 }
-.voice-card__text {
-  margin: 0;
+.voice-feature__text {
+  margin: 20px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  line-height: 1.9;
+  color: var(--text-body);
+}
+.voice-feature__person { margin-top: 26px; display: flex; flex-direction: column; gap: 5px; }
+.voice-feature__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--text-heading);
+}
+.voice-feature__role {
   font-family: var(--font-body);
   font-size: var(--fs-sm);
-  line-height: var(--lh-body);
-  color: var(--ink-300);
+  color: var(--text-muted);
 }
-.voice-card__person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
-.voice-card__avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--paper-2); flex: none; }
-.voice-card__skeleton { height: 10px; width: 96px; border-radius: var(--radius-pill); background: var(--paper-2); }
 
 /* ---- About (founder) ---- */
 .about__grid {
@@ -1448,9 +1475,15 @@ textarea.input { resize: vertical; }
 
 /* ---- Responsive (sync additions) ---- */
 @media (max-width: 900px) {
-  .voice__grid,
   .about__grid,
   .site-footer__top { grid-template-columns: 1fr !important; }
+
+  .voice-feature,
+  .voice-feature--reverse { grid-template-columns: 1fr; }
+  .voice-feature__media { min-height: 0; aspect-ratio: 16 / 10; }
+  .voice-feature--reverse .voice-feature__media { order: 0; }
+  .voice-feature--reverse .voice-feature__body { order: 0; }
+  .voice-feature__body { padding: 28px 24px; }
 
   .about__photo { max-width: 360px; }
   .price__head { align-items: flex-start; }
