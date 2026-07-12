@@ -2106,6 +2106,14 @@ img.img-pos-upper { object-position: center 14%; }
   color: var(--ink-500);
 }
 .print-demo__mobile-note { max-width: 480px; text-align: center; }
+.print-demo__media-note {
+  margin: 28px 0 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  color: var(--ink-500);
+}
 .print-demo__media {
   width: 100%;
   max-width: 420px;
