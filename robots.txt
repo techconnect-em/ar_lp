@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techconnect-em.com/sitemap.xml

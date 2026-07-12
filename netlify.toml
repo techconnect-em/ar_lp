@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/event-ar/index.html"
+  to = "/event-ar/"
+  status = 301
+
+[[redirects]]
+  from = "/print-ar/index.html"
+  to = "/print-ar/"
+  status = 301

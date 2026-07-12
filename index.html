@@ -11,12 +11,15 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/TechConnectロゴ (3).png">
 
+    <link rel="canonical" href="https://techconnect-em.com/">
+
     <!-- OGP Tags -->
     <meta property="og:title" content="Tech Connect｜アプリ不要のARで、足を止める「体験」をつくる">
     <meta property="og:description" content="アプリ不要のARで、お客さんが足を止める「体験」を。イベント集客から印刷物・商品の販促まで。無料相談受付中。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://techconnect-em.com/">
     <meta property="og:site_name" content="Tech Connect">
+    <meta property="og:locale" content="ja_JP">
     <meta property="og:image" content="https://techconnect-em.com/assets/ogp-image.png?v=4">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
@@ -25,7 +28,6 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@techconnect">
     <meta name="twitter:title" content="Tech Connect｜アプリ不要のARで、足を止める「体験」をつくる">
     <meta name="twitter:description" content="アプリ不要のARで、お客さんが足を止める「体験」を。イベント集客から印刷物・商品の販促まで。無料相談受付中。">
     <meta name="twitter:image" content="https://techconnect-em.com/assets/ogp-image.png?v=4">
@@ -40,6 +42,29 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://techconnect-em.com/#org",
+          "name": "Tech Connect",
+          "url": "https://techconnect-em.com/",
+          "logo": "https://techconnect-em.com/assets/logo-mark.png",
+          "description": "アプリ不要のWebARで、イベントの体験コンテンツや名刺・チラシ・商品のARを制作するサービス。愛知県豊川市を拠点に東三河を中心に対応、データ納品は全国対応。",
+          "areaServed": "愛知県東三河"
+        },
+        {
+          "@type": "WebSite",
+          "name": "Tech Connect",
+          "url": "https://techconnect-em.com/",
+          "publisher": { "@id": "https://techconnect-em.com/#org" }
+        }
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -87,19 +112,19 @@
                         <div class="feature feature--row">
                             <img class="feature__icon" src="assets/icons/phone.png" alt="">
                             <div class="feature__body">
-                                <h3 class="feature__title">アプリ不要で<br>すぐ体験</h3>
+                                <p class="feature__title">アプリ不要で<br>すぐ体験</p>
                             </div>
                         </div>
                         <div class="feature feature--row">
                             <img class="feature__icon" src="assets/icons/people.png" alt="">
                             <div class="feature__body">
-                                <h3 class="feature__title">企画から導入まで<br>まるごとサポート</h3>
+                                <p class="feature__title">企画から導入まで<br>まるごとサポート</p>
                             </div>
                         </div>
                         <div class="feature feature--row">
                             <img class="feature__icon" src="assets/icons/printer.png" alt="">
                             <div class="feature__body">
-                                <h3 class="feature__title">イベント・印刷物<br>どちらも対応</h3>
+                                <p class="feature__title">イベント・印刷物<br>どちらも対応</p>
                             </div>
                         </div>
                     </div>
@@ -139,8 +164,8 @@
                 </div>
 
                 <div class="service__cards">
-                    <!-- 集客・回遊型AR -->
-                    <div class="service-card">
+                    <!-- 集客・回遊型AR → イベント・体験ARページへ -->
+                    <a href="/event-ar/" class="service-card">
                         <div class="service-card__top">
                             <span class="tag tag--navy">集客・回遊型AR</span>
                             <h3 class="service-card__title">人を集めて、<br>回遊させる。</h3>
@@ -164,10 +189,10 @@
                             <span>ARゲーム・スタンプラリー・フォトスポット など</span>
                             <span class="service-card__chev" aria-hidden="true">›</span>
                         </div>
-                    </div>
+                    </a>
 
-                    <!-- 付加価値・販促型AR -->
-                    <div class="service-card">
+                    <!-- 付加価値・販促型AR → 印刷物・商品ARページへ -->
+                    <a href="/print-ar/" class="service-card">
                         <div class="service-card__top">
                             <span class="tag tag--navy">付加価値・販促型AR</span>
                             <h3 class="service-card__title">手に取ったモノを、<br>話題に変える。</h3>
@@ -191,7 +216,7 @@
                             <span>名刺AR・CD AR・チラシAR など</span>
                             <span class="service-card__chev" aria-hidden="true">›</span>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
                 <div class="card card--pad-md">
@@ -216,34 +241,35 @@
                         <p class="section-heading__lead">イベントや印刷物のAR事例を、一部ご紹介します。実際の体験を映像でご覧ください。</p>
                     </div>
                     <a href="#contact" class="btn btn--ghost btn--sm">
-                        <span>事例をもっと見る</span>
+                        <span>事例について相談する</span>
                         <span class="btn__arrow" aria-hidden="true">›</span>
                     </a>
                 </div>
 
                 <div class="case__grid case__grid--bento">
                     <!-- Catch The Fruits! (large) -->
-                    <a href="#contact" class="case-card case-card--feature">
+                    <div class="case-card case-card--feature">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/catch-the-fruits-01.mp4"
                                 poster="assets/制作実績/catch-the-fruits-01.jpg"
-                                muted loop playsinline preload="metadata"></video>
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">Catch The Fruits!（ARゲーム）</h3>
-                            <p class="case-card__text">会場でスマホをかざして落ちてくる果物をキャッチ。お子さん連れの足が自然と止まり、ブースに人だかりができます。</p>
+                            <p class="case-card__text">会場に設置した画面の前で体を動かして、落ちてくる果物をキャッチ。スマホも説明もいらず、子どもから大人までそのまま遊べるARゲームです。</p>
                             <div class="case-card__tags">
                                 <span class="tag tag--outline tag--sm">マルシェ</span>
                                 <span class="tag tag--outline tag--sm">体験ARゲーム</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- AR名刺 (wide) -->
-                    <a href="#contact" class="case-card case-card--wide">
+                    <div class="case-card case-card--wide">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/ar-meishi-01.mp4"
-                                muted loop playsinline preload="metadata"></video>
+                                poster="assets/制作実績/ar-meishi-01.jpg"
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">AR名刺</h3>
@@ -253,14 +279,14 @@
                                 <span class="tag tag--outline tag--sm">BtoB</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- 幻想ARデジタルアート -->
-                    <a href="#contact" class="case-card">
+                    <div class="case-card">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/ar-art-jellyfish-01.mp4"
                                 poster="assets/制作実績/ar-art-jellyfish-01.jpg"
-                                muted loop playsinline preload="metadata"></video>
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">幻想ARデジタルアート</h3>
@@ -270,14 +296,14 @@
                                 <span class="tag tag--outline tag--sm">アート</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- 歌舞伎ARクイズラリー -->
-                    <a href="#contact" class="case-card">
+                    <div class="case-card">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/otowa-kabuki-01.mp4"
                                 poster="assets/制作実績/otowa-kabuki-01.jpg"
-                                muted loop playsinline preload="metadata"></video>
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">歌舞伎ARクイズラリー</h3>
@@ -286,14 +312,14 @@
                                 <span class="tag tag--outline tag--sm">観光・自治体</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- サイネージAR体感ゲーム (wide / 実績) -->
-                    <a href="#contact" class="case-card case-card--wide">
+                    <div class="case-card case-card--wide">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/aeonmall-toyokawa-signage-01.mp4"
                                 poster="assets/制作実績/aeonmall-toyokawa-signage-01.jpg"
-                                muted loop playsinline preload="metadata"></video>
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">サイネージAR体感ゲーム</h3>
@@ -303,13 +329,14 @@
                                 <span class="tag tag--outline tag--sm">体験マーケ</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
                     <!-- チラシ・商品パッケージAR (wide) -->
-                    <a href="#contact" class="case-card case-card--wide">
+                    <div class="case-card case-card--wide">
                         <div class="case-card__media">
                             <video data-hover-play src="assets/制作実績/ar-flyer-01.mp4"
-                                muted loop playsinline preload="metadata"></video>
+                                poster="assets/制作実績/ar-flyer-01.jpg"
+                                muted loop playsinline preload="none"></video>
                         </div>
                         <div class="case-card__body">
                             <h3 class="case-card__title">チラシ・商品パッケージAR</h3>
@@ -319,7 +346,7 @@
                                 <span class="tag tag--outline tag--sm">チラシ</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -390,8 +417,8 @@
                         </blockquote>
                     </figure>
                     <figure class="voice-feature voice-feature--reverse">
-                        <div class="voice-feature__media">
-                            <img src="assets/制作実績/ar-photo-frame-01.jpg" alt="TOTORUNオリジナルのARフォトフレームで撮影した記念写真" loading="lazy">
+                        <div class="voice-feature__media voice-feature__media--upper">
+                            <img src="assets/制作実績/ar-photo-frame-03.jpg" alt="TOTORUNオリジナルのARフォトフレームで撮影した記念写真" loading="lazy">
                         </div>
                         <blockquote class="voice-feature__body">
                             <span class="voice-feature__mark" aria-hidden="true">“</span>
@@ -599,6 +626,7 @@
                     <form id="contact-form" name="contact" method="POST" data-netlify="true"
                         netlify-honeypot="bot-field" class="contact__form">
                         <input type="hidden" name="form-name" value="contact">
+                        <input type="hidden" name="流入ページ" value="トップページ">
                         <p class="hp-field">
                             <label>この欄は記入しないでください: <input name="bot-field"></label>
                         </p>
@@ -630,7 +658,7 @@
                         </div>
 
                         <label class="form-agree">
-                            <input type="checkbox" id="c-agree">
+                            <input type="checkbox" id="c-agree" name="プライバシーポリシー同意" value="同意する" required>
                             <span><a href="#" class="form-agree__link" data-modal="privacyModal">プライバシーポリシー</a>に同意する</span>
                         </label>
 
@@ -638,6 +666,8 @@
                             <span>無料で相談する</span>
                             <span class="btn__arrow" aria-hidden="true">›</span>
                         </button>
+
+                        <p id="contact-error" class="form-error is-hidden" role="alert">送信できませんでした。お手数ですが、時間をおいてもう一度お試しください。</p>
                     </form>
 
                     <div id="contact-success" class="contact__success is-hidden">
@@ -761,6 +791,8 @@
                 </div>
                 <nav class="footer-col">
                     <span class="footer-col__title">サービス</span>
+                    <a href="/event-ar/">イベント・体験AR</a>
+                    <a href="/print-ar/">印刷物・商品AR</a>
                     <a href="#cases">制作実績</a>
                     <a href="#service">できること</a>
                     <a href="#price">料金について</a>
@@ -800,13 +832,27 @@
             });
         });
 
-        // --- Case card: play video on hover --------------------------------
-        document.querySelectorAll('video[data-hover-play]').forEach((v) => {
-            const card = v.closest('.case-card');
-            if (!card) return;
-            card.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
-            card.addEventListener('mouseleave', () => { v.pause(); });
-        });
+        // --- Case card: play video on hover -----------------------------------
+        // タッチ端末（hoverなし）は、画面に入ったときだけ自動再生する
+        (function () {
+            const videos = document.querySelectorAll('video[data-hover-play]');
+            if (window.matchMedia('(hover: hover)').matches) {
+                videos.forEach((v) => {
+                    const card = v.closest('.case-card');
+                    if (!card) return;
+                    card.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
+                    card.addEventListener('mouseleave', () => { v.pause(); });
+                });
+                return;
+            }
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((en) => {
+                    if (en.isIntersecting) en.target.play().catch(() => {});
+                    else en.target.pause();
+                });
+            }, { threshold: 0.4 });
+            videos.forEach((v) => io.observe(v));
+        })();
 
         // --- Contact form: enable on agree + AJAX submit (Netlify) ---------
         (function () {
@@ -825,19 +871,34 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (!agree.checked) return;
+                const errorNote = document.getElementById('contact-error');
+                submit.disabled = true;
+                submit.classList.add('is-disabled');
                 const body = new URLSearchParams(new FormData(form)).toString();
+                let ok = false;
                 try {
-                    await fetch('/', {
+                    const res = await fetch('/', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body
                     });
+                    ok = res.ok;
                 } catch (_) {
-                    /* ローカル等で送信先が無い場合も、成功表示は出す（デザイン挙動を再現） */
+                    ok = false; // 通信エラー（オフライン等）も失敗として扱う
                 }
-                form.classList.add('is-hidden');
-                success.classList.remove('is-hidden');
-                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (ok) {
+                    // GA4: 問い合わせ送信成功をコンバージョンとして計測
+                    if (typeof window.gtag === 'function') {
+                        window.gtag('event', 'generate_lead', { page_path: location.pathname });
+                    }
+                    form.classList.add('is-hidden');
+                    success.classList.remove('is-hidden');
+                    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    errorNote.classList.remove('is-hidden');
+                    submit.disabled = false;
+                    submit.classList.remove('is-disabled');
+                }
             });
         })();
 
@@ -878,13 +939,13 @@
         })();
     </script>
 
-    <!-- Google Analytics 4 — 公開時に GA_MEASUREMENT_ID を実IDへ差し替える -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics 4 — 公開時に 測定ID設定済み（2026-07-12） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ0NB9M678"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        gtag('config', 'G-PQ0NB9M678');
     </script>
 
 </body>
