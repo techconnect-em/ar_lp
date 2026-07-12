@@ -961,6 +961,15 @@ a.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg)
   .site-header .brand__name { font-size: 17px; }
 }
 
+@media (max-width: 360px) {
+  /* iPhone SE級の極小幅: ヘッダーと目的タグの横はみ出し防止 */
+  .site-header__inner { gap: 8px; }
+  .site-header .btn--sm { padding: 9px 10px; }
+  .site-header .brand__logo { width: 26px; height: 26px; }
+  .site-header .brand__name { font-size: 15px; }
+  .product-card__purpose { white-space: normal; line-height: 1.4; }
+}
+
 /* =====================================================================
    23. Sync additions (Claude Design parity — 2026-06)
    Brand / hero CTA / reason numbers / voice / about / price ¥ / bento /
