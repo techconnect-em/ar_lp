@@ -2313,12 +2313,15 @@ img.img-pos-upper { object-position: center 14%; }
 }
 
 /* ---- Price extras (税込表記／オプション表) ---- */
-.print-price__tax {
+.print-price__tax,
+.plan-row__tax {
   font-family: var(--font-body);
   font-size: var(--fs-xs);
   color: var(--text-muted);
 }
-.plan--featured .print-price__tax { color: var(--text-on-dark-muted); }
+.plan--featured .print-price__tax,
+.plan--featured .plan-row__tax { color: var(--text-on-dark-muted); }
+.plan-row__tax { margin-top: -2px; }
 .plan__head--sm { gap: 6px; }
 .plan__name--sm { font-size: var(--fs-h3); }
 
