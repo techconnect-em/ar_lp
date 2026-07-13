@@ -521,6 +521,26 @@ img, video { display: block; max-width: 100%; }
   line-height: var(--lh-body);
   color: var(--text-body);
 }
+.faq-item__abody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+.faq-item__abody p { margin: 0; }
+.faq-item__alist {
+  list-style: none;
+  margin: 0;
+  padding: 14px 18px;
+  background: var(--bg-section-alt);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
 
 /* ---------------------------------------------------------------------
    12. Form
