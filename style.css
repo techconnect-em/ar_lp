@@ -1730,6 +1730,54 @@ img.img-pos-upper { object-position: center 14%; }
   color: var(--text-muted);
 }
 .menu-main { margin-top: 48px; }
+
+/* コンテンツ一覧：ゲーム紹介リール（実寸の違う2本を高さ揃えで並べる） */
+.game-reels {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  margin-top: 28px;
+}
+.game-reel { margin: 0; }
+.game-reel__media {
+  height: 400px;
+  width: fit-content;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--paper-2);
+  box-shadow: var(--shadow-md);
+}
+.game-reel__media > video {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+@media (max-width: 880px) {
+  .game-reels { flex-direction: column; align-items: center; gap: 28px; }
+  .game-reel { width: 100%; max-width: 480px; }
+  .game-reel--tall { max-width: 300px; }
+  .game-reel__media { height: auto; width: 100%; }
+  .game-reel__media > video { width: 100%; height: auto; }
+}
+.game-reel__caption { margin-top: 14px; text-align: center; }
+.game-reel--tall .game-reel__caption { max-width: 300px; margin-inline: auto; }
+.game-reel__name {
+  display: block;
+  font-family: var(--font-eyebrow);
+  font-weight: 800;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  color: var(--text-heading);
+}
+.game-reel__desc {
+  margin: 6px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+}
 .menu-sub {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -195,6 +195,32 @@
                     </figcaption>
                 </figure>
 
+                <!-- 2つのゲームの紹介リール（縦型・テロップ入り） -->
+                <div class="game-reels">
+                    <figure class="game-reel">
+                        <div class="game-reel__media">
+                            <video data-hover-play src="/assets/制作実績/catch-the-fruits-03.mp4"
+                                poster="/assets/制作実績/catch-the-fruits-03.jpg"
+                                muted loop playsinline preload="none"></video>
+                        </div>
+                        <figcaption class="game-reel__caption">
+                            <span class="game-reel__name">Catch The Fruits!</span>
+                            <p class="game-reel__desc">画面に降ってくるフルーツを、体を動かしてキャッチするゲームです。</p>
+                        </figcaption>
+                    </figure>
+                    <figure class="game-reel game-reel--tall">
+                        <div class="game-reel__media">
+                            <video data-hover-play src="/assets/制作実績/finger-shot-01.mp4"
+                                poster="/assets/制作実績/finger-shot-01-poster.jpg"
+                                muted loop playsinline preload="none"></video>
+                        </div>
+                        <figcaption class="game-reel__caption">
+                            <span class="game-reel__name">Finger Shot!</span>
+                            <p class="game-reel__desc">指鉄砲のかまえで、画面の的を撃ち抜くシューティングです。</p>
+                        </figcaption>
+                    </figure>
+                </div>
+
                 <div class="menu-sub">
                     <!-- ② デジタルスタンプラリー -->
                     <figure class="product-card">
@@ -864,7 +890,7 @@
             const videos = document.querySelectorAll('video[data-hover-play]');
             if (window.matchMedia('(hover: hover)').matches) {
                 videos.forEach((v) => {
-                    const card = v.closest('.case-card, .product-card');
+                    const card = v.closest('.case-card, .product-card, .game-reel');
                     if (!card) return;
                     card.addEventListener('mouseenter', () => { v.play().catch(() => {}); });
                     card.addEventListener('mouseleave', () => { v.pause(); });
