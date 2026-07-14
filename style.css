@@ -2282,6 +2282,10 @@ img.img-pos-upper { object-position: center 14%; }
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
 }
+.compare__scroll:focus-visible {
+  outline: 2px solid var(--yellow-600);
+  outline-offset: 2px;
+}
 .compare__table {
   width: 100%;
   min-width: 640px;
