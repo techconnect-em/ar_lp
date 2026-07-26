@@ -1359,6 +1359,107 @@ a.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg)
 .case-card--feature { grid-column: span 2; grid-row: span 2; }
 .case-card--wide { grid-column: span 2; }
 
+/* ---- Case study: 1件を主役として大きく見せる事例ブロック ---- */
+/* 写真を主役にするため、横長のヒーローを上に全幅で置く1カラム構成 */
+.case-story {
+  margin-top: 48px;
+  background: var(--white);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.case-story__media { position: relative; aspect-ratio: 16 / 9; background: var(--paper-2); }
+.case-story__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.case-story__body { padding: 40px 48px 44px; display: flex; flex-direction: column; }
+/* 本文が横に伸びすぎて読みにくくならないよう、行長を抑える */
+.case-story__body > * { max-width: 780px; }
+.case-story__eyebrow {
+  margin: 0;
+  font-family: var(--font-eyebrow);
+  font-weight: 700;
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  color: var(--text-muted);
+}
+.case-story__title {
+  margin: 14px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--text-heading);
+}
+.case-story__text {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+.case-story__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.case-story__quote {
+  margin: 28px 0 0;
+  padding: 2px 0 2px 20px;
+  border-left: 3px solid var(--yellow-500);
+}
+.case-story__quote p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--text-body);
+}
+.case-story__quote footer {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.case-story__thumbs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+.case-story__thumb { margin: 0; }
+.case-story__thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+}
+.case-story__thumb figcaption {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.case-story__credit {
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+.case__subhead {
+  margin: 64px 0 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-lead);
+  color: var(--text-heading);
+}
+.case__subhead + .case__grid { margin-top: 20px; }
+
 /* ---- Contact note box ---- */
 .contact__note {
   display: flex;
@@ -2646,6 +2747,11 @@ img.img-pos-upper { object-position: center 14%; }
 
   .about__photo { max-width: 360px; }
   .price__head { align-items: flex-start; }
+
+  .case-story__media { aspect-ratio: 3 / 2; }
+  .case-story__body { padding: 28px 24px 32px; }
+  .case-story__thumbs { grid-template-columns: 1fr; gap: 24px; }
+  .case__subhead { margin-top: 48px; }
 
   .case__grid--bento { grid-auto-rows: auto; }
   .case__grid--bento .case-card { height: auto; }
