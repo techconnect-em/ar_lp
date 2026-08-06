@@ -978,10 +978,27 @@
         // --- Contact form: enable on agree + AJAX submit (Netlify) ---------
         (function () {
             const form = document.getElementById('contact-form');
+            if (!form) return;
+
             const agree = document.getElementById('c-agree');
             const submit = document.getElementById('c-submit');
             const success = document.getElementById('contact-success');
-            if (!form) return;
+            const errorNote = document.getElementById('contact-error');
+
+            const LEAD_FLAG = 'tc_lead_sent'; // 1セッションにつきCVは1回まで、の印
+            let started = false;
+
+            // GA4: 入力開始を1回だけ計測（入力開始→送信完了のファネルを見るため）
+            form.addEventListener('input', () => {
+                if (started) return;
+                started = true;
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'form_start', {
+                        form_id: 'contact-form',
+                        page_path: location.pathname
+                    });
+                }
+            });
 
             agree.addEventListener('change', () => {
                 const on = agree.checked;
@@ -992,9 +1009,16 @@
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 if (!agree.checked) return;
-                const errorNote = document.getElementById('contact-error');
+                if (submit.disabled) return; // 二重クリック・二重送信のガード
+
+                // ハニーポットに値が入っていればボット。送信もCV計測もしない
+                const hp = form.querySelector('[name="bot-field"]');
+                if (hp && hp.value.trim() !== '') return;
+
                 submit.disabled = true;
                 submit.classList.add('is-disabled');
+                errorNote.classList.add('is-hidden');
+
                 const body = new URLSearchParams(new FormData(form)).toString();
                 let ok = false;
                 try {
@@ -1003,22 +1027,35 @@
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                         body
                     });
-                    ok = res.ok;
+                    ok = res.status >= 200 && res.status < 300;
                 } catch (_) {
                     ok = false; // 通信エラー（オフライン等）も失敗として扱う
                 }
-                if (ok) {
-                    // GA4: 問い合わせ送信成功をコンバージョンとして計測
-                    if (typeof window.gtag === 'function') {
-                        window.gtag('event', 'generate_lead', { page_path: location.pathname });
-                    }
-                    form.classList.add('is-hidden');
-                    success.classList.remove('is-hidden');
-                    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                } else {
+
+                if (!ok) {
                     errorNote.classList.remove('is-hidden');
                     submit.disabled = false;
                     submit.classList.remove('is-disabled');
+                    return;
+                }
+
+                form.classList.add('is-hidden');
+                success.classList.remove('is-hidden');
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // GA4: 問い合わせ送信成功をコンバージョンとして計測（1セッション1回まで）
+                let already = false;
+                try { already = sessionStorage.getItem(LEAD_FLAG) === '1'; } catch (_) {}
+                if (already) return;
+                try { sessionStorage.setItem(LEAD_FLAG, '1'); } catch (_) {}
+
+                if (typeof window.gtag === 'function') {
+                    const src = form.querySelector('[name="流入ページ"]');
+                    window.gtag('event', 'generate_lead', {
+                        form_id: 'contact-form',
+                        page_path: location.pathname,
+                        lead_source_page: src ? src.value : ''
+                    });
                 }
             });
         })();
