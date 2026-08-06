@@ -1473,6 +1473,29 @@ a.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg)
 }
 .contact__note-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--yellow-500); flex: none; margin-top: 7px; }
 .contact__note p { margin: 0; font-family: var(--font-body); font-size: var(--fs-sm); line-height: var(--lh-snug); color: var(--text-on-dark-muted); }
+.contact__alt {
+  max-width: 420px;
+  margin: 16px 0 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+  color: var(--text-on-dark-muted);
+}
+.contact__alt-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding-bottom: 3px;
+  color: var(--text-on-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  transition: color .2s ease, border-color .2s ease;
+}
+.contact__alt-link:hover { color: var(--yellow-500); border-bottom-color: var(--yellow-500); }
+.contact__alt-link svg { flex: none; }
+.footer-col__ig { display: inline-flex; align-items: center; gap: 6px; }
 .form-agree__link { color: var(--navy-700); text-decoration: underline; }
 
 /* ---- Footer (3-column) ---- */
