@@ -4,6 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 — 測定ID設定済み（2026-07-12）。
+         早期離脱セッションを取りこぼさないよう head 内で読み込む（2026-09-06 body末尾から移動） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ0NB9M678"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PQ0NB9M678');
+    </script>
+
     <title>Tech Connect｜アプリ不要のARで、足を止める「体験」をつくる</title>
     <meta name="description"
         content="アプリ不要のARで、お客さんが足を止める「体験」をつくります。イベントの集客・回遊から、名刺・チラシ・商品の販促まで。企画から当日の運営まで、つくる本人が直接対応。無料相談受付中。">
@@ -1010,15 +1021,6 @@
                 if (e.key === 'Escape') document.querySelectorAll('.ar-popup.is-open').forEach(closeModal);
             });
         })();
-    </script>
-
-    <!-- Google Analytics 4 — 公開時に 測定ID設定済み（2026-07-12） -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ0NB9M678"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-PQ0NB9M678');
     </script>
 
 </body>

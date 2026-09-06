@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics 4 — 測定ID設定済み（2026-07-12）。
+         早期離脱セッションを取りこぼさないよう head 内で読み込む（2026-09-06 body末尾から移動） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ0NB9M678"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-PQ0NB9M678');
+    </script>
     <title>ARゲームレンタル・イベントAR｜愛知・東三河｜Tech Connect</title>
     <meta name="description"
         content="マルシェ・商業施設・地域イベントを盛り上げるARゲームのレンタルから、ロゴ入りカスタマイズ、企画・出張運営まで。アプリ不要、完成済みゲームのレンタルは数万円から。無料相談受付中。">
@@ -68,6 +78,100 @@
               "position": 2,
               "name": "イベント・体験AR",
               "item": "https://techconnect-em.com/event-ar/"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://techconnect-em.com/event-ar/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "来場者のスマホで本当に動きますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ARゲームは、会場に設置した画面の前で体を動かして遊ぶ仕組みなので、来場者のスマホは不要です。デジタルスタンプラリーやARフォトフレームは、来場者のスマホでQRコードを読み取るだけで始まります。どれも、アプリのインストールは一切要りません。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "機材や電源は何が必要ですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "URLレンタルでは、規定スペックのPC・モニター・Webカメラと、インターネット回線を主催者さまでご用意いただきます（推奨スペックは、この下の質問にまとめました）。出張レンタルでは、機材一式をこちらで持ち込みます（会場の電源をお借りします）。スタンプラリーやARフォトフレームは、来場者のスマホだけで動くため機材は不要です。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "URLレンタルのPCは、どのくらいの性能が必要ですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "2021年以降に発売された、標準的なノートPCであれば大丈夫です。目安は次のとおりです。 ・OS：Windows 10 / 11（Apple M1以降のMacでも動作確認済み） ・CPU：Intel Core i5（第11世代以降）または AMD Ryzen 5（5000シリーズ以降） ・メモリ：16GB ・グラフィックス：CPU内蔵のもので大丈夫です（外付けGPUは不要） ・Webカメラ：720p・30fps対応（ノートPC内蔵のカメラでも可） ・ブラウザ：Google Chrome 最新版 これより少し古いPC（目安：Core i5 第10世代・メモリ8GB）でも動きますが、動きの滑らかさが落ちる場合があります。事前に動作確認用のURLをお渡しするので、当日お使いのPCで必ず確かめられます。判断に迷うときは、無料相談でお使いのPCの機種名をお知らせください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "会場の通信環境が心配です。",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "URLレンタルでは、会場でインターネット（Wi-Fi）が使えることが必要です。出張レンタルでは、ゲームを入れたPCを持ち込んでインターネットに接続せずに動かすため、会場の通信設備は不要です（電源だけお借りします）。スタンプラリーやARフォトフレームは来場者のスマホ回線で動きます。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "本番中にうまく動かなかったら？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "出張レンタルでは私が現地にいるので、その場で対応します。URLレンタルの場合は、メールやチャットでの当日サポートが基本です（お電話は対応できない場合があります）。ただし、会場の機材や通信など環境側に原因がある場合は、その場で解決できないこともあります。事前にお渡しする動作確認用URLを、本番と同じ機材・環境で試しておいていただくことが、いちばん確実な備えです。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "屋外イベントで、雨が降ったら？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "機材や掲示物が濡れない場所があれば、運用は可能です。荒天が心配な場合は日程変更を無料で承りますので、お申込み時にご相談ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "キャンセルや日程変更はできますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "日程変更は無料で承ります（1回まで・元の開催日から6ヶ月以内。出張レンタルは日程の空き状況により調整します）。キャンセルの場合は、開催7日前まで無償、6日前〜前々日は料金の50%、前日・当日は100%を申し受けます。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "同時に何人まで体験できますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "ARゲームは、1人ずつ交代で遊ぶ形式です。周りで見ている方も、画面を一緒に楽しめます。スタンプラリーやARフォトフレームは各自のスマホで動くため、人数の制限はありません。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "対象年齢はありますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "体を動かせれば、何歳でも遊べます。小さなお子さんは、保護者の方と一緒に楽しんでいただくケースが多いです。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "当日、こちらのスタッフだけで運営できますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "URLレンタルは、お渡しするURL・パスワードと運営のご案内だけで、主催者さまだけで回せるように設計しています。事前に動作確認用のURLもお渡しします。不安な場合は、設営から運営まで同行する出張レンタルをご利用ください。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "対応エリアはどこまでですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "拠点は愛知県豊川市です。出張レンタルや対面での打ち合わせは、東三河を中心とした愛知県内が基本です（遠方は交通費別途でご相談ください）。URLレンタルは全国からご利用いただけます。"
+              }
             }
           ]
         }
@@ -1143,15 +1247,6 @@
                 if (e.key === 'Escape' && !box.classList.contains('is-hidden')) close();
             });
         })();
-    </script>
-
-    <!-- Google Analytics 4 — 公開時に 測定ID設定済み（2026-07-12） -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PQ0NB9M678"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-PQ0NB9M678');
     </script>
 
 </body>

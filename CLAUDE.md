@@ -62,7 +62,9 @@
 - **3D**: Three.js (r128)・モバイル最適化済み
 - **Animations**: AOS (Animate On Scroll)
 - **Forms**: Netlify Forms（`data-netlify="true"`、ハニーポット式スパム対策）。Netlifyホストなので現状そのまま動作する。リニューアル後も Netlify Forms を継承する。
-- **アクセス計測 (GA4)**: **測定ID `G-PQ0NB9M678` を3ページに設定済み（2026-07-12）。** フォーム送信が成功した場合のみ `generate_lead` イベントを発火する（`/thanks` ページ方式は不採用＝送信成功判定をJSで持っているため）。公開後、GA4管理画面で `generate_lead` を「キーイベント」に指定すること。
+- **アクセス計測 (GA4)**: **測定ID `G-PQ0NB9M678` を3ページに設定済み（2026-07-12）。** フォーム送信が成功した場合のみ `generate_lead` イベントを発火する（`/thanks` ページ方式は不採用＝送信成功判定をJSで持っているため）。gtagスニペットは**3ページとも `<head>` 内に配置**（2026-09-06にbody末尾から移動。計測前に離脱して landing page が `(not set)` になるセッションを減らすため）。
+- **⚠️ GA4のCVデータは 2026-07-17〜09-06 の分が無効**（2026-09-06 判明）。GA4管理画面のデータストリームに「`event_name = page_view` かつ `page_location` に `techconnect-em.com` を含むとき `generate_lead` を生成する」というイベント作成ルール（`dataStreams/15241480342/eventCreateRules/15266257168`）が登録されており、ページを1枚見るたびにCV1件が計上されていた（当該28日で generate_lead 91回 / page_view 90回）。**サイト側のコードは正常**（送信成功時のみ発火＋sessionStorageで1セッション1回のガード）。**対応＝GA4管理画面 → 管理 → データストリーム → イベントの作成 から当該ルールを削除する**（コード修正は不要）。過去データは遡って修正できないため、正しいCV計測は削除の翌日から。
+- **GA4のカスタムディメンションは未登録（0件）。** サイトは `form_id` / `lead_source_page`（流入ページ）をイベントパラメータで送っているが、GA4側で受け取れていないため、どのページからの問い合わせか分析できない。上記ルール削除とあわせて登録すること。
 
 ### フォント（2026-07 実装の実態に合わせて更新）
 - 見出し（`--font-display`）: `Zen Kaku Gothic New`
@@ -198,7 +200,9 @@ STEP6 公開前チェック＋計測設定（GA4でフォーム送信をCV計測
 
 - **ナビゲーション:** デスクトップ・モバイル・フッターの3箇所を同期して更新する。
 - **スタイル変更:** パーティクルへの影響を考慮し、必ずモバイル実機またはエミュレーターで確認する。Lighthouseスコアの大幅低下（5点以上）に注意。
-- **SEO基盤（2026-07-12 GPTクロスレビューを経て整備済み）:** canonical・sitemap.xml・robots.txt・404.html・netlify.toml・JSON-LD（トップ=Organization+WebSite、下層=Service+BreadcrumbList）・下層パンくず・下層titleの検索語前方化（h1と`og:title`は現コピー維持）・対応エリアFAQ（下層2ページ）・`og:locale`追加・`twitter:site`削除（非所有アカウントだったため）。**公開後の残り: Google Search Console登録＋sitemap送信、Googleビジネスプロフィール整備、ページ別OGP画像。**
+- **SEO基盤（2026-07-12 GPTクロスレビューを経て整備済み）:** canonical・sitemap.xml・robots.txt・404.html・netlify.toml・JSON-LD（トップ=Organization+WebSite、下層=Service+BreadcrumbList+**FAQPage**）・下層パンくず・下層titleの検索語前方化（h1と`og:title`は現コピー維持）・対応エリアFAQ（下層2ページ）・`og:locale`追加・`twitter:site`削除（非所有アカウントだったため）。**公開後の残り: Google Search Console登録＋sitemap送信、Googleビジネスプロフィール整備、ページ別OGP画像。**
+  - FAQPage の JSON-LD は下層2ページに追加済み（2026-09-06）。**オンページのFAQ本文から機械生成**（`faq-item__qtext` / `faq-item__a-inner` を抽出）しているので、**FAQの文言を編集したら構造化データ側も必ず同期**すること（内容が食い違うとGoogleのガイドライン違反になる）。
+  - 現状 Google の FAQ リッチリザルトは一部サイトにしか表示されないため、**SERPでの見た目の変化は期待しない**。狙いは検索エンジンとAIアシスタント（ChatGPT等）への機械可読性の向上。
 - **公開前チェック:**
   - iOS Safari / Android Chrome 実機確認
   - 動画の軽量化（`assets/制作実績/` は1本1〜2MB目安。**2026-07-12 ページ参照中の全9本を再エンコード済み＝最大2.1MB**）、OGP設定、GA4のCV計測設定
