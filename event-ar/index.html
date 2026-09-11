@@ -1109,19 +1109,7 @@
             const errorNote = document.getElementById('contact-error');
 
             const LEAD_FLAG = 'tc_lead_sent'; // 1セッションにつきCVは1回まで、の印
-            let started = false;
-
-            // GA4: 入力開始を1回だけ計測（入力開始→送信完了のファネルを見るため）
-            form.addEventListener('input', () => {
-                if (started) return;
-                started = true;
-                if (typeof window.gtag === 'function') {
-                    window.gtag('event', 'form_start', {
-                        form_id: 'contact-form',
-                        page_path: location.pathname
-                    });
-                }
-            });
+            // form_startはGA4の拡張計測に任せる（手動送信すると二重計測になる）。
 
             agree.addEventListener('change', () => {
                 const on = agree.checked;
