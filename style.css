@@ -1996,6 +1996,28 @@ img.img-pos-upper { object-position: center 14%; }
 .stamp-service__consult { grid-column: 1 / -1; grid-row: 2; display: flex; align-items: center; gap: 28px; padding-top: 24px; border-top: 1px solid var(--border-default); }
 .stamp-service__consult > p { flex: 1; }
 .stamp-service__consult .btn { flex-shrink: 0; }
+.stamp-service--rally { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); grid-template-rows: auto auto 1fr; }
+.stamp-service__heading { grid-column: 1 / -1; grid-row: 1; }
+.stamp-service__heading .tag { max-width: 100%; white-space: normal; }
+.stamp-service__heading .stamp-service__title { margin-bottom: 0; }
+.stamp-service--rally .stamp-service__intro { grid-row: 2; }
+.rally-video { grid-column: 1; grid-row: 2 / 4; min-width: 0; margin: 0; }
+.rally-video video { display: block; width: 100%; max-width: 284px; height: auto; aspect-ratio: 426 / 720; margin: 0 auto; border-radius: var(--radius-sm); background: var(--navy-900); }
+.rally-video video:focus-visible { outline: 3px solid var(--yellow-500); outline-offset: 3px; }
+.rally-video__caption { margin-top: 16px; font-size: var(--fs-sm); line-height: 1.7; }
+.rally-video__caption p { margin: 0; }
+.rally-video__caption a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px; color: var(--navy-700); text-decoration: underline; text-underline-offset: 3px; }
+.stamp-service--rally .stamp-service__consult { grid-column: 2; grid-row: 3; display: block; }
+.stamp-service--rally .stamp-service__consult .btn { margin-top: 16px; }
+.stamp-service__preparation { flex: 1; min-width: 0; }
+.stamp-service__details { display: grid; gap: 12px; margin: 0; font-size: var(--fs-body); line-height: var(--lh-body); }
+.stamp-service__details > div { display: grid; grid-template-columns: 1fr; gap: 4px; }
+.stamp-service__details dt { font-weight: var(--fw-bold); color: var(--text-heading); }
+.stamp-service__details dd { margin: 0; }
+.stamp-service__preparation .product-card__link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; margin-top: 8px; color: var(--navy-700); text-decoration: underline; text-underline-offset: 3px; }
+.product-card--photo-frame { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); }
+.product-card--photo-frame .product-card__purpose { max-width: 100%; white-space: normal; }
+.product-card--photo-frame .product-card__media > img { object-fit: contain; object-position: center; }
 .stamp-video { min-width: 0; margin: 0; grid-column: 1; grid-row: 1; align-self: center; }
 .stamp-video__screen { position: relative; overflow: hidden; width: 100%; min-width: 0; aspect-ratio: 16 / 9; min-height: 200px; border-radius: var(--radius-sm); background: var(--navy-900); }
 .stamp-video__poster,
@@ -2040,6 +2062,11 @@ img.img-pos-upper { object-position: center 14%; }
   .stamp-service__intro, .stamp-video, .stamp-service__consult { grid-column: 1; grid-row: auto; }
   .stamp-service__consult { display: block; }
   .stamp-service__consult .btn { margin-top: 20px; }
+  .stamp-service--rally { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; }
+  .stamp-service__heading,
+  .stamp-service--rally .stamp-service__intro,
+  .rally-video,
+  .stamp-service--rally .stamp-service__consult { grid-column: 1; grid-row: auto; }
 }
 @media (max-width: 480px) {
   .stamp-service { padding: 20px 16px; }
@@ -2942,6 +2969,7 @@ img.img-pos-upper { object-position: center 14%; }
   .product-card--row .product-card__media > img,
   .product-card--row .product-card__media > video { position: static; }
   .product-card--row .product-card__body { padding: 22px 24px 26px; }
+  .product-card--photo-frame .product-card__media { aspect-ratio: 4 / 5; max-height: 440px; }
 
   .plan { grid-template-columns: 1fr; gap: 24px; padding: 26px 22px; }
   .plan-row__amount { width: 100%; align-items: flex-start; }

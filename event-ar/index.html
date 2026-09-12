@@ -52,7 +52,6 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/style.css">
-    <script src="/stamp-card-video.js" defer></script>
 
     <script type="application/ld+json">
     {
@@ -336,92 +335,72 @@
                     </figure>
                 </div>
 
-                <article id="digital-stamp-card" class="stamp-service" aria-labelledby="stamp-card-title">
-                    <div class="stamp-service__intro">
-                        <span class="tag tag--navy">ポップアップイベントに</span>
-                        <h3 id="stamp-card-title" class="stamp-service__title">デジタルスタンプカード制作</h3>
-                        <p class="stamp-service__lead">なくさない、<br>忘れないカード。</p>
-                        <h4 class="stamp-service__subheading"><span>オリジナルの</span><span>スタンプカードを、</span><br>デザインからお任せ。</h4>
-                        <p class="stamp-service__text">ポップアップイベントで、ブースをめぐるきっかけに。会場に合わせたオリジナルの台紙とスタンプを制作します。</p>
-                        <p class="stamp-service__text">専用アプリは不要です。来場者がスマホのカードのボタンをタップし、会場のQRコードを読むと押印できます。</p>
-                        <p class="stamp-service__text">めぐる場所や押印条件、特典の内容は企画に合わせてご相談ください。</p>
+                <!-- ② スタンプラリー・ARクイズラリー -->
+                <article id="digital-stamp-card" class="stamp-service stamp-service--rally" aria-labelledby="stamp-card-title">
+                    <div class="stamp-service__heading">
+                        <span class="tag tag--navy">ポップアップイベントの周遊施策に</span>
+                        <h3 id="stamp-card-title" class="stamp-service__title">スタンプラリー・<wbr>ARクイズラリー</h3>
                     </div>
-                    <figure class="stamp-video" data-stamp-video data-youtube-id="TooRubcw_pc">
-                        <div class="stamp-video__screen">
-                            <img class="stamp-video__poster" src="/assets/制作実績/digital-stamp-card-horizontal.webp"
-                                width="960" height="540" loading="lazy" decoding="async"
-                                alt="デジタルスタンプカード制作の紹介動画">
-                            <button type="button" class="stamp-video__play" data-stamp-play hidden>
-                                <svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M2 1l12 8-12 8z" fill="currentColor" /></svg>
-                                <span>紹介動画を見る <small>53秒</small></span>
-                            </button>
-                        </div>
-                        <figcaption id="stamp-video-caption" class="stamp-video__caption">
-                            <p>画面はTOTORUNの参加カード制作例です。周遊型とは押印ルールが異なります（デモデータ／BGM・効果音あり）。</p>
-                            <a href="https://www.youtube.com/watch?v=TooRubcw_pc" data-stamp-fallback target="_blank" rel="noopener noreferrer">YouTubeで見る</a>
-                            <details class="stamp-video__transcript">
-                                <summary>動画の内容を読む</summary>
-                                <p>なくさない、忘れない。スマホのスタンプカード。写真やロゴを生かしたオリジナルの台紙やスタンプを、デザインからお任せ。初期設定とQRコードの案内もお手伝いします。アプリのインストールは不要です。カードのボタンをタップし、QRコードを読むと押印できます。TOTORUNの定期活動向け制作例では、参加の節目にバッジ・特典のお知らせ、満了時にお祝いの演出が現れます。次のカードにも累計の参加回数とバッジが残ります。</p>
-                            </details>
+                    <div class="stamp-service__intro">
+                        <p class="stamp-service__lead">会場をめぐる<br>きっかけをつくる。</p>
+                        <p class="stamp-service__text">スタンプを集めたり、映像を見てクイズに答えたり。来場者がブースや会場内のスポットをめぐる企画を、イベントに合わせて制作します。</p>
+                        <p class="stamp-service__text">専用アプリは不要です。来場者のスマホで楽しめるデジタルスタンプラリーやARクイズラリーをご相談いただけます。</p>
+                    </div>
+                    <figure class="rally-video">
+                        <video src="/assets/制作実績/otowa-kabuki-01.mp4"
+                            poster="/assets/制作実績/otowa-kabuki-01.jpg"
+                            width="426" height="720" controls playsinline preload="none" tabindex="0"
+                            aria-label="音羽米稲刈り祭のARクイズラリー制作例（42秒・音声なし）">
+                            <a href="/assets/制作実績/otowa-kabuki-01.mp4">ARクイズラリーの動画を見る</a>
+                        </video>
+                        <figcaption class="rally-video__caption">
+                            <p><strong>制作例：音羽米稲刈り祭 歌舞伎ARクイズラリー</strong><br>垂れ幕にスマホをかざすと、地元歌舞伎の映像が現れます。映像からクイズの答えを探す仕掛けです。</p>
+                            <a href="/assets/制作実績/otowa-kabuki-01.mp4" target="_blank" rel="noopener noreferrer">動画を別画面で見る（42秒・音声なし）</a>
                         </figcaption>
                     </figure>
                     <div class="stamp-service__consult">
-                        <p>会場の規模やめぐってほしい場所をお聞かせください。料金・公開期間・サポートは個別にお見積りします。</p>
-                        <a href="#contact" class="btn btn--primary btn--md" aria-label="デジタルスタンプカード制作について無料で相談する">
+                        <div class="stamp-service__preparation">
+                            <dl class="stamp-service__details">
+                                <div>
+                                    <dt>ご相談時に</dt>
+                                    <dd>回る場所の候補と、各スポットで紹介したい内容をお聞かせください。写真・イラスト・動画があれば、あわせてご相談いただけます。</dd>
+                                </div>
+                                <div>
+                                    <dt>当日の準備</dt>
+                                    <dd>主催者さまには、QRコードや対象の印刷物の掲示、参加案内をお願いします。来場者のスマホ回線で利用するため、PCなどの専用機材は不要です。</dd>
+                                </div>
+                            </dl>
+                            <a href="#price" class="product-card__link">制作料金について <span aria-hidden="true">→</span></a>
+                        </div>
+                        <a href="#contact" class="btn btn--primary btn--md" aria-label="スタンプラリー・ARクイズラリー制作について無料で相談する">
                             <span>無料で相談する</span><span class="btn__arrow" aria-hidden="true">›</span>
                         </a>
                     </div>
                 </article>
 
-                <div class="menu-sub">
-                    <!-- ② デジタルスタンプラリー -->
-                    <figure class="product-card">
-                        <div class="product-card__media">
-                            <video data-hover-play src="/assets/制作実績/otowa-kabuki-01.mp4"
-                                poster="/assets/制作実績/otowa-kabuki-01.jpg"
-                                muted loop playsinline preload="none"></video>
-                        </div>
-                        <figcaption class="product-card__body">
-                            <p class="product-card__reference">参考映像：音羽のARクイズラリー（デジタルスタンプラリーとは別方式）</p>
-                            <span class="tag tag--navy product-card__purpose">イベントの周遊施策に</span>
-                            <h3 class="product-card__title">デジタルスタンプラリー</h3>
-                            <p class="product-card__text">来場者が自分のスマホで、会場のスポットをめぐる体験をイベント専用に制作します。回る場所の数や盛り込む内容に合わせてお見積りし、入口のQRコードをお渡しします。</p>
-                            <dl class="product-card__details">
-                                <div>
-                                    <dt>専用制作 <span>税別 ¥30,000〜</span></dt>
-                                    <dd>レンタルではなく、ご依頼ごとに制作します。来場者のスマホ回線で利用するため、PCなどの専用機材は不要です。</dd>
-                                </div>
-                                <div>
-                                    <dt>相談時に伺うこと・当日の準備</dt>
-                                    <dd>回る場所の候補と、使いたい写真・イラスト・動画があればお知らせください。主催者さまには、QRコードの掲示場所と来場者への案内をご検討いただきます。</dd>
-                                </div>
-                            </dl>
-                        </figcaption>
-                    </figure>
-                    <!-- ③ ARフォトフレーム -->
-                    <figure class="product-card">
-                        <div class="product-card__media">
-                            <img class="img-pos-upper" src="/assets/制作実績/ar-photo-frame-03.jpg"
-                                alt="TOTORUNオリジナルのARフォトフレームで撮影した記念写真" loading="lazy">
-                        </div>
-                        <figcaption class="product-card__body">
-                            <span class="tag tag--navy product-card__purpose">イベントの思い出をオリジナル写真に</span>
-                            <h3 class="product-card__title">ARフォトフレーム</h3>
-                            <p class="product-card__text">スマホをかざすと画面の中にイベント限定の装飾やキャラクターが現れ、一緒に写真が撮れます。撮った写真はそのままSNSでシェアでき、イベントが終わった後も思い出として残ります。</p>
-                            <dl class="product-card__details">
-                                <div>
-                                    <dt>専用制作 <span>税別 ¥30,000〜</span></dt>
-                                    <dd>イベント専用のフォトフレームを制作し、入口のQRコードをお渡しします。レンタルではなく、来場者のスマホ回線で利用します。PCなどの専用機材は不要です。</dd>
-                                </div>
-                                <div>
-                                    <dt>相談時に伺うこと・当日の準備</dt>
-                                    <dd>入れたいロゴ・イラスト・写真があればお知らせください。素材の有無や希望する動きに合わせて制作範囲を相談します。当日はQRコードの掲示と撮影の案内をご準備ください。</dd>
-                                </div>
-                            </dl>
-                            <p class="product-card__note">写真：TOTORUN様に制作した、ARフォトフレーム付きスタンプカードの撮影例です。</p>
-                        </figcaption>
-                    </figure>
-                </div>
+                <!-- ③ ARフォトフレーム -->
+                <figure class="product-card product-card--row product-card--photo-frame">
+                    <div class="product-card__media">
+                        <img class="img-pos-upper" src="/assets/制作実績/ar-photo-frame-03.jpg"
+                            alt="TOTORUNオリジナルのARフォトフレームで撮影した記念写真" loading="lazy">
+                    </div>
+                    <figcaption class="product-card__body">
+                        <span class="tag tag--navy product-card__purpose">イベントの思い出をオリジナル写真に</span>
+                        <h3 class="product-card__title">ARフォトフレーム</h3>
+                        <p class="product-card__text">スマホをかざすと画面の中にイベント限定の装飾やキャラクターが現れ、一緒に写真が撮れます。撮った写真はそのままSNSでシェアでき、イベントが終わった後も思い出として残ります。</p>
+                        <dl class="product-card__details">
+                            <div>
+                                <dt>専用制作 <span>税別 ¥30,000〜</span></dt>
+                                <dd>イベント専用のフォトフレームを制作し、入口のQRコードをお渡しします。レンタルではなく、来場者のスマホ回線で利用します。PCなどの専用機材は不要です。</dd>
+                            </div>
+                            <div>
+                                <dt>相談時に伺うこと・当日の準備</dt>
+                                <dd>入れたいロゴ・イラスト・写真があればお知らせください。素材の有無や希望する動きに合わせて制作範囲を相談します。当日はQRコードの掲示と撮影の案内をご準備ください。</dd>
+                            </div>
+                        </dl>
+                        <p class="product-card__note">写真：TOTORUN様に制作した、ARフォトフレーム付きスタンプカードの撮影例です。</p>
+                    </figcaption>
+                </figure>
 
                 <p class="menu-closing">ここにないアイデアでも大丈夫です。「こんなことできる？」の段階から、お気軽にご相談ください。</p>
             </div>
