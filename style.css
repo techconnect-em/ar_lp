@@ -1844,6 +1844,45 @@ img.img-pos-upper { object-position: center 14%; }
 
 /* コンテンツ一覧：目的タグ・提供形態の一言・並び */
 .product-card__purpose { align-self: flex-start; }
+.product-card__details {
+  display: grid;
+  gap: 14px;
+  margin: 4px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-default);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--lh-body);
+  color: var(--text-body);
+}
+.product-card__details dt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+  font-weight: var(--fw-bold);
+  color: var(--text-heading);
+}
+.product-card__details dd { margin: 4px 0 0; }
+.product-card__details ~ .product-card__note { font-size: var(--fs-sm); }
+.product-card__reference {
+  margin: 0 0 4px;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+}
+.product-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 12px;
+}
+.product-card__note a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--navy-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .product-card__note {
   margin: 4px 0 0;
   padding-top: 14px;
