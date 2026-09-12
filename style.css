@@ -1957,6 +1957,97 @@ img.img-pos-upper { object-position: center 14%; }
   color: var(--text-body);
 }
 
+/* スタンプカードの紹介動画は元の縦横比を保ち、操作後に再生する。 */
+.stamp-service {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 32px;
+  row-gap: 22px;
+  margin-top: 48px;
+  padding: 28px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background: var(--surface-card);
+  scroll-margin-top: 100px;
+}
+.stamp-service__intro { grid-column: 2; grid-row: 1; }
+.stamp-service__title {
+  margin: 16px 0 12px;
+  color: var(--text-heading);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+.stamp-service__lead {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  color: var(--text-heading);
+}
+.stamp-service__text,
+.stamp-service__consult > p { margin: 0; font-size: var(--fs-body); line-height: var(--lh-body); }
+.stamp-service__text + .stamp-service__text { margin-top: 16px; }
+.stamp-service__subheading { margin: 0 0 16px; color: var(--text-heading); font: 700 22px/1.6 var(--font-display); }
+.stamp-service__subheading > span { display: inline-block; }
+.stamp-service__consult { grid-column: 1 / -1; grid-row: 2; display: flex; align-items: center; gap: 28px; padding-top: 24px; border-top: 1px solid var(--border-default); }
+.stamp-service__consult > p { flex: 1; }
+.stamp-service__consult .btn { flex-shrink: 0; }
+.stamp-video { min-width: 0; margin: 0; grid-column: 1; grid-row: 1; align-self: center; }
+.stamp-video__screen { position: relative; overflow: hidden; width: 100%; min-width: 0; aspect-ratio: 16 / 9; min-height: 200px; border-radius: var(--radius-sm); background: var(--navy-900); }
+.stamp-video__poster,
+.stamp-video__screen iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; object-fit: contain; }
+.stamp-video__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: calc(100% - 24px);
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 2px solid var(--white);
+  border-radius: var(--radius-pill);
+  background: var(--navy-800);
+  color: var(--white);
+  font: 700 14px/1.5 var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+.stamp-video__play small { margin-left: 4px; font-size: 12px; font-weight: 400; }
+.stamp-video__play[hidden] { display: none; }
+.stamp-video__play:hover { background: var(--navy-700); }
+.stamp-video__play:focus-visible { outline: 3px solid var(--yellow-500); outline-offset: 3px; }
+.stamp-video__caption { margin-top: 14px; font-size: var(--fs-sm); line-height: 1.7; color: var(--text-body); }
+.stamp-video__caption p { margin: 0; }
+.stamp-video__caption a,
+.stamp-video__transcript summary { display: inline-flex; align-items: center; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; }
+.stamp-video__transcript { font-size: var(--fs-sm); line-height: var(--lh-body); }
+.stamp-video__transcript summary { cursor: pointer; }
+.stamp-video__transcript p { margin: 6px 0 0; }
+.stamp-related .stamp-service { margin-top: 32px; }
+.theme-green .stamp-service__intro .tag { background: var(--green-800); color: var(--white); }
+.theme-green .stamp-service__title { color: var(--green-800); }
+@media (max-width: 900px) {
+  .stamp-service { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 24px; padding: 24px; margin-top: 32px; }
+  .stamp-service__intro, .stamp-video, .stamp-service__consult { grid-column: 1; grid-row: auto; }
+  .stamp-service__consult { display: block; }
+  .stamp-service__consult .btn { margin-top: 20px; }
+}
+@media (max-width: 480px) {
+  .stamp-service { padding: 20px 16px; }
+  .stamp-service__title { font-size: 20px; }
+  .stamp-service__lead { font-size: 24px; }
+  .stamp-service__subheading { font-size: 20px; }
+}
+
 /* ---- 協賛の差し込み（料金セクション内・控えめに見せる） ---- */
 .sponsor-note {
   background: var(--sky-100);
